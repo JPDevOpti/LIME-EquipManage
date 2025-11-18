@@ -11,7 +11,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(
-  { className, error, fullWidth, children, ...props },
+  { className, error, fullWidth = true, children, ...props },
   ref
 ) {
   return (

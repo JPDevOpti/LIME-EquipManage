@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'BioEquipManager',
   description: 'Suite para administración de equipos biomédicos',
   icons: {
-    icon: '/favicon.ico'
+    icon: '/FavIco.ico'
   }
 }
 

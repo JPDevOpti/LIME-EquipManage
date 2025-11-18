@@ -60,7 +60,7 @@ export function TrendChart() {
   return (
     <Card className="border-slate-200 bg-white shadow-sm">
       <div className="h-[320px] w-full px-3 py-3 sm:px-4 sm:py-4">
-        <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%">
           <AreaChart 
             data={complianceData} 
             margin={{ top: 10, right: 10, left: -10, bottom: 5 }}

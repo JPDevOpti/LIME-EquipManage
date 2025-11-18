@@ -6,10 +6,11 @@ export interface NavItem {
 
 export const mainNav: NavItem[] = [
   { label: 'Panel general', href: '/dashboard', icon: 'layout' },
-  { label: 'Inventario', href: '/inventario', icon: 'boxes' },
-  { label: 'Mantenimiento', href: '/mantenimiento', icon: 'calendar' },
-  { label: 'Soporte', href: '/soporte', icon: 'lifebuoy' },
-  { label: 'Mi perfil', href: '/perfil', icon: 'user' }
+  { label: 'Ingresar equipo', href: '/add-equipment', icon: 'packagePlus' },
+  { label: 'Inventario', href: '/inventory', icon: 'boxes' },
+  { label: 'Mantenimiento', href: '/maintenance', icon: 'calendar' },
+  { label: 'Soporte', href: '/support', icon: 'lifebuoy' },
+  { label: 'Mi perfil', href: '/profile', icon: 'user' }
 ]
 
 export const secondaryNav: NavItem[] = [

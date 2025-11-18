@@ -1,8 +1,9 @@
 {
-  "/(app)/dashboard/page": "app/(app)/dashboard/page.js",
   "/page": "app/page.js",
   "/(public)/login/page": "app/(public)/login/page.js",
+  "/(app)/dashboard/page": "app/(app)/dashboard/page.js",
   "/(app)/inventario/page": "app/(app)/inventario/page.js",
-  "/(app)/soporte/page": "app/(app)/soporte/page.js",
-  "/(app)/mantenimiento/page": "app/(app)/mantenimiento/page.js"
+  "/(app)/ingresar-equipo/page": "app/(app)/ingresar-equipo/page.js",
+  "/(app)/add-equipment/page": "app/(app)/add-equipment/page.js",
+  "/(app)/inventory/page": "app/(app)/inventory/page.js"
 }

@@ -49,18 +49,18 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
               )}
             >
               <p className="text-sm font-semibold text-slate-900">BioEquipManager</p>
-              <p className="text-xs text-slate-600">Control biomédico</p>
+              <p className="text-xs text-slate-600">Gestión de equipos biomédicos</p>
             </div>
           </div>
         </div>
 
         <nav className="space-y-6">
           <div className="space-y-2">
-            {mainNav.map((item) => {
+            {mainNav.map((item, index) => {
               const active = pathname?.startsWith(item.href)
               return (
                 <Link
-                  key={item.href}
+                  key={`main-${item.href}-${index}`}
                   href={item.href}
                   title={collapsed ? item.label : undefined}
                   className={cn(
@@ -97,11 +97,11 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
           </div>
 
           <div className="space-y-2">
-            {secondaryNav.map((item) => {
+            {secondaryNav.map((item, index) => {
               const active = pathname?.startsWith(item.href)
               return (
                 <Link
-                  key={item.href}
+                  key={`secondary-${item.label}-${index}`}
                   href={item.href}
                   title={collapsed ? item.label : undefined}
                   className={cn(

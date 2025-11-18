@@ -7,6 +7,7 @@ import {
   UserRound,
   BookOpen,
   Settings,
+  PackagePlus,
   Circle
 } from 'lucide-react'
 import { cn } from '@/lib/cn'
@@ -18,7 +19,8 @@ const iconMap: Record<string, LucideIcon> = {
   lifebuoy: LifeBuoy,
   user: UserRound,
   book: BookOpen,
-  settings: Settings
+  settings: Settings,
+  packagePlus: PackagePlus
 }
 
 interface SidebarIconProps {

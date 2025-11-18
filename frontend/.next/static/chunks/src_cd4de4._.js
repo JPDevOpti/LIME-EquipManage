@@ -165,7 +165,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$
 ;
 ;
 ;
-const Input = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = function Input({ className, error, fullWidth, type = 'text', ...props }, ref) {
+const Input = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = function Input({ className, error, fullWidth = true, type = 'text', ...props }, ref) {
     return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("input", {
         ref: ref,
         type: type,
@@ -199,7 +199,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$
 ;
 ;
 ;
-const Select = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = function Select({ className, error, fullWidth, children, ...props }, ref) {
+const Select = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = function Select({ className, error, fullWidth = true, children, ...props }, ref) {
     return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"]('relative', fullWidth && 'w-full'),
         children: [
@@ -832,14 +832,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$b
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$checkbox$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/ui/checkbox.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/lib/cn.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$alert$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__AlertCircle$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/alert-circle.js [app-client] (ecmascript) {export default as AlertCircle}");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__CalendarDays$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/calendar-days.js [app-client] (ecmascript) {export default as CalendarDays}");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clipboard$2d$list$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ClipboardList$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/clipboard-list.js [app-client] (ecmascript) {export default as ClipboardList}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__FileText$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) {export default as FileText}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Image$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/image.js [app-client] (ecmascript) {export default as Image}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__MapPin$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-client] (ecmascript) {export default as MapPin}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Package2$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/package-2.js [app-client] (ecmascript) {export default as Package2}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pencil$2d$line$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PencilLine$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/pencil-line.js [app-client] (ecmascript) {export default as PencilLine}");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Building2$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/building-2.js [app-client] (ecmascript) {export default as Building2}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldCheck$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/shield-check.js [app-client] (ecmascript) {export default as ShieldCheck}");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldX$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/shield-x.js [app-client] (ecmascript) {export default as ShieldX}");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__User$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/user.js [app-client] (ecmascript) {export default as User}");
 "__TURBOPACK__ecmascript__hoisting__location__";
 ;
 var _s = __turbopack_refresh__.signature();
@@ -850,39 +851,433 @@ var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
-const dateFormatter = new Intl.DateTimeFormat('es-CO', {
-    month: 'short',
-    day: '2-digit'
-});
 const statusVariant = (status)=>{
-    const normalized = status.toLowerCase();
-    if (normalized.includes('operativo')) return 'success';
-    if (normalized.includes('preventivo')) return 'warning';
-    if (normalized.includes('correctivo') || normalized.includes('fuera')) return 'error';
-    if (normalized.includes('calib')) return 'info';
-    return 'secondary';
-};
-const criticalityVariant = (level)=>{
-    if (level === 'Alta') return 'error';
-    if (level === 'Media') return 'warning';
-    return 'success';
+    return status === 'Activo' ? 'success' : 'error';
 };
 const invimaVariant = (status)=>{
     return status === 'Con registro' ? 'success' : 'warning';
 };
-const maintenanceVariant = (type)=>{
-    return type === 'Preventivo' ? 'info' : 'warning';
+const shouldDisplayField = (value)=>{
+    if (!value) return false;
+    const normalized = value.trim();
+    if (normalized.length === 0) return false;
+    return normalized.toUpperCase() !== 'N/A';
 };
-const calibrationVariant = (status)=>{
-    if (status === 'Al día') return 'success';
-    if (status === 'Por vencer') return 'warning';
-    return 'error';
-};
-const formatDate = (value)=>{
-    if (!value) return 'Sin registro';
-    const date = new Date(value);
-    return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date);
-};
+const desktopColumns = [
+    {
+        key: 'codes',
+        label: 'Codigos',
+        width: '8%',
+        align: 'center',
+        render: (item)=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "flex flex-col items-center gap-2",
+                children: [
+                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                        size: "sm",
+                        variant: "info",
+                        className: "font-mono",
+                        children: item.ipsCode
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 67,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                        size: "sm",
+                        variant: "success",
+                        className: "font-mono",
+                        children: item.code
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 70,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 66,
+                columnNumber: 7
+            }, this)
+    },
+    {
+        key: 'equipment',
+        label: 'Equipo',
+        width: '16%',
+        align: 'center',
+        render: (item)=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "space-y-1 text-center",
+                children: [
+                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                        className: "font-semibold text-slate-900",
+                        children: item.name
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 83,
+                        columnNumber: 9
+                    }, this),
+                    shouldDisplayField(item.provider) && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                        className: "text-xs text-slate-500",
+                        children: item.provider
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 84,
+                        columnNumber: 47
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 82,
+                columnNumber: 7
+            }, this)
+    },
+    {
+        key: 'location',
+        label: 'Ubicación',
+        width: '20%',
+        align: 'center',
+        render: (item)=>{
+            const rows = [
+                {
+                    icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Building2$7d$__["Building2"],
+                    value: item.location,
+                    textClass: 'text-slate-700'
+                },
+                {
+                    icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__MapPin$7d$__["MapPin"],
+                    value: item.process,
+                    textClass: 'text-slate-500'
+                },
+                {
+                    icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__User$7d$__["User"],
+                    value: item.assignedTo,
+                    textClass: 'text-slate-700'
+                }
+            ].filter((row)=>shouldDisplayField(row.value));
+            if (rows.length === 0) {
+                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                    className: "text-xs text-slate-400",
+                    children: "Sin información"
+                }, void 0, false, {
+                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                    lineNumber: 113,
+                    columnNumber: 16
+                }, this);
+            }
+            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "space-y-2 text-sm",
+                children: rows.map((row, index)=>{
+                    const Icon = row.icon;
+                    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                        className: "flex justify-center",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                            className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"]('inline-flex items-start gap-2', row.textClass),
+                            children: [
+                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](Icon, {
+                                    className: "mt-0.5 h-4 w-4 text-slate-400"
+                                }, void 0, false, {
+                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                    lineNumber: 123,
+                                    columnNumber: 19
+                                }, this),
+                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
+                                    className: "max-w-[10rem] text-center leading-snug",
+                                    children: row.value
+                                }, void 0, false, {
+                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                    lineNumber: 124,
+                                    columnNumber: 19
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 122,
+                            columnNumber: 17
+                        }, this)
+                    }, index, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 121,
+                        columnNumber: 15
+                    }, this);
+                })
+            }, void 0, false, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 117,
+                columnNumber: 9
+            }, this);
+        }
+    },
+    {
+        key: 'brand',
+        label: 'Especificaciones',
+        width: '15%',
+        align: 'center',
+        render: (item)=>{
+            const hasBrand = shouldDisplayField(item.brand);
+            const hasModel = shouldDisplayField(item.model);
+            const hasSerial = shouldDisplayField(item.serial);
+            if (!hasBrand && !hasModel && !hasSerial) {
+                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                    className: "text-xs text-slate-400",
+                    children: "Sin detalles"
+                }, void 0, false, {
+                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                    lineNumber: 144,
+                    columnNumber: 16
+                }, this);
+            }
+            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "space-y-1 text-center text-sm",
+                children: [
+                    hasBrand && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                        className: "font-semibold text-slate-900",
+                        children: item.brand
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 149,
+                        columnNumber: 24
+                    }, this),
+                    hasModel && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                        className: "text-xs text-slate-500",
+                        children: item.model
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 150,
+                        columnNumber: 24
+                    }, this),
+                    hasSerial && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                        className: "flex justify-center",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                            size: "sm",
+                            variant: "secondary",
+                            className: "font-mono",
+                            children: item.serial
+                        }, void 0, false, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 153,
+                            columnNumber: 15
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 152,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 148,
+                columnNumber: 9
+            }, this);
+        }
+    },
+    {
+        key: 'classification',
+        label: 'Clasificación',
+        width: '12%',
+        align: 'center',
+        render: (item)=>{
+            const showClassification = shouldDisplayField(item.classification);
+            const showMission = shouldDisplayField(item.missionClassification);
+            if (!showClassification && !showMission) {
+                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                    className: "text-xs text-slate-400",
+                    children: "Sin clasificación"
+                }, void 0, false, {
+                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                    lineNumber: 172,
+                    columnNumber: 16
+                }, this);
+            }
+            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "space-y-3 text-sm",
+                children: [
+                    showClassification && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                        className: "flex justify-center",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                            size: "sm",
+                            variant: "info",
+                            children: item.classification
+                        }, void 0, false, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 179,
+                            columnNumber: 15
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 178,
+                        columnNumber: 13
+                    }, this),
+                    showMission && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                        className: "flex justify-center",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                            className: "max-w-[10rem] text-center text-sm font-medium text-slate-900 leading-snug",
+                            children: item.missionClassification
+                        }, void 0, false, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 186,
+                            columnNumber: 15
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 185,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 176,
+                columnNumber: 9
+            }, this);
+        }
+    },
+    {
+        key: 'invima',
+        label: 'Invima',
+        width: '7%',
+        align: 'center',
+        render: (item)=>{
+            const hasCertificate = item.invimaStatus === 'Con registro';
+            const Icon = hasCertificate ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldCheck$7d$__["ShieldCheck"] : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldX$7d$__["ShieldX"];
+            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "space-y-2 text-center text-sm",
+                children: [
+                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                        className: "flex justify-center",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
+                            className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"]('rounded-full p-1.5', hasCertificate ? 'text-emerald-500' : 'text-slate-400'),
+                            children: [
+                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](Icon, {
+                                    className: "h-5 w-5"
+                                }, void 0, false, {
+                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                    lineNumber: 207,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
+                                    className: "sr-only",
+                                    children: hasCertificate ? 'Con registro Invima' : 'Sin registro Invima'
+                                }, void 0, false, {
+                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                    lineNumber: 208,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 206,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 205,
+                        columnNumber: 11
+                    }, this),
+                    item.riskClass && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                        className: "space-y-1",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                            className: "flex justify-center",
+                            children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                size: "sm",
+                                variant: "secondary",
+                                children: item.riskClass
+                            }, void 0, false, {
+                                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                lineNumber: 214,
+                                columnNumber: 17
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 213,
+                            columnNumber: 15
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 212,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 204,
+                columnNumber: 9
+            }, this);
+        }
+    },
+    {
+        key: 'status',
+        label: 'Estado',
+        width: '7%',
+        align: 'center',
+        render: (item)=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                size: "sm",
+                variant: statusVariant(item.status),
+                children: item.status
+            }, void 0, false, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 230,
+                columnNumber: 7
+            }, this)
+    },
+    {
+        key: 'actions',
+        label: 'Acciones',
+        width: '7%',
+        align: 'center',
+        render: ()=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                className: "flex items-center justify-center gap-2",
+                children: [
+                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
+                        className: "rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600",
+                        "aria-label": "Gestionar imágenes",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Image$7d$__["Image"], {
+                            className: "h-4 w-4"
+                        }, void 0, false, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 243,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 242,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
+                        className: "rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600",
+                        "aria-label": "Editar registro",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pencil$2d$line$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PencilLine$7d$__["PencilLine"], {
+                            className: "h-4 w-4"
+                        }, void 0, false, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 246,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 245,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
+                        className: "rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600",
+                        "aria-label": "Ver hoja de vida",
+                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__FileText$7d$__["FileText"], {
+                            className: "h-4 w-4"
+                        }, void 0, false, {
+                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                            lineNumber: 249,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                        lineNumber: 248,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                lineNumber: 241,
+                columnNumber: 7
+            }, this)
+    }
+];
 function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, totalPages, onPageChange, onExportSelected, className, emptyMessage = 'No se encontraron equipos con los filtros aplicados.' }) {
     _s();
     const [selectedIds, setSelectedIds] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]([]);
@@ -935,7 +1330,7 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                 className: "h-12 w-12 text-slate-300"
             }, void 0, false, {
                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                lineNumber: 134,
+                lineNumber: 316,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -946,7 +1341,7 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                         children: "Sin resultados"
                     }, void 0, false, {
                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                        lineNumber: 136,
+                        lineNumber: 318,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
@@ -954,13 +1349,13 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                         children: emptyMessage
                     }, void 0, false, {
                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                        lineNumber: 137,
+                        lineNumber: 319,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                lineNumber: 135,
+                lineNumber: 317,
                 columnNumber: 7
             }, this),
             selectedIds.length > 0 && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -970,13 +1365,13 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                 children: "Limpiar selección"
             }, void 0, false, {
                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                lineNumber: 140,
+                lineNumber: 322,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-        lineNumber: 133,
+        lineNumber: 315,
         columnNumber: 5
     }, this);
     return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -999,7 +1394,7 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                 ]
                             }, void 0, true, {
                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                lineNumber: 152,
+                                lineNumber: 334,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
@@ -1008,13 +1403,13 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                 children: "Deseleccionar todo"
                             }, void 0, false, {
                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                lineNumber: 153,
+                                lineNumber: 335,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                        lineNumber: 151,
+                        lineNumber: 333,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1030,25 +1425,25 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                     className: "h-4 w-4"
                                 }, void 0, false, {
                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                    lineNumber: 165,
+                                    lineNumber: 347,
                                     columnNumber: 15
                                 }, this),
                                 " Exportar seleccionados"
                             ]
                         }, void 0, true, {
                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                            lineNumber: 158,
+                            lineNumber: 340,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                        lineNumber: 157,
+                        lineNumber: 339,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                lineNumber: 150,
+                lineNumber: 332,
                 columnNumber: 9
             }, this),
             filteredTotal === 0 ? emptyState : /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -1056,16 +1451,42 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
                         className: "hidden lg:block",
                         children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                            className: "max-w-full overflow-x-auto",
+                            className: "w-full overflow-x-auto",
                             children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("table", {
-                                className: "min-w-full",
+                                className: "min-w-full table-auto text-sm",
                                 children: [
+                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("colgroup", {
+                                        children: [
+                                            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("col", {
+                                                style: {
+                                                    width: '2%'
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                lineNumber: 361,
+                                                columnNumber: 19
+                                            }, this),
+                                            desktopColumns.map((column)=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("col", {
+                                                    style: {
+                                                        width: column.width
+                                                    }
+                                                }, column.key, false, {
+                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                    lineNumber: 363,
+                                                    columnNumber: 21
+                                                }, this))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                        lineNumber: 360,
+                                        columnNumber: 17
+                                    }, this),
                                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("thead", {
                                         children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("tr", {
                                             className: "border-b border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-600",
                                             children: [
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "w-12 px-3 py-4 text-center",
+                                                    className: "px-3 py-4 text-center",
                                                     children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
                                                         className: "flex justify-center",
                                                         children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$checkbox$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Checkbox"], {
@@ -1075,104 +1496,40 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                             "aria-label": "Seleccionar todos"
                                                         }, void 0, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 182,
+                                                            lineNumber: 370,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 181,
+                                                        lineNumber: 369,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 180,
+                                                    lineNumber: 368,
                                                     columnNumber: 21
                                                 }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "min-w-[150px] px-4 py-4 text-left",
-                                                    children: "Códigos"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 185,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "min-w-[200px] px-4 py-4 text-left",
-                                                    children: "Equipo"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 186,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "min-w-[160px] px-4 py-4 text-left",
-                                                    children: "Sede / Servicio"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 187,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "min-w-[170px] px-4 py-4 text-left",
-                                                    children: "Responsable / Área"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 188,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "min-w-[180px] px-4 py-4 text-left",
-                                                    children: "Seguimiento"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 189,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "min-w-[160px] px-4 py-4 text-left",
-                                                    children: "Clasificación"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 190,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "min-w-[160px] px-4 py-4 text-left",
-                                                    children: "Invima"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 191,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "w-36 px-4 py-4 text-left",
-                                                    children: "Estado"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 192,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
-                                                    className: "w-28 px-4 py-4 text-center",
-                                                    children: "Acciones"
-                                                }, void 0, false, {
-                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 193,
-                                                    columnNumber: 21
-                                                }, this)
+                                                desktopColumns.map((column)=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("th", {
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"]('px-4 py-4 text-xs font-semibold uppercase tracking-wide text-slate-600', column.align === 'center' ? 'text-center' : 'text-left'),
+                                                        children: column.label
+                                                    }, column.key, false, {
+                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                        lineNumber: 374,
+                                                        columnNumber: 23
+                                                    }, this))
                                             ]
                                         }, void 0, true, {
                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                            lineNumber: 179,
+                                            lineNumber: 367,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                        lineNumber: 178,
+                                        lineNumber: 366,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("tbody", {
-                                        className: "divide-y divide-slate-100 text-sm",
+                                        className: "divide-y divide-slate-100",
                                         children: equipment.map((item)=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("tr", {
                                                 className: "hover:bg-emerald-50/30",
                                                 children: [
@@ -1186,482 +1543,52 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                                 "aria-label": `Seleccionar ${item.name}`
                                                             }, void 0, false, {
                                                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                lineNumber: 201,
+                                                                lineNumber: 391,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 200,
+                                                            lineNumber: 390,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 199,
+                                                        lineNumber: 389,
                                                         columnNumber: 23
                                                     }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex flex-col items-start gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                    size: "sm",
-                                                                    variant: "success",
-                                                                    className: "font-mono",
-                                                                    children: item.code
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 206,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                    size: "sm",
-                                                                    variant: "secondary",
-                                                                    children: item.category
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 209,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
+                                                    desktopColumns.map((column)=>/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
+                                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"]('px-4 py-4 align-middle text-slate-700', column.align === 'center' ? 'text-center' : 'text-left'),
+                                                            children: column.render(item)
+                                                        }, column.key, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 205,
+                                                            lineNumber: 395,
                                                             columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 204,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "space-y-1",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                                                    className: "font-semibold text-slate-900",
-                                                                    children: item.name
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 216,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                                                    className: "text-xs text-slate-500",
-                                                                    children: [
-                                                                        "Proveedor: ",
-                                                                        item.provider
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 217,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
-                                                                    className: "text-xs text-slate-500",
-                                                                    children: [
-                                                                        "Garantía: ",
-                                                                        item.warrantyActive ? 'Activa' : 'No aplica'
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 218,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 215,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 214,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "space-y-1 text-sm",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                                    className: "flex items-center gap-2 text-slate-700",
-                                                                    children: [
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__MapPin$7d$__["MapPin"], {
-                                                                            className: "h-4 w-4 text-slate-400"
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 224,
-                                                                            columnNumber: 29
-                                                                        }, this),
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                                                                            children: item.location
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 225,
-                                                                            columnNumber: 29
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 223,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                                    className: "flex items-center gap-2 text-slate-500",
-                                                                    children: [
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clipboard$2d$list$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ClipboardList$7d$__["ClipboardList"], {
-                                                                            className: "h-4 w-4 text-slate-400"
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 228,
-                                                                            columnNumber: 29
-                                                                        }, this),
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                                                                            children: item.process
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 229,
-                                                                            columnNumber: 29
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 227,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 222,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 221,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "space-y-1",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                                    className: "flex items-center gap-2 text-slate-700",
-                                                                    children: [
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldCheck$7d$__["ShieldCheck"], {
-                                                                            className: "h-4 w-4 text-slate-400"
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 236,
-                                                                            columnNumber: 29
-                                                                        }, this),
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                                                                            children: item.assignedTo
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 237,
-                                                                            columnNumber: 29
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 235,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                                    className: "text-xs text-slate-500",
-                                                                    children: [
-                                                                        "Área: ",
-                                                                        item.area
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 239,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 234,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 233,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "space-y-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                                    className: "flex flex-wrap gap-1",
-                                                                    children: [
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                            size: "sm",
-                                                                            variant: maintenanceVariant(item.maintenanceType),
-                                                                            children: item.maintenanceType
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 245,
-                                                                            columnNumber: 29
-                                                                        }, this),
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                            size: "sm",
-                                                                            variant: calibrationVariant(item.calibrationStatus),
-                                                                            children: item.calibrationStatus
-                                                                        }, void 0, false, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 248,
-                                                                            columnNumber: 29
-                                                                        }, this),
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                            size: "sm",
-                                                                            variant: criticalityVariant(item.criticality),
-                                                                            children: [
-                                                                                "Criticidad ",
-                                                                                item.criticality
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 251,
-                                                                            columnNumber: 29
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 244,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                                    className: "flex flex-wrap gap-3 text-xs text-slate-500",
-                                                                    children: [
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                                                                            className: "inline-flex items-center gap-1",
-                                                                            children: [
-                                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__CalendarDays$7d$__["CalendarDays"], {
-                                                                                    className: "h-3.5 w-3.5"
-                                                                                }, void 0, false, {
-                                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                                    lineNumber: 257,
-                                                                                    columnNumber: 31
-                                                                                }, this),
-                                                                                " Último: ",
-                                                                                formatDate(item.lastMaintenance)
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 256,
-                                                                            columnNumber: 29
-                                                                        }, this),
-                                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
-                                                                            className: "inline-flex items-center gap-1",
-                                                                            children: [
-                                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__CalendarDays$7d$__["CalendarDays"], {
-                                                                                    className: "h-3.5 w-3.5 text-emerald-500"
-                                                                                }, void 0, false, {
-                                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                                    lineNumber: 260,
-                                                                                    columnNumber: 31
-                                                                                }, this),
-                                                                                " Próximo: ",
-                                                                                formatDate(item.nextMaintenance)
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                            lineNumber: 259,
-                                                                            columnNumber: 29
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 255,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 243,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 242,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex flex-col gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                    size: "sm",
-                                                                    variant: "info",
-                                                                    children: item.classification
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 267,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                    size: "sm",
-                                                                    variant: "secondary",
-                                                                    children: item.riskClass
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 270,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 266,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 265,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex flex-col gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                    size: "sm",
-                                                                    variant: invimaVariant(item.invimaStatus),
-                                                                    children: item.invimaStatus
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 277,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                    size: "sm",
-                                                                    variant: item.warrantyActive ? 'success' : 'warning',
-                                                                    children: item.warrantyActive ? 'Garantía activa' : 'Sin garantía'
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 280,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 276,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 275,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                            size: "sm",
-                                                            variant: statusVariant(item.status),
-                                                            children: item.status
-                                                        }, void 0, false, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 286,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 285,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("td", {
-                                                        className: "px-4 py-4 text-center align-middle",
-                                                        children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex items-center justify-center gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                                                                    className: "rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600",
-                                                                    "aria-label": "Gestionar imágenes",
-                                                                    children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Image$7d$__["Image"], {
-                                                                        className: "h-4 w-4"
-                                                                    }, void 0, false, {
-                                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                        lineNumber: 296,
-                                                                        columnNumber: 29
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 292,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                                                                    className: "rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600",
-                                                                    "aria-label": "Editar registro",
-                                                                    children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pencil$2d$line$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PencilLine$7d$__["PencilLine"], {
-                                                                        className: "h-4 w-4"
-                                                                    }, void 0, false, {
-                                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                        lineNumber: 302,
-                                                                        columnNumber: 29
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 298,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
-                                                                    className: "rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600",
-                                                                    "aria-label": "Ver hoja de vida",
-                                                                    children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__FileText$7d$__["FileText"], {
-                                                                        className: "h-4 w-4"
-                                                                    }, void 0, false, {
-                                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                        lineNumber: 308,
-                                                                        columnNumber: 29
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 304,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 291,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                        lineNumber: 290,
-                                                        columnNumber: 23
-                                                    }, this)
+                                                        }, this))
                                                 ]
                                             }, item.id, true, {
                                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                lineNumber: 198,
+                                                lineNumber: 388,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                        lineNumber: 196,
+                                        lineNumber: 386,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                lineNumber: 177,
+                                lineNumber: 359,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                            lineNumber: 176,
+                            lineNumber: 358,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                        lineNumber: 175,
+                        lineNumber: 357,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1677,14 +1604,14 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                             "aria-label": `Seleccionar ${item.name}`
                                         }, void 0, false, {
                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                            lineNumber: 323,
+                                            lineNumber: 413,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                            className: "flex-1",
+                                            className: "flex-1 text-center",
                                             children: [
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                    className: "flex flex-wrap items-center justify-between gap-2",
+                                                    className: "flex flex-col items-center gap-2",
                                                     children: [
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
                                                             children: [
@@ -1693,7 +1620,7 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                                     children: item.name
                                                                 }, void 0, false, {
                                                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 327,
+                                                                    lineNumber: 417,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
@@ -1701,13 +1628,13 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                                     children: item.code
                                                                 }, void 0, false, {
                                                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 328,
+                                                                    lineNumber: 418,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 326,
+                                                            lineNumber: 416,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1716,154 +1643,198 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                             children: item.status
                                                         }, void 0, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 330,
+                                                            lineNumber: 420,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 325,
+                                                    lineNumber: 415,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
                                                     className: "mt-3 grid gap-2 text-sm text-slate-600",
                                                     children: [
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex items-center gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__MapPin$7d$__["MapPin"], {
-                                                                    className: "h-4 w-4 text-slate-400"
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 336,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                " ",
-                                                                item.location
-                                                            ]
-                                                        }, void 0, true, {
+                                                        {
+                                                            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Building2$7d$__["Building2"],
+                                                            label: item.location
+                                                        },
+                                                        {
+                                                            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__MapPin$7d$__["MapPin"],
+                                                            label: item.process
+                                                        },
+                                                        {
+                                                            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__User$7d$__["User"],
+                                                            label: item.assignedTo
+                                                        },
+                                                        {
+                                                            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Package2$7d$__["Package2"],
+                                                            label: item.category
+                                                        }
+                                                    ].filter((info)=>shouldDisplayField(info.label)).map((info, index)=>{
+                                                        const Icon = info.icon;
+                                                        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                                                            className: "flex justify-center",
+                                                            children: /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                                                                className: "inline-flex items-start gap-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](Icon, {
+                                                                        className: "mt-0.5 h-4 w-4 text-slate-400"
+                                                                    }, void 0, false, {
+                                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                        lineNumber: 444,
+                                                                        columnNumber: 33
+                                                                    }, this),
+                                                                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
+                                                                        className: "max-w-[14rem] text-center leading-snug",
+                                                                        children: info.label
+                                                                    }, void 0, false, {
+                                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                        lineNumber: 445,
+                                                                        columnNumber: 33
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                lineNumber: 443,
+                                                                columnNumber: 31
+                                                            }, this)
+                                                        }, index, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 335,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex items-center gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Package2$7d$__["Package2"], {
-                                                                    className: "h-4 w-4 text-slate-400"
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 339,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                " ",
-                                                                item.category
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 338,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex items-center gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clipboard$2d$list$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ClipboardList$7d$__["ClipboardList"], {
-                                                                    className: "h-4 w-4 text-slate-400"
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 342,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                " ",
-                                                                item.process
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 341,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex items-center gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldCheck$7d$__["ShieldCheck"], {
-                                                                    className: "h-4 w-4 text-slate-400"
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 345,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                " ",
-                                                                item.assignedTo
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 344,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                            className: "flex items-center gap-2 text-xs",
-                                                            children: [
-                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__CalendarDays$7d$__["CalendarDays"], {
-                                                                    className: "h-3.5 w-3.5"
-                                                                }, void 0, false, {
-                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                    lineNumber: 348,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                " Último ",
-                                                                formatDate(item.lastMaintenance),
-                                                                " · Próximo ",
-                                                                formatDate(item.nextMaintenance)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 347,
-                                                            columnNumber: 23
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
+                                                            lineNumber: 442,
+                                                            columnNumber: 29
+                                                        }, this);
+                                                    })
+                                                }, void 0, false, {
                                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 334,
+                                                    lineNumber: 424,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                    className: "mt-3 flex flex-wrap gap-2",
+                                                    className: "mt-3 space-y-3 rounded-2xl bg-slate-50 p-3 text-sm",
                                                     children: [
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                            size: "sm",
-                                                            variant: maintenanceVariant(item.maintenanceType),
-                                                            children: item.maintenanceType
-                                                        }, void 0, false, {
+                                                        shouldDisplayField(item.missionClassification) && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                                                                    className: "text-[11px] uppercase tracking-wide text-slate-400",
+                                                                    children: "Eje misional"
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 454,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                                                                    className: "font-semibold text-slate-900",
+                                                                    children: item.missionClassification
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 455,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 352,
-                                                            columnNumber: 23
+                                                            lineNumber: 453,
+                                                            columnNumber: 25
                                                         }, this),
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                            size: "sm",
-                                                            variant: calibrationVariant(item.calibrationStatus),
-                                                            children: item.calibrationStatus
-                                                        }, void 0, false, {
+                                                        (shouldDisplayField(item.brand) || shouldDisplayField(item.model) || shouldDisplayField(item.serial)) && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                                                            className: "space-y-1",
+                                                            children: [
+                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                                                                    className: "text-[11px] uppercase tracking-wide text-slate-400",
+                                                                    children: "Marca · Modelo · Serie"
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 460,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                shouldDisplayField(item.brand) && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                                                                    className: "font-semibold text-slate-900",
+                                                                    children: item.brand
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 461,
+                                                                    columnNumber: 62
+                                                                }, this),
+                                                                shouldDisplayField(item.model) && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("p", {
+                                                                    className: "text-xs text-slate-500",
+                                                                    children: item.model
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 462,
+                                                                    columnNumber: 62
+                                                                }, this),
+                                                                shouldDisplayField(item.serial) && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                                    size: "sm",
+                                                                    variant: "secondary",
+                                                                    className: "font-mono",
+                                                                    children: item.serial
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 464,
+                                                                    columnNumber: 29
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 355,
-                                                            columnNumber: 23
+                                                            lineNumber: 459,
+                                                            columnNumber: 25
                                                         }, this),
-                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                            size: "sm",
-                                                            variant: criticalityVariant(item.criticality),
-                                                            children: item.riskClass
-                                                        }, void 0, false, {
+                                                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
+                                                            className: "flex flex-wrap items-center justify-center gap-2",
+                                                            children: [
+                                                                shouldDisplayField(item.classification) && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                                    size: "sm",
+                                                                    variant: "info",
+                                                                    children: item.classification
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 472,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
+                                                                    className: "rounded-full border border-slate-200 p-2",
+                                                                    children: item.invimaStatus === 'Con registro' ? /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldCheck$7d$__["ShieldCheck"], {
+                                                                        className: "h-4 w-4 text-emerald-500"
+                                                                    }, void 0, false, {
+                                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                        lineNumber: 478,
+                                                                        columnNumber: 29
+                                                                    }, this) : /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__ShieldX$7d$__["ShieldX"], {
+                                                                        className: "h-4 w-4 text-slate-400"
+                                                                    }, void 0, false, {
+                                                                        fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                        lineNumber: 480,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 476,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                item.riskClass && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                                    size: "sm",
+                                                                    variant: "secondary",
+                                                                    children: item.riskClass
+                                                                }, void 0, false, {
+                                                                    fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
+                                                                    lineNumber: 484,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 358,
+                                                            lineNumber: 470,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 351,
+                                                    lineNumber: 451,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-                                                    className: "mt-3 flex items-center gap-2",
+                                                    className: "mt-3 flex items-center justify-center gap-2",
                                                     children: [
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
                                                             className: "rounded-xl border border-slate-200 p-2 text-slate-500",
@@ -1871,12 +1842,12 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                                 className: "h-4 w-4"
                                                             }, void 0, false, {
                                                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                lineNumber: 364,
+                                                                lineNumber: 492,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 363,
+                                                            lineNumber: 491,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
@@ -1885,12 +1856,12 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                                 className: "h-4 w-4"
                                                             }, void 0, false, {
                                                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                lineNumber: 367,
+                                                                lineNumber: 495,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 366,
+                                                            lineNumber: 494,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("button", {
@@ -1899,40 +1870,40 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                                                 className: "h-4 w-4"
                                                             }, void 0, false, {
                                                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                                lineNumber: 370,
+                                                                lineNumber: 498,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                            lineNumber: 369,
+                                                            lineNumber: 497,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                                    lineNumber: 362,
+                                                    lineNumber: 490,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                            lineNumber: 324,
+                                            lineNumber: 414,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                    lineNumber: 322,
+                                    lineNumber: 412,
                                     columnNumber: 17
                                 }, this)
                             }, item.id, false, {
                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                lineNumber: 321,
+                                lineNumber: 411,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                        lineNumber: 319,
+                        lineNumber: 409,
                         columnNumber: 11
                     }, this)
                 ]
@@ -1951,7 +1922,7 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                 ]
                             }, void 0, true, {
                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                lineNumber: 385,
+                                lineNumber: 513,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
                                 children: [
@@ -1966,12 +1937,12 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                 ]
                             }, void 0, true, {
                                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                lineNumber: 387,
+                                lineNumber: 515,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                            lineNumber: 383,
+                            lineNumber: 511,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
@@ -1985,7 +1956,7 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                     children: "Anterior"
                                 }, void 0, false, {
                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                    lineNumber: 393,
+                                    lineNumber: 521,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("span", {
@@ -1998,7 +1969,7 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                     ]
                                 }, void 0, true, {
                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                    lineNumber: 396,
+                                    lineNumber: 524,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2009,30 +1980,30 @@ function EquipmentTable({ equipment, filteredTotal, total, page, pageSize, total
                                     children: "Siguiente"
                                 }, void 0, false, {
                                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                                    lineNumber: 399,
+                                    lineNumber: 527,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                            lineNumber: 392,
+                            lineNumber: 520,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                    lineNumber: 382,
+                    lineNumber: 510,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-                lineNumber: 381,
+                lineNumber: 509,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "<[project]/src/features/inventory/components/equipment-table.tsx>",
-        lineNumber: 148,
+        lineNumber: 330,
         columnNumber: 5
     }, this);
 }
@@ -2051,255 +2022,506 @@ __turbopack_esm__({
 const equipmentInventory = [
     {
         id: 'eq-001',
-        code: '187701',
-        name: 'Criostato Leica CM1860 UV',
-        location: 'San Vicente',
+        code: '71246',
+        ipsCode: 'BIO-16452',
+        name: 'Agitador Vórtex',
+        brand: 'Scientific Industries',
+        model: 'G-560',
+        serial: '2-218817',
+        location: 'Inmunohistoquímica',
+        missionClassification: 'Extensión e Investigación',
         process: 'Patología',
-        area: 'Diagnóstico histológico',
-        status: 'Operativo',
+        area: 'Inmunohistoquímica',
+        status: 'Activo',
         maintenanceType: 'Preventivo',
-        criticality: 'Alta',
+        criticality: 'Media',
         calibrationStatus: 'Al día',
-        category: 'Diagnóstico',
+        category: 'Laboratorio',
         classification: 'BIO',
-        riskClass: 'Clase IIa',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-09-10',
-        nextMaintenance: '2025-11-20',
-        assignedTo: 'Juliana Duque',
-        provider: 'Leica Biosystems',
-        warrantyActive: true
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-08-15',
+        nextMaintenance: '2025-12-15',
+        assignedTo: 'Martha Londoño',
+        provider: 'Scientific Industries',
+        warrantyActive: false
     },
     {
         id: 'eq-002',
-        code: '203438',
-        name: 'Inmunohistoquímica MD Stainer',
-        location: 'San Vicente',
+        code: '149289',
+        ipsCode: 'Pendiente',
+        name: 'Aire Acondicionado',
+        brand: 'LG',
+        model: 'P131CM',
+        serial: '305CYYQ00562',
+        location: 'Cuarto criostato',
+        missionClassification: 'Extensión e Investigación',
         process: 'Patología',
-        area: 'Marcadores especiales',
-        status: 'Preventivo pendiente',
+        area: 'Climatización',
+        status: 'Activo',
         maintenanceType: 'Preventivo',
-        criticality: 'Alta',
-        calibrationStatus: 'Por vencer',
-        category: 'Diagnóstico',
-        classification: 'BIO',
-        riskClass: 'Clase IIb',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-07-15',
-        nextMaintenance: '2025-11-18',
-        assignedTo: 'Martha Londoño',
-        provider: 'Agilent',
+        criticality: 'Media',
+        calibrationStatus: 'Al día',
+        category: 'Soporte clínico',
+        classification: 'IND',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-10',
+        nextMaintenance: '2025-11-10',
+        assignedTo: 'Juliana',
+        provider: 'Comercial y servicios Larco S.A.S',
         warrantyActive: false
     },
     {
         id: 'eq-003',
-        code: '114982',
-        name: 'Micrótomo RM2235',
-        location: 'San Vicente',
+        code: '163471',
+        ipsCode: 'Pendiente',
+        name: 'Aire Acondicionado Residentes',
+        brand: 'LG',
+        model: 'LP1214GXR',
+        serial: '511CYTB00105',
+        location: 'Salón de residentes',
+        missionClassification: 'N/A',
         process: 'Patología',
-        area: 'Corte y inclusión',
-        status: 'Correctivo activo',
-        maintenanceType: 'Correctivo',
+        area: 'Apoyo académico',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
         criticality: 'Media',
-        calibrationStatus: 'Expirada',
-        category: 'Diagnóstico',
-        classification: 'BIO',
-        riskClass: 'Clase IIa',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-08-02',
-        nextMaintenance: '2025-10-28',
-        assignedTo: 'Soporte externo',
-        provider: 'Leica Biosystems',
+        calibrationStatus: 'Por vencer',
+        category: 'Soporte clínico',
+        classification: 'IND',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-22',
+        nextMaintenance: '2025-11-30',
+        assignedTo: 'Patólogos, residentes y personal del almacén',
+        provider: 'Comercial y servicios Larco S.A.S',
         warrantyActive: false
     },
     {
         id: 'eq-004',
-        code: '205301',
-        name: 'Centrífuga HANIL FLETA 40P',
-        location: 'San Vicente',
-        process: 'Banco de sangre',
-        area: 'Procesamiento de muestras',
-        status: 'En calibración',
+        code: '167302 / 064529',
+        ipsCode: 'Pendiente',
+        name: 'Aire Acondicionado Secretaría',
+        brand: 'LG',
+        model: 'LP1214GXR',
+        serial: '603CYNL00223',
+        location: 'Secretaría principal',
+        missionClassification: 'N/A',
+        process: 'Patología',
+        area: 'Administrativo',
+        status: 'Activo',
         maintenanceType: 'Preventivo',
         criticality: 'Media',
         calibrationStatus: 'Al día',
-        category: 'Laboratorio',
+        category: 'Soporte clínico',
         classification: 'IND',
-        riskClass: 'Clase I',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-09-28',
-        nextMaintenance: '2025-11-15',
-        assignedTo: 'Jesica Restrepo',
-        provider: 'Hanil Scientific',
-        warrantyActive: true
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-05',
+        nextMaintenance: '2025-11-05',
+        assignedTo: 'Secretarias y personal del almacén',
+        provider: 'Comercial y servicios Larco S.A.S',
+        warrantyActive: false
     },
     {
         id: 'eq-005',
-        code: 'LIME-644',
-        name: 'Congelador Infrico LTF40SD',
-        location: 'Rionegro',
-        process: 'Banco de sangre',
-        area: 'Criopreservación',
-        status: 'Operativo',
+        code: '109414 / 063762',
+        ipsCode: 'BIO-16453',
+        name: 'Balanza Analítica',
+        brand: 'A&D Company',
+        model: 'HR-200',
+        serial: '12312707',
+        location: 'Histoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Control de masas',
+        status: 'Activo',
         maintenanceType: 'Preventivo',
         criticality: 'Alta',
         calibrationStatus: 'Al día',
-        category: 'Cadena de frío',
-        classification: 'IND',
+        category: 'Control de calidad',
+        classification: 'BIO',
         riskClass: 'Clase I',
         invimaStatus: 'Con registro',
-        lastMaintenance: '2025-08-30',
-        nextMaintenance: '2025-12-01',
-        assignedTo: 'Juliana Duque',
-        provider: 'Infrico',
-        warrantyActive: true
+        lastMaintenance: '2025-08-02',
+        nextMaintenance: '2025-11-28',
+        assignedTo: 'Juliana',
+        provider: 'A&D Company',
+        warrantyActive: false
     },
     {
         id: 'eq-006',
-        code: 'SV-90812',
-        name: 'Analizador Cobas c311',
-        location: 'San Vicente',
-        process: 'Química clínica',
-        area: 'Laboratorio automatizado',
-        status: 'Operativo',
+        code: '072235',
+        ipsCode: 'BIO-16454',
+        name: 'Balanza Analítica',
+        brand: 'A&D Company',
+        model: 'HA-202M',
+        serial: '10400268',
+        location: 'Cuarto criostato',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Control de masas',
+        status: 'Activo',
         maintenanceType: 'Preventivo',
         criticality: 'Alta',
-        calibrationStatus: 'Por vencer',
-        category: 'Laboratorio',
-        classification: 'BIO',
-        riskClass: 'Clase IIb',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-08-21',
-        nextMaintenance: '2025-11-05',
-        assignedTo: 'Laura Escobar',
-        provider: 'Roche Diagnostics',
-        warrantyActive: true
-    },
-    {
-        id: 'eq-007',
-        code: 'SV-65012',
-        name: 'Bioshaker IKA KS 4000',
-        location: 'Rionegro',
-        process: 'Investigación',
-        area: 'Cultivos celulares',
-        status: 'Fuera de servicio',
-        maintenanceType: 'Correctivo',
-        criticality: 'Media',
-        calibrationStatus: 'Expirada',
-        category: 'Investigación',
-        classification: 'IND',
-        riskClass: 'Clase IIa',
-        invimaStatus: 'Sin registro',
-        lastMaintenance: '2025-06-11',
-        nextMaintenance: '2025-10-05',
-        assignedTo: 'Carlos Pérez',
-        provider: 'IKA',
-        warrantyActive: false
-    },
-    {
-        id: 'eq-008',
-        code: 'UDEA-114',
-        name: 'Incubadora Thermo Scientific 3111',
-        location: 'Medellín',
-        process: 'Microbiología',
-        area: 'Cultivos',
-        status: 'Operativo',
-        maintenanceType: 'Preventivo',
-        criticality: 'Media',
-        calibrationStatus: 'Al día',
-        category: 'Investigación',
-        classification: 'BIO',
-        riskClass: 'Clase IIa',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-07-18',
-        nextMaintenance: '2025-11-30',
-        assignedTo: 'Gloria Roldán',
-        provider: 'Thermo Scientific',
-        warrantyActive: false
-    },
-    {
-        id: 'eq-009',
-        code: 'UDEA-275',
-        name: 'Espectrofotómetro UV-Vis Shimadzu',
-        location: 'Medellín',
-        process: 'Investigación',
-        area: 'Análisis molecular',
-        status: 'Preventivo pendiente',
-        maintenanceType: 'Preventivo',
-        criticality: 'Alta',
-        calibrationStatus: 'Por vencer',
-        category: 'Investigación',
-        classification: 'BIO',
-        riskClass: 'Clase IIb',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-07-02',
-        nextMaintenance: '2025-10-14',
-        assignedTo: 'Soporte externo',
-        provider: 'Shimadzu',
-        warrantyActive: false
-    },
-    {
-        id: 'eq-010',
-        code: 'SV-11802',
-        name: 'Autoclave Tuttnauer 5075HSG',
-        location: 'San Vicente',
-        process: 'Esterilización',
-        area: 'Central de equipos',
-        status: 'Correctivo activo',
-        maintenanceType: 'Correctivo',
-        criticality: 'Alta',
-        calibrationStatus: 'Expirada',
-        category: 'Esterilización',
-        classification: 'BIO',
-        riskClass: 'Clase IIb',
-        invimaStatus: 'Con registro',
-        lastMaintenance: '2025-05-12',
-        nextMaintenance: '2025-10-25',
-        assignedTo: 'Mantenimiento interno',
-        provider: 'Tuttnauer',
-        warrantyActive: false
-    },
-    {
-        id: 'eq-011',
-        code: 'SV-73351',
-        name: 'Agitador Vortex VELP WIZARD',
-        location: 'San Vicente',
-        process: 'Investigación',
-        area: 'Preparación de muestras',
-        status: 'Operativo',
-        maintenanceType: 'Preventivo',
-        criticality: 'Baja',
-        calibrationStatus: 'Al día',
-        category: 'Laboratorio',
-        classification: 'IND',
-        riskClass: 'Clase I',
-        invimaStatus: 'Sin registro',
-        lastMaintenance: '2025-09-03',
-        nextMaintenance: '2025-12-12',
-        assignedTo: 'Daniela Henao',
-        provider: 'VELP',
-        warrantyActive: true
-    },
-    {
-        id: 'eq-012',
-        code: 'SV-45581',
-        name: 'Balanza analítica Ohaus AX224',
-        location: 'Medellín',
-        process: 'Investigación',
-        area: 'Control de calidad',
-        status: 'Operativo',
-        maintenanceType: 'Preventivo',
-        criticality: 'Media',
         calibrationStatus: 'Por vencer',
         category: 'Control de calidad',
         classification: 'BIO',
         riskClass: 'Clase I',
         invimaStatus: 'Con registro',
-        lastMaintenance: '2025-09-09',
+        lastMaintenance: '2025-08-25',
+        nextMaintenance: '2025-12-10',
+        assignedTo: 'Juliana',
+        provider: 'A&D Company',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-007',
+        code: '170369 / 063749',
+        ipsCode: 'BIO-16455',
+        name: 'Balanza de precisión',
+        brand: 'BBG',
+        model: 'S1',
+        serial: '6110090',
+        location: 'Corte macro',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Pesaje general',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Al día',
+        category: 'Control de calidad',
+        classification: 'BIO',
+        invimaStatus: 'Con registro',
+        lastMaintenance: '2025-08-12',
+        nextMaintenance: '2025-12-01',
+        assignedTo: 'Juliana',
+        provider: 'BBG',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-008',
+        code: '3 / 305660300 / 063768',
+        ipsCode: 'BIO-16456',
+        name: 'Baño de Flotación',
+        brand: 'J.P Selecta',
+        model: 'Termofin',
+        serial: '0355033',
+        location: 'Histoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Preparación de láminas',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Al día',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-30',
+        nextMaintenance: '2025-11-25',
+        assignedTo: 'Juliana',
+        provider: 'J.P Selecta',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-009',
+        code: '6 / 168099 / 061549',
+        ipsCode: 'BIO-16457',
+        name: 'Baño de Flotación',
+        brand: 'Lupetec',
+        model: 'BH2015',
+        serial: '160140',
+        location: 'Inmunohistoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Preparación de láminas',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Por vencer',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-05',
+        nextMaintenance: '2025-11-05',
+        assignedTo: 'Martha Londoño',
+        provider: 'Lupetec',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-010',
+        code: '7 / 168100 / 063776',
+        ipsCode: 'BIO-16458',
+        name: 'Baño de Flotación',
+        brand: 'Lupetec',
+        model: 'BH2015',
+        serial: '160141',
+        location: 'Inmunohistoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Preparación de láminas',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Al día',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-08-08',
+        nextMaintenance: '2025-12-02',
+        assignedTo: 'Martha Londoño',
+        provider: 'Lupetec',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-011',
+        code: '1 / 305660200 / 063770',
+        ipsCode: 'BIO-16459',
+        name: 'Baño de Flotación',
+        brand: 'J.P Selecta',
+        model: 'Termofin',
+        serial: '409366',
+        location: 'Histotécnica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Preparación de láminas',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Al día',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-18',
+        nextMaintenance: '2025-11-20',
+        assignedTo: 'Juliana',
+        provider: 'J.P Selecta',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-012',
+        code: '2 / 305660100 / 061547',
+        ipsCode: 'BIO-16460',
+        name: 'Baño de Flotación',
+        brand: 'Selecta',
+        model: 'Termofin',
+        serial: '355032',
+        location: 'Histotécnica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Preparación de láminas',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Por vencer',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-01',
+        nextMaintenance: '2025-10-29',
+        assignedTo: 'Juliana',
+        provider: 'Selecta',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-013',
+        code: '146832',
+        ipsCode: 'BIO-16461',
+        name: 'Baño María',
+        brand: 'Indulab',
+        model: 'N/I',
+        serial: '13539',
+        location: 'Inmunohistoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Procesamiento térmico',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Al día',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-08-04',
+        nextMaintenance: '2025-12-03',
+        assignedTo: 'Martha Londoño',
+        provider: 'Indulab',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-014',
+        code: '305703300 / 063771',
+        ipsCode: 'BIO-16462',
+        name: 'Baño María',
+        brand: 'Memmert',
+        model: 'WB7',
+        serial: '12.010.372',
+        location: 'Inmunohistoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Procesamiento térmico',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Por vencer',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-09-01',
+        nextMaintenance: '2025-12-20',
+        assignedTo: 'Martha Londoño',
+        provider: 'Memmert',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-015',
+        code: '073938 / 063782',
+        ipsCode: 'BIO-16519',
+        name: 'Baño María 70 ºC',
+        brand: 'Indulab',
+        model: '009B',
+        serial: '3244',
+        location: 'Inmunohistoquímica',
+        missionClassification: 'Investigación',
+        process: 'Patología',
+        area: 'Procesamiento térmico',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Media',
+        calibrationStatus: 'Al día',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-08-21',
+        nextMaintenance: '2025-12-18',
+        assignedTo: 'Jesica y Juliana',
+        provider: 'Indulab',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-016',
+        code: '29546',
+        ipsCode: 'Pendiente',
+        name: 'Centrífuga',
+        brand: 'Clay Adams',
+        model: 'N/I',
+        serial: 'A114043',
+        location: 'Almacén',
+        missionClassification: 'N/A',
+        process: 'Patología',
+        area: 'Procesamiento básico',
+        status: 'Inactivo',
+        maintenanceType: 'Correctivo',
+        criticality: 'Media',
+        calibrationStatus: 'Expirada',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-05-12',
+        nextMaintenance: '2025-10-10',
+        assignedTo: 'Jesica y Juliana',
+        provider: 'Clay Adams',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-017',
+        code: '122967',
+        ipsCode: 'BIO-16463',
+        name: 'Citocentrífuga',
+        brand: 'Thermo Scientific',
+        model: 'Shandon Cytospin 4',
+        serial: 'CY3310-0601',
+        location: 'Histoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Procesamiento celular',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Alta',
+        calibrationStatus: 'Al día',
+        category: 'Laboratorio',
+        classification: 'BIO',
+        riskClass: 'Clase IIa',
+        invimaStatus: 'Con registro',
+        lastMaintenance: '2025-09-05',
         nextMaintenance: '2025-12-05',
-        assignedTo: 'Laboratorio central',
-        provider: 'Ohaus',
-        warrantyActive: true
+        assignedTo: 'Juliana',
+        provider: 'Thermo Scientific',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-018',
+        code: '131255 / 063778',
+        ipsCode: 'Pendiente',
+        name: 'Congelador',
+        brand: 'Indufrial',
+        model: 'ICVS-15',
+        serial: '685959',
+        location: 'Cuarto criostato (contingencia)',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Cadena de frío',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Alta',
+        calibrationStatus: 'Por vencer',
+        category: 'Cadena de frío',
+        classification: 'IND',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-08-10',
+        nextMaintenance: '2025-12-08',
+        assignedTo: 'Juliana',
+        provider: 'Indufrial',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-019',
+        code: '73709',
+        ipsCode: 'BIO-16520',
+        name: 'Congelador',
+        brand: 'Philips',
+        model: 'WCV900AF6510',
+        serial: 'N/I',
+        location: 'Inmunohistoquímica',
+        missionClassification: 'Extensión e Investigación',
+        process: 'Patología',
+        area: 'Cadena de frío',
+        status: 'Activo',
+        maintenanceType: 'Preventivo',
+        criticality: 'Alta',
+        calibrationStatus: 'Al día',
+        category: 'Cadena de frío',
+        classification: 'IND',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-07-16',
+        nextMaintenance: '2025-11-14',
+        assignedTo: 'Martha Londoño',
+        provider: 'Philips',
+        warrantyActive: false
+    },
+    {
+        id: 'eq-020',
+        code: '114982',
+        ipsCode: 'BIO-16521',
+        name: 'Criostato histotécnico',
+        brand: 'Leica',
+        model: 'CM1850-3-1',
+        serial: '47131148',
+        location: 'Área histotécnica',
+        missionClassification: 'N/A',
+        process: 'Patología',
+        area: 'Criostomía',
+        status: 'Inactivo',
+        maintenanceType: 'Correctivo',
+        criticality: 'Alta',
+        calibrationStatus: 'Expirada',
+        category: 'Diagnóstico',
+        classification: 'BIO',
+        invimaStatus: 'Sin registro',
+        lastMaintenance: '2025-04-30',
+        nextMaintenance: '2025-09-30',
+        assignedTo: 'Jesica y Juliana',
+        provider: 'Leica Biosystems',
+        warrantyActive: false
     }
 ];
 
@@ -2450,76 +2672,12 @@ function useEquipmentInventory() {
 _s(useEquipmentInventory, "H7ms0Ho7CDRSJFoUkcp5aYufEZE=");
 
 })()),
-"[project]/src/app/(app)/inventario/page.tsx [app-client] (ecmascript)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__ }) => (() => {
-"use strict";
+"[project]/src/app/(app)/inventario/page.tsx [app-client] (ecmascript)": (function({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname, k: __turbopack_refresh__, m: module, e: exports, t: require }) { !function() {
 
-__turbopack_esm__({
-    "default": ()=>InventoryPage
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$inventory$2f$components$2f$filters$2d$preview$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/features/inventory/components/filters-preview.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$inventory$2f$components$2f$equipment$2d$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/features/inventory/components/equipment-table.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$inventory$2f$hooks$2f$use$2d$equipment$2d$inventory$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/features/inventory/hooks/use-equipment-inventory.ts [app-client] (ecmascript)");
-"__TURBOPACK__ecmascript__hoisting__location__";
-;
-var _s = __turbopack_refresh__.signature();
-"use client";
-;
-;
-;
-function InventoryPage() {
-    _s();
-    const { search, setSearch, filters, setFilter, resetFilters, availableFilters, activeFiltersCount, equipment, filteredTotal, total, page, pageSize, totalPages, goToPage } = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$inventory$2f$hooks$2f$use$2d$equipment$2d$inventory$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEquipmentInventory"]();
-    const handleExportSelected = (ids)=>{
-        console.log('Exportar equipos seleccionados', ids);
-    };
-    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"]("div", {
-        className: "space-y-6",
-        children: [
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$inventory$2f$components$2f$filters$2d$preview$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InventoryFilters"], {
-                search: search,
-                onSearchChange: setSearch,
-                filters: filters,
-                onFilterChange: setFilter,
-                options: availableFilters,
-                activeFiltersCount: activeFiltersCount,
-                onReset: resetFilters
-            }, void 0, false, {
-                fileName: "<[project]/src/app/(app)/inventario/page.tsx>",
-                lineNumber: 31,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$inventory$2f$components$2f$equipment$2d$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EquipmentTable"], {
-                equipment: equipment,
-                filteredTotal: filteredTotal,
-                total: total,
-                page: page,
-                pageSize: pageSize,
-                totalPages: totalPages,
-                onPageChange: goToPage,
-                onExportSelected: handleExportSelected
-            }, void 0, false, {
-                fileName: "<[project]/src/app/(app)/inventario/page.tsx>",
-                lineNumber: 40,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "<[project]/src/app/(app)/inventario/page.tsx>",
-        lineNumber: 30,
-        columnNumber: 5
-    }, this);
-}
-_s(InventoryPage, "OqfHzXC4AS3A4q95MK9H8WPcRfo=", false, function() {
-    return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$inventory$2f$hooks$2f$use$2d$equipment$2d$inventory$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEquipmentInventory"]
-    ];
-});
-_c = InventoryPage;
-var _c;
-__turbopack_refresh__.register(_c, "InventoryPage");
-
-})()),
+const e = new Error("Could not parse module '[project]/src/app/(app)/inventario/page.tsx'");
+e.code = 'MODULE_UNPARSEABLE';
+throw e;
+}.call(this) }),
 "[project]/src/app/(app)/inventario/page.tsx [app-rsc] (ecmascript, Next.js server component, client modules)": (({ r: __turbopack_require__, f: __turbopack_require_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, l: __turbopack_load__, j: __turbopack_dynamic__, p: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, g: global, __dirname }) => (() => {
 
 

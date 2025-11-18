@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -8,14 +9,15 @@ import type { EquipmentRecord } from '@/features/inventory/data/mock-equipment'
 import { cn } from '@/lib/cn'
 import {
   AlertCircle,
-  CalendarDays,
-  ClipboardList,
   FileText,
   Image as ImageIcon,
   MapPin,
   Package2,
   PencilLine,
-  ShieldCheck
+  Building2 as Hospital,
+  ShieldCheck,
+  ShieldX,
+  User
 } from 'lucide-react'
 
 interface EquipmentTableProps {
@@ -31,45 +33,225 @@ interface EquipmentTableProps {
   emptyMessage?: string
 }
 
-const dateFormatter = new Intl.DateTimeFormat('es-CO', {
-  month: 'short',
-  day: '2-digit'
-})
-
 const statusVariant = (status: string) => {
-  const normalized = status.toLowerCase()
-  if (normalized.includes('operativo')) return 'success'
-  if (normalized.includes('preventivo')) return 'warning'
-  if (normalized.includes('correctivo') || normalized.includes('fuera')) return 'error'
-  if (normalized.includes('calib')) return 'info'
-  return 'secondary'
-}
-
-const criticalityVariant = (level: EquipmentRecord['criticality']) => {
-  if (level === 'Alta') return 'error'
-  if (level === 'Media') return 'warning'
-  return 'success'
+  return status === 'Activo' ? 'success' : 'error'
 }
 
 const invimaVariant = (status: EquipmentRecord['invimaStatus']) => {
   return status === 'Con registro' ? 'success' : 'warning'
 }
 
-const maintenanceVariant = (type: EquipmentRecord['maintenanceType']) => {
-  return type === 'Preventivo' ? 'info' : 'warning'
+const shouldDisplayField = (value?: string | null) => {
+  if (!value) return false
+  const normalized = value.trim()
+  if (normalized.length === 0) return false
+  return normalized.toUpperCase() !== 'N/A'
 }
 
-const calibrationVariant = (status: EquipmentRecord['calibrationStatus']) => {
-  if (status === 'Al día') return 'success'
-  if (status === 'Por vencer') return 'warning'
-  return 'error'
+interface ColumnConfig {
+  key: string
+  label: string
+  width: string
+  align?: 'left' | 'center'
+  render: (item: EquipmentRecord) => ReactNode
 }
 
-const formatDate = (value: string) => {
-  if (!value) return 'Sin registro'
-  const date = new Date(value)
-  return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date)
-}
+const desktopColumns: ColumnConfig[] = [
+  {
+    key: 'codes',
+    label: 'Codigos',
+    width: '8%',
+    align: 'center',
+    render: (item) => (
+      <div className="flex flex-col items-center gap-2">
+        <Badge size="sm" variant="info" className="font-mono">
+          {item.ipsCode}
+        </Badge>
+        <Badge size="sm" variant="success" className="font-mono">
+          {item.code}
+        </Badge>
+      </div>
+    )
+  },
+  {
+    key: 'equipment',
+    label: 'Equipo',
+    width: '16%',
+    align: 'center',
+    render: (item) => (
+      <div className="space-y-1 text-center">
+        <p className="font-semibold text-slate-900">{item.name}</p>
+        {shouldDisplayField(item.provider) && <p className="text-xs text-slate-500">{item.provider}</p>}
+      </div>
+    )
+  },
+  {
+    key: 'location',
+    label: 'Ubicación',
+    width: '20%',
+    align: 'center',
+    render: (item) => {
+      const rows = [
+        {
+          icon: Hospital,
+          value: item.location,
+          textClass: 'text-slate-700'
+        },
+        {
+          icon: MapPin,
+          value: item.process,
+          textClass: 'text-slate-500'
+        },
+        {
+          icon: User,
+          value: item.assignedTo,
+          textClass: 'text-slate-700'
+        }
+      ].filter((row) => shouldDisplayField(row.value))
+
+      if (rows.length === 0) {
+        return <p className="text-xs text-slate-400">Sin información</p>
+      }
+
+      return (
+        <div className="space-y-2 text-sm">
+          {rows.map((row, index) => {
+            const Icon = row.icon
+            return (
+              <div key={index} className="flex justify-center">
+                <div className={cn('inline-flex items-start gap-2', row.textClass)}>
+                  <Icon className="mt-0.5 h-4 w-4 text-slate-400" />
+                  <span className="max-w-[10rem] text-center leading-snug">{row.value}</span>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )
+    }
+  },
+  {
+    key: 'brand',
+    label: 'Especificaciones',
+    width: '15%',
+    align: 'center',
+    render: (item) => {
+      const hasBrand = shouldDisplayField(item.brand)
+      const hasModel = shouldDisplayField(item.model)
+      const hasSerial = shouldDisplayField(item.serial)
+
+      if (!hasBrand && !hasModel && !hasSerial) {
+        return <p className="text-xs text-slate-400">Sin detalles</p>
+      }
+
+      return (
+        <div className="space-y-1 text-center text-sm">
+          {hasBrand && <p className="font-semibold text-slate-900">{item.brand}</p>}
+          {hasModel && <p className="text-xs text-slate-500">{item.model}</p>}
+          {hasSerial && (
+            <div className="flex justify-center">
+              <Badge size="sm" variant="secondary" className="font-mono">
+                {item.serial}
+              </Badge>
+            </div>
+          )}
+        </div>
+      )
+    }
+  },
+  {
+    key: 'classification',
+    label: 'Clasificación',
+    width: '12%',
+    align: 'center',
+    render: (item) => {
+      const showClassification = shouldDisplayField(item.classification)
+      const showMission = shouldDisplayField(item.missionClassification)
+
+      if (!showClassification && !showMission) {
+        return <p className="text-xs text-slate-400">Sin clasificación</p>
+      }
+
+      return (
+        <div className="space-y-3 text-sm">
+          {showClassification && (
+            <div className="flex justify-center">
+              <Badge size="sm" variant="info">
+                {item.classification}
+              </Badge>
+            </div>
+          )}
+          {showMission && (
+            <div className="flex justify-center">
+              <p className="max-w-[10rem] text-center text-sm font-medium text-slate-900 leading-snug">
+                {item.missionClassification}
+              </p>
+            </div>
+          )}
+        </div>
+      )
+    }
+  },
+  {
+    key: 'invima',
+    label: 'Invima',
+    width: '7%',
+    align: 'center',
+    render: (item) => {
+      const hasCertificate = item.invimaStatus === 'Con registro'
+      const Icon = hasCertificate ? ShieldCheck : ShieldX
+      return (
+        <div className="space-y-2 text-center text-sm">
+          <div className="flex justify-center">
+            <span className={cn('rounded-full p-1.5', hasCertificate ? 'text-emerald-500' : 'text-slate-400')}>
+              <Icon className="h-5 w-5" />
+              <span className="sr-only">{hasCertificate ? 'Con registro Invima' : 'Sin registro Invima'}</span>
+            </span>
+          </div>
+          {item.riskClass && (
+            <div className="space-y-1">
+              <div className="flex justify-center">
+                <Badge size="sm" variant="secondary">
+                  {item.riskClass}
+                </Badge>
+              </div>
+            </div>
+          )}
+        </div>
+      )
+    }
+  },
+  {
+    key: 'status',
+    label: 'Estado',
+    width: '7%',
+    align: 'center',
+    render: (item) => (
+      <Badge size="sm" variant={statusVariant(item.status)}>
+        {item.status}
+      </Badge>
+    )
+  },
+  {
+    key: 'actions',
+    label: 'Acciones',
+    width: '7%',
+    align: 'center',
+    render: () => (
+      <div className="flex items-center justify-center gap-2">
+        <button className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600" aria-label="Gestionar imágenes">
+          <ImageIcon className="h-4 w-4" />
+        </button>
+        <button className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600" aria-label="Editar registro">
+          <PencilLine className="h-4 w-4" />
+        </button>
+        <button className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600" aria-label="Ver hoja de vida">
+          <FileText className="h-4 w-4" />
+        </button>
+      </div>
+    )
+  }
+]
 
 export function EquipmentTable({
   equipment,
@@ -173,27 +355,35 @@ export function EquipmentTable({
       ) : (
         <>
           <div className="hidden lg:block">
-            <div className="max-w-full overflow-x-auto">
-              <table className="min-w-full">
+            <div className="w-full overflow-x-auto">
+              <table className="min-w-full table-auto text-sm">
+                <colgroup>
+                  <col style={{ width: '2%' }} />
+                  {desktopColumns.map((column) => (
+                    <col key={column.key} style={{ width: column.width }} />
+                  ))}
+                </colgroup>
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-600">
-                    <th className="w-12 px-3 py-4 text-center">
+                    <th className="px-3 py-4 text-center">
                       <div className="flex justify-center">
                         <Checkbox ref={selectAllRef} checked={isAllSelected} onChange={toggleSelectAll} aria-label="Seleccionar todos" />
                       </div>
                     </th>
-                    <th className="min-w-[150px] px-4 py-4 text-left">Códigos</th>
-                    <th className="min-w-[200px] px-4 py-4 text-left">Equipo</th>
-                    <th className="min-w-[160px] px-4 py-4 text-left">Sede / Servicio</th>
-                    <th className="min-w-[170px] px-4 py-4 text-left">Responsable / Área</th>
-                    <th className="min-w-[180px] px-4 py-4 text-left">Seguimiento</th>
-                    <th className="min-w-[160px] px-4 py-4 text-left">Clasificación</th>
-                    <th className="min-w-[160px] px-4 py-4 text-left">Invima</th>
-                    <th className="w-36 px-4 py-4 text-left">Estado</th>
-                    <th className="w-28 px-4 py-4 text-center">Acciones</th>
+                    {desktopColumns.map((column) => (
+                      <th
+                        key={column.key}
+                        className={cn(
+                          'px-4 py-4 text-xs font-semibold uppercase tracking-wide text-slate-600',
+                          column.align === 'center' ? 'text-center' : 'text-left'
+                        )}
+                      >
+                        {column.label}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-sm">
+                <tbody className="divide-y divide-slate-100">
                   {equipment.map((item) => (
                     <tr key={item.id} className="hover:bg-emerald-50/30">
                       <td className="px-3 py-4 text-center align-middle">
@@ -201,114 +391,14 @@ export function EquipmentTable({
                           <Checkbox checked={selectedIds.includes(item.id)} onChange={() => toggleSelect(item.id)} aria-label={`Seleccionar ${item.name}`} />
                         </div>
                       </td>
-                      <td className="px-4 py-4 align-middle">
-                        <div className="flex flex-col items-start gap-2">
-                          <Badge size="sm" variant="success" className="font-mono">
-                            {item.code}
-                          </Badge>
-                          <Badge size="sm" variant="secondary">
-                            {item.category}
-                          </Badge>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 align-middle">
-                        <div className="space-y-1">
-                          <p className="font-semibold text-slate-900">{item.name}</p>
-                          <p className="text-xs text-slate-500">Proveedor: {item.provider}</p>
-                          <p className="text-xs text-slate-500">Garantía: {item.warrantyActive ? 'Activa' : 'No aplica'}</p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 align-middle">
-                        <div className="space-y-1 text-sm">
-                          <div className="flex items-center gap-2 text-slate-700">
-                            <MapPin className="h-4 w-4 text-slate-400" />
-                            <span>{item.location}</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-slate-500">
-                            <ClipboardList className="h-4 w-4 text-slate-400" />
-                            <span>{item.process}</span>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 align-middle">
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-2 text-slate-700">
-                            <ShieldCheck className="h-4 w-4 text-slate-400" />
-                            <span>{item.assignedTo}</span>
-                          </div>
-                          <div className="text-xs text-slate-500">Área: {item.area}</div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 align-middle">
-                        <div className="space-y-2">
-                          <div className="flex flex-wrap gap-1">
-                            <Badge size="sm" variant={maintenanceVariant(item.maintenanceType)}>
-                              {item.maintenanceType}
-                            </Badge>
-                            <Badge size="sm" variant={calibrationVariant(item.calibrationStatus)}>
-                              {item.calibrationStatus}
-                            </Badge>
-                            <Badge size="sm" variant={criticalityVariant(item.criticality)}>
-                              Criticidad {item.criticality}
-                            </Badge>
-                          </div>
-                          <div className="flex flex-wrap gap-3 text-xs text-slate-500">
-                            <span className="inline-flex items-center gap-1">
-                              <CalendarDays className="h-3.5 w-3.5" /> Último: {formatDate(item.lastMaintenance)}
-                            </span>
-                            <span className="inline-flex items-center gap-1">
-                              <CalendarDays className="h-3.5 w-3.5 text-emerald-500" /> Próximo: {formatDate(item.nextMaintenance)}
-                            </span>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 align-middle">
-                        <div className="flex flex-col gap-2">
-                          <Badge size="sm" variant="info">
-                            {item.classification}
-                          </Badge>
-                          <Badge size="sm" variant="secondary">
-                            {item.riskClass}
-                          </Badge>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 align-middle">
-                        <div className="flex flex-col gap-2">
-                          <Badge size="sm" variant={invimaVariant(item.invimaStatus)}>
-                            {item.invimaStatus}
-                          </Badge>
-                          <Badge size="sm" variant={item.warrantyActive ? 'success' : 'warning'}>
-                            {item.warrantyActive ? 'Garantía activa' : 'Sin garantía'}
-                          </Badge>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 align-middle">
-                        <Badge size="sm" variant={statusVariant(item.status)}>
-                          {item.status}
-                        </Badge>
-                      </td>
-                      <td className="px-4 py-4 text-center align-middle">
-                        <div className="flex items-center justify-center gap-2">
-                          <button
-                            className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600"
-                            aria-label="Gestionar imágenes"
-                          >
-                            <ImageIcon className="h-4 w-4" />
-                          </button>
-                          <button
-                            className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600"
-                            aria-label="Editar registro"
-                          >
-                            <PencilLine className="h-4 w-4" />
-                          </button>
-                          <button
-                            className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600"
-                            aria-label="Ver hoja de vida"
-                          >
-                            <FileText className="h-4 w-4" />
-                          </button>
-                        </div>
-                      </td>
+                      {desktopColumns.map((column) => (
+                        <td
+                          key={column.key}
+                          className={cn('px-4 py-4 align-middle text-slate-700', column.align === 'center' ? 'text-center' : 'text-left')}
+                        >
+                          {column.render(item)}
+                        </td>
+                      ))}
                     </tr>
                   ))}
                 </tbody>
@@ -321,8 +411,8 @@ export function EquipmentTable({
               <div key={item.id} className="space-y-4 px-4 py-5">
                 <div className="flex items-start gap-3">
                   <Checkbox checked={selectedIds.includes(item.id)} onChange={() => toggleSelect(item.id)} aria-label={`Seleccionar ${item.name}`} />
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex-1 text-center">
+                    <div className="flex flex-col items-center gap-2">
                       <div>
                         <p className="text-base font-semibold text-slate-900">{item.name}</p>
                         <p className="font-mono text-xs text-slate-500">{item.code}</p>
@@ -332,34 +422,72 @@ export function EquipmentTable({
                       </Badge>
                     </div>
                     <div className="mt-3 grid gap-2 text-sm text-slate-600">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-slate-400" /> {item.location}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Package2 className="h-4 w-4 text-slate-400" /> {item.category}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <ClipboardList className="h-4 w-4 text-slate-400" /> {item.process}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <ShieldCheck className="h-4 w-4 text-slate-400" /> {item.assignedTo}
-                      </div>
-                      <div className="flex items-center gap-2 text-xs">
-                        <CalendarDays className="h-3.5 w-3.5" /> Último {formatDate(item.lastMaintenance)} · Próximo {formatDate(item.nextMaintenance)}
+                      {[{
+                        icon: Hospital,
+                        label: item.location
+                      }, {
+                        icon: MapPin,
+                        label: item.process
+                      }, {
+                        icon: User,
+                        label: item.assignedTo
+                      }, {
+                        icon: Package2,
+                        label: item.category
+                      }]
+                        .filter((info) => shouldDisplayField(info.label))
+                        .map((info, index) => {
+                          const Icon = info.icon
+                          return (
+                            <div key={index} className="flex justify-center">
+                              <div className="inline-flex items-start gap-2">
+                                <Icon className="mt-0.5 h-4 w-4 text-slate-400" />
+                                <span className="max-w-[14rem] text-center leading-snug">{info.label}</span>
+                              </div>
+                            </div>
+                          )
+                        })}
+                    </div>
+                    <div className="mt-3 space-y-3 rounded-2xl bg-slate-50 p-3 text-sm">
+                      {shouldDisplayField(item.missionClassification) && (
+                        <div>
+                          <p className="text-[11px] uppercase tracking-wide text-slate-400">Eje misional</p>
+                          <p className="font-semibold text-slate-900">{item.missionClassification}</p>
+                        </div>
+                      )}
+                      {(shouldDisplayField(item.brand) || shouldDisplayField(item.model) || shouldDisplayField(item.serial)) && (
+                        <div className="space-y-1">
+                          <p className="text-[11px] uppercase tracking-wide text-slate-400">Marca · Modelo · Serie</p>
+                          {shouldDisplayField(item.brand) && <p className="font-semibold text-slate-900">{item.brand}</p>}
+                          {shouldDisplayField(item.model) && <p className="text-xs text-slate-500">{item.model}</p>}
+                          {shouldDisplayField(item.serial) && (
+                            <Badge size="sm" variant="secondary" className="font-mono">
+                              {item.serial}
+                            </Badge>
+                          )}
+                        </div>
+                      )}
+                      <div className="flex flex-wrap items-center justify-center gap-2">
+                        {shouldDisplayField(item.classification) && (
+                          <Badge size="sm" variant="info">
+                            {item.classification}
+                          </Badge>
+                        )}
+                        <span className="rounded-full border border-slate-200 p-2">
+                          {item.invimaStatus === 'Con registro' ? (
+                            <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                          ) : (
+                            <ShieldX className="h-4 w-4 text-slate-400" />
+                          )}
+                        </span>
+                        {item.riskClass && (
+                          <Badge size="sm" variant="secondary">
+                            {item.riskClass}
+                          </Badge>
+                        )}
                       </div>
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <Badge size="sm" variant={maintenanceVariant(item.maintenanceType)}>
-                        {item.maintenanceType}
-                      </Badge>
-                      <Badge size="sm" variant={calibrationVariant(item.calibrationStatus)}>
-                        {item.calibrationStatus}
-                      </Badge>
-                      <Badge size="sm" variant={criticalityVariant(item.criticality)}>
-                        {item.riskClass}
-                      </Badge>
-                    </div>
-                    <div className="mt-3 flex items-center gap-2">
+                    <div className="mt-3 flex items-center justify-center gap-2">
                       <button className="rounded-xl border border-slate-200 p-2 text-slate-500">
                         <ImageIcon className="h-4 w-4" />
                       </button>

@@ -597,7 +597,7 @@ function BarChartMonthly() {
             }, void 0, false, {
                 fileName: "<[project]/src/features/dashboard/components/bar-chart-monthly.tsx>",
                 lineNumber: 56,
-                columnNumber: 9
+                columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "<[project]/src/features/dashboard/components/bar-chart-monthly.tsx>",
@@ -1067,7 +1067,7 @@ function TrendChart() {
             }, void 0, false, {
                 fileName: "<[project]/src/features/dashboard/components/trend-chart.tsx>",
                 lineNumber: 63,
-                columnNumber: 9
+                columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "<[project]/src/features/dashboard/components/trend-chart.tsx>",
