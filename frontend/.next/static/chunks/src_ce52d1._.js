@@ -35,6 +35,11 @@ const mainNav = [
         icon: 'packagePlus'
     },
     {
+        label: 'Editar equipo',
+        href: '/edit-equipment',
+        icon: 'package-search'
+    },
+    {
         label: 'Inventario',
         href: '/inventory',
         icon: 'boxes'
@@ -47,7 +52,7 @@ const mainNav = [
     {
         label: 'Soporte',
         href: '/support',
-        icon: 'lifebuoy'
+        icon: 'message-circle-question-mark'
     },
     {
         label: 'Mi perfil',
@@ -80,10 +85,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$boxes$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Boxes$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/boxes.js [app-client] (ecmascript) {export default as Boxes}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__CalendarClock$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/calendar-clock.js [app-client] (ecmascript) {export default as CalendarClock}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$life$2d$buoy$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__LifeBuoy$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/life-buoy.js [app-client] (ecmascript) {export default as LifeBuoy}");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2d$question$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__MessageCircleQuestion$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/message-circle-question.js [app-client] (ecmascript) {export default as MessageCircleQuestion}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$round$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__UserRound$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/user-round.js [app-client] (ecmascript) {export default as UserRound}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__BookOpen$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/book-open.js [app-client] (ecmascript) {export default as BookOpen}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Settings$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/settings.js [app-client] (ecmascript) {export default as Settings}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PackagePlus$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/package-plus.js [app-client] (ecmascript) {export default as PackagePlus}");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PackageSearch$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/package-search.js [app-client] (ecmascript) {export default as PackageSearch}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Circle$7d$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/circle.js [app-client] (ecmascript) {export default as Circle}");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$cn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/lib/cn.ts [app-client] (ecmascript)");
 "__TURBOPACK__ecmascript__hoisting__location__";
@@ -95,10 +102,12 @@ const iconMap = {
     boxes: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$boxes$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Boxes$7d$__["Boxes"],
     calendar: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__CalendarClock$7d$__["CalendarClock"],
     lifebuoy: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$life$2d$buoy$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__LifeBuoy$7d$__["LifeBuoy"],
+    'message-circle-question-mark': __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2d$question$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__MessageCircleQuestion$7d$__["MessageCircleQuestion"],
     user: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$round$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__UserRound$7d$__["UserRound"],
     book: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__BookOpen$7d$__["BookOpen"],
     settings: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Settings$7d$__["Settings"],
-    packagePlus: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PackagePlus$7d$__["PackagePlus"]
+    packagePlus: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PackagePlus$7d$__["PackagePlus"],
+    'package-search': __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2d$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__PackageSearch$7d$__["PackageSearch"]
 };
 function SidebarIcon({ name, className }) {
     const Icon = name ? iconMap[name] ?? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Circle$7d$__["Circle"] : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$7b$export__default__as__Circle$7d$__["Circle"];
@@ -107,7 +116,7 @@ function SidebarIcon({ name, className }) {
         strokeWidth: 1.5
     }, void 0, false, {
         fileName: "<[project]/src/components/navigation/sidebarIcon.tsx>",
-        lineNumber: 33,
+        lineNumber: 37,
         columnNumber: 10
     }, this);
 }

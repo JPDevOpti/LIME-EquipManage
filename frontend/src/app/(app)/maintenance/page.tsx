@@ -1,41 +1,112 @@
-import { CalendarPreview } from '@/features/maintenance/components/calendar-preview'
-import { WorkloadBoard } from '@/features/maintenance/components/workload-board'
-import { Card } from '@/components/ui/card'
+"use client"
+
+import { useState } from 'react'
+import { MaintenanceCalendar } from '@/features/maintenance/components/maintenance-calendar'
+import { MaintenanceEventsModal } from '@/features/maintenance/components/maintenance-events-modal'
+import { useYearlyMaintenanceCalendar } from '@/features/maintenance/hooks/useYearlyMaintenanceCalendar'
+import { maintenanceApi } from '@/features/maintenance/services/maintenanceApi'
+import type { MaintenanceType } from '@/features/maintenance/types'
 
 export default function MaintenancePage() {
+  const {
+    months,
+    isLoading,
+    selectedYear,
+    loadEvents,
+    getEventsByMonthAndType
+  } = useYearlyMaintenanceCalendar()
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedEvents, setSelectedEvents] = useState<any[]>([])
+  const [selectedType, setSelectedType] = useState<MaintenanceType | null>(null)
+  const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
+
+  function handleShowEvents(month: number, type: MaintenanceType) {
+    setSelectedMonth(month)
+    setSelectedType(type)
+    const events = getEventsByMonthAndType(month, type)
+    setSelectedEvents(events)
+    setIsModalOpen(true)
+  }
+
+  function closeModal() {
+    setIsModalOpen(false)
+    setSelectedType(null)
+    setSelectedMonth(null)
+    setSelectedEvents([])
+  }
+
+  async function handleProcessUpdate(eventId: string, process: 'En proceso' | 'Pendiente' | 'Completado' | '') {
+    try {
+      // Actualizar en el API
+      await maintenanceApi.updateMaintenanceEvent(eventId, {
+        process: process || undefined
+      })
+      
+      // Recargar eventos para sincronizar
+      if (selectedMonth !== null && selectedType) {
+        const updatedEvents = getEventsByMonthAndType(selectedMonth, selectedType)
+        setSelectedEvents(updatedEvents)
+      }
+    } catch (error) {
+      console.error('Error actualizando proceso:', error)
+    }
+  }
+
+  async function handleMaintenanceComplete(data: {
+    eventId: string
+    exactCompletionDate: string
+    reportNumber?: string
+    reportFile?: File
+    completionNotes?: string
+  }) {
+    try {
+      // Actualizar en el API
+      await maintenanceApi.updateMaintenanceEvent(data.eventId, {
+        process: 'Completado',
+        completedDate: data.exactCompletionDate.split('T')[0],
+        exactCompletionDate: data.exactCompletionDate,
+        reportNumber: data.reportNumber,
+        completionNotes: data.completionNotes,
+        reportFile: data.reportFile ? data.reportFile.name : undefined
+      })
+      
+      // Recargar eventos para sincronizar
+      if (selectedMonth !== null && selectedType) {
+        const updatedEvents = getEventsByMonthAndType(selectedMonth, selectedType)
+        setSelectedEvents(updatedEvents)
+      }
+      
+      // Recargar todos los eventos del año
+      loadEvents()
+    } catch (error) {
+      console.error('Error completando mantenimiento:', error)
+      alert('Error al completar el mantenimiento. Por favor, inténtelo de nuevo.')
+    }
+  }
+
   return (
-    <div className="space-y-8">
-      <header className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-semibold text-white">Mantenimiento</h1>
-          <p className="text-sm text-white/60">
-            Panel visual de programación. Todas las interacciones son mock y se conectarán luego a FastAPI.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/60">
-          Semana 46 · 27 órdenes activas · 88 % cumplimiento anual
-        </div>
-      </header>
+    <div className="w-full space-y-8 pb-8">
+      <div className="space-y-4">
+        <MaintenanceCalendar
+          months={months}
+          isLoading={isLoading}
+          onSelectMonth={(month) => console.log('Mes seleccionado:', month)}
+          onShowEvents={handleShowEvents}
+        />
+      </div>
 
-      <CalendarPreview />
-      <WorkloadBoard />
-
-      <Card title="Indicadores de servicio" className="border-white/10 bg-white/5">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {[
-            ['Tiempo medio de respuesta', '5h 42m'],
-            ['Tiempo medio de reparación', '11h 25m'],
-            ['SLA proveedores externos', '82 %'],
-            ['Alertas críticas activas', '3']
-          ].map(([label, value]) => (
-            <div key={label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <p className="text-xs text-white/50">{label}</p>
-              <p className="text-lg font-semibold text-white">{value}</p>
-            </div>
-          ))}
-        </div>
-      </Card>
+      {/* Modal de eventos */}
+      <MaintenanceEventsModal
+        isOpen={isModalOpen}
+        events={selectedEvents}
+        type={selectedType}
+        month={selectedMonth}
+        year={selectedYear}
+        onClose={closeModal}
+        onUpdateProcess={handleProcessUpdate}
+        onComplete={handleMaintenanceComplete}
+      />
     </div>
   )
 }
-

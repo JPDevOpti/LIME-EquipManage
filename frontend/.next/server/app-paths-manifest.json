@@ -5,5 +5,10 @@
   "/(app)/inventario/page": "app/(app)/inventario/page.js",
   "/(app)/ingresar-equipo/page": "app/(app)/ingresar-equipo/page.js",
   "/(app)/add-equipment/page": "app/(app)/add-equipment/page.js",
-  "/(app)/inventory/page": "app/(app)/inventory/page.js"
+  "/(app)/inventory/page": "app/(app)/inventory/page.js",
+  "/(app)/edit-equipment/page": "app/(app)/edit-equipment/page.js",
+  "/(app)/edit-equipment/[id]/page": "app/(app)/edit-equipment/[id]/page.js",
+  "/(app)/maintenance/page": "app/(app)/maintenance/page.js",
+  "/(app)/support/page": "app/(app)/support/page.js",
+  "/(app)/profile/page": "app/(app)/profile/page.js"
 }

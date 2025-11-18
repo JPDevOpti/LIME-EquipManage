@@ -7,9 +7,10 @@ export interface NavItem {
 export const mainNav: NavItem[] = [
   { label: 'Panel general', href: '/dashboard', icon: 'layout' },
   { label: 'Ingresar equipo', href: '/add-equipment', icon: 'packagePlus' },
+  { label: 'Editar equipo', href: '/edit-equipment', icon: 'package-search' },
   { label: 'Inventario', href: '/inventory', icon: 'boxes' },
   { label: 'Mantenimiento', href: '/maintenance', icon: 'calendar' },
-  { label: 'Soporte', href: '/support', icon: 'lifebuoy' },
+  { label: 'Soporte', href: '/support', icon: 'message-circle-question-mark' },
   { label: 'Mi perfil', href: '/profile', icon: 'user' }
 ]
 

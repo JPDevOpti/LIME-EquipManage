@@ -4,10 +4,12 @@ import {
   Boxes,
   CalendarClock,
   LifeBuoy,
+  MessageCircleQuestion,
   UserRound,
   BookOpen,
   Settings,
   PackagePlus,
+  PackageSearch,
   Circle
 } from 'lucide-react'
 import { cn } from '@/lib/cn'
@@ -17,10 +19,12 @@ const iconMap: Record<string, LucideIcon> = {
   boxes: Boxes,
   calendar: CalendarClock,
   lifebuoy: LifeBuoy,
+  'message-circle-question-mark': MessageCircleQuestion,
   user: UserRound,
   book: BookOpen,
   settings: Settings,
-  packagePlus: PackagePlus
+  packagePlus: PackagePlus,
+  'package-search': PackageSearch
 }
 
 interface SidebarIconProps {

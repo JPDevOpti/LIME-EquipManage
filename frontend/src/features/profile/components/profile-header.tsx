@@ -1,38 +1,65 @@
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Settings, LogOut } from 'lucide-react'
+"use client"
 
-export function ProfileHeader() {
-  return (
-    <Card className="border-white/10 bg-white/5">
-      <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-4">
-          <Image
-            src="https://i.pravatar.cc/100?img=32"
-            alt="Avatar de usuario"
-            width={80}
-            height={80}
-            className="rounded-3xl border border-white/20"
-          />
-          <div>
-            <h2 className="text-2xl font-semibold text-white">Laura Restrepo</h2>
-            <p className="text-sm text-white/60">Coordinadora biomédica · Hospital AlmaMáter</p>
-            <p className="text-xs text-white/40">Miembro desde 14 de marzo de 2021</p>
-          </div>
-        </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <Button variant="secondary" className="gap-2">
-            <Settings className="h-4 w-4" />
-            Configurar perfil
-          </Button>
-          <Button variant="ghost" className="gap-2 text-white/70 hover:text-white">
-            <LogOut className="h-4 w-4" />
-            Cerrar sesión
-          </Button>
-        </div>
-      </div>
-    </Card>
-  )
+import { UserCircle } from 'lucide-react'
+import type { UserProfile } from '../types'
+import { cn } from '@/lib/cn'
+
+interface ProfileHeaderProps {
+  user: UserProfile
 }
 
+export function ProfileHeader({ user }: ProfileHeaderProps) {
+  const formatLastLogin = (date: Date): string => {
+    return new Intl.DateTimeFormat('es-ES', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).format(new Date(date))
+  }
+
+  return (
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          {/* User Info Section */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            {/* Avatar */}
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto sm:mx-0">
+              <div className="w-full h-full rounded-full overflow-hidden border-2 border-blue-200 shadow-lg group">
+                <div className="w-full h-full bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center text-slate-700">
+                  <UserCircle className="w-[86%] h-[86%]" />
+                </div>
+              </div>
+              
+              {/* Status Indicator */}
+              <div
+                className={cn(
+                  "absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-white shadow-sm",
+                  user.isActive ? 'bg-green-500' : 'bg-slate-400'
+                )}
+                title={user.isActive ? 'Usuario activo' : 'Usuario inactivo'}
+              />
+            </div>
+
+            {/* User Details */}
+            <div className="text-center sm:text-left">
+              <h2 className="text-2xl font-bold text-slate-900 mb-1">
+                {user.firstName} {user.lastName}
+              </h2>
+              <p className="text-sm text-slate-600">
+                {user.email}
+              </p>
+              {user.lastLogin && (
+                <p className="text-xs text-slate-500 mt-1">
+                  Último acceso: {formatLastLogin(user.lastLogin)}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
