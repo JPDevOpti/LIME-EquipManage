@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sections": [
-    {"offset": {"line": 5, "column": 0}, "map": {"version":3,"sources":["/turbopack/[project]/src/app/(app)/ingresar-equipo/page.tsx"],"sourcesContent":["\"use client\"\n\nexport default function IngresarEquipoPage() {\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <h1 className=\"text-2xl font-bold text-slate-900\">Ingresar equipo</h1>\n        <p className=\"mt-1 text-sm text-slate-600\">\n          Registra un nuevo equipo biomédico en el sistema\n        </p>\n      </div>\n    </div>\n  )\n}\n\n"],"names":[],"mappings":";;;;;AAAA;;AAEe,SAAS;IACtB,qBACE,mPAAC;QAAI,WAAU;kBACb,cAAA,mPAAC;;8BACC,mPAAC;oBAAG,WAAU;8BAAoC;;;;;;8BAClD,mPAAC;oBAAE,WAAU;8BAA8B;;;;;;;;;;;;;;;;;AAMnD"}},
-    {"offset": {"line": 45, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
