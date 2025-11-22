@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { CustomSelect } from '@/components/ui/custom-select'
 import { Label } from '@/components/ui/label'
-import type { NewTicketForm, TicketCategoryEnum, SupportTicket } from '../types'
+import type { NewTicketForm, SupportTicket } from '../types'
+import { TicketCategoryEnum } from '../types'
 import { supportApi } from '../services/supportApi'
 import { cn } from '@/lib/cn'
 
@@ -34,7 +35,8 @@ export function NewTicket({ onTicketCreated }: NewTicketProps) {
   ]
 
   const isFormValid = formData.title.trim() !== '' &&
-    formData.category !== '' &&
+    formData.category &&
+    Object.values(TicketCategoryEnum).includes(formData.category) &&
     formData.description.trim() !== '' &&
     !isSubmitting
 

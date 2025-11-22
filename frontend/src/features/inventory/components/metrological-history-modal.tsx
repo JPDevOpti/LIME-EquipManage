@@ -21,10 +21,8 @@ interface MetrologicalHistoryModalProps {
 }
 
 export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: MetrologicalHistoryModalProps) {
-    if (!isOpen || !equipment) return null
-
     // Estado local para la planificación (simulado)
-    const [planning, setPlanning] = useState<MetrologicalPlanning>(equipment.planning || {
+    const [planning, setPlanning] = useState<MetrologicalPlanning>(equipment?.planning || {
         preventiveFrequency: 0,
         nextPreventiveMonth: '',
         preventiveProvider: '',
@@ -44,6 +42,8 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
 
     // Estado para controlar si el modal de planificación está abierto
     const [isPlanningModalOpen, setIsPlanningModalOpen] = useState(false)
+
+    if (!isOpen || !equipment) return null
 
     const handleSavePlanning = (newPlanning: MetrologicalPlanning) => {
         setPlanning(newPlanning)

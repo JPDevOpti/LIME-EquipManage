@@ -1,10 +1,10 @@
 import { Card } from '@/components/ui/card'
-import { BadgeCheck, ClockAlert, Flame } from 'lucide-react'
+import { BadgeCheck, Clock, Flame } from 'lucide-react'
 
 const columns = [
   {
     title: 'Pendientes',
-    icon: ClockAlert,
+    icon: Clock,
     color: 'text-amber-300',
     items: [
       { equipment: 'Calentador de tejidos', code: 'BIO-16870', due: '16 nov', owner: 'Martha Londoño' },

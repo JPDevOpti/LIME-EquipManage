@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/cn'
 
-const ChartColumnBigIcon: LucideIcon = ({ className, strokeWidth = 1.5, ...props }: LucideProps) => (
+const ChartColumnBigIcon = ({ className, strokeWidth = 1.5, ...props }: LucideProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -38,7 +38,7 @@ const ChartColumnBigIcon: LucideIcon = ({ className, strokeWidth = 1.5, ...props
   </svg>
 )
 
-const iconMap: Record<string, LucideIcon> = {
+const iconMap: Record<string, LucideIcon | typeof ChartColumnBigIcon> = {
   layout: LayoutDashboard,
   boxes: Boxes,
   calendar: CalendarClock,

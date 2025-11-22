@@ -102,7 +102,7 @@ export function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
               </h4>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {user.roleSpecificData.observaciones && (
+                {user.roleSpecificData?.observaciones && (
                   <InfoCard
                     icon="document"
                     label="Observaciones"

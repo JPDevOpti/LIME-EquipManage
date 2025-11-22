@@ -1,4 +1,5 @@
-import type { SupportTicket, NewTicketForm, TicketStatusEnum, TicketSearch } from '../types'
+import type { SupportTicket, NewTicketForm, TicketSearch } from '../types'
+import { TicketStatusEnum } from '../types'
 
 // Función para generar tickets mock
 function generateMockTickets(): SupportTicket[] {

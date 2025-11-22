@@ -28,8 +28,6 @@ const MONTHS = [
 ]
 
 export function MaintenancePlanningModal({ isOpen, planning: initialPlanning, onClose, onSave }: MaintenancePlanningModalProps) {
-    if (!isOpen) return null
-
     const [planning, setPlanning] = useState<MetrologicalPlanning>(initialPlanning)
     const [hasPreventive, setHasPreventive] = useState(true)
     const [hasCalibration, setHasCalibration] = useState(true)
