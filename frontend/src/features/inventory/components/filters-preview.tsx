@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { ArrowDownWideNarrow, RotateCcw, Search, RefreshCw, FileSpreadsheet } from 'lucide-react'
+import { ArrowDownWideNarrow, RotateCcw, Search, RefreshCw, FileSpreadsheet, Building2, Briefcase, CheckCircle, Tag, Shield, Folder, AlertTriangle } from 'lucide-react'
 import type {
   EquipmentFilterOptions,
   EquipmentFiltersState
@@ -105,12 +105,34 @@ export function InventoryFilters({
     onSubmit()
   }
 
+  const getIcon = (key: FilterKey) => {
+    switch (key) {
+      case 'location':
+        return Building2
+      case 'process':
+        return Briefcase
+      case 'status':
+        return CheckCircle
+      case 'classification':
+        return Tag
+      case 'invimaStatus':
+        return Shield
+      case 'category':
+        return Folder
+      case 'riskClass':
+        return AlertTriangle
+      default:
+        return null
+    }
+  }
+
   return (
     <Card className="bg-white p-6">
       <div className="space-y-6">
         <div className="grid gap-4 md:grid-cols-[minmax(0,_2fr)_minmax(0,_1fr)] md:items-end">
           <div className="w-full space-y-2 text-sm">
-            <label className="text-sm font-medium text-slate-700" htmlFor="inventory-search">
+            <label className="flex items-center gap-2 text-sm font-medium text-slate-700" htmlFor="inventory-search">
+              <Search className="h-4 w-4 text-blue-600" />
               Buscar equipo
             </label>
             <div className="relative">
@@ -134,9 +156,12 @@ export function InventoryFilters({
           </div>
 
           <div className="grid w-full gap-4 sm:grid-cols-2">
-            {firstRowFilters.map(({ key, data }) => (
+            {firstRowFilters.map(({ key, data }) => {
+              const Icon = getIcon(key)
+              return (
               <div key={key} className="space-y-2 text-sm">
-                <label className="font-medium text-slate-700" htmlFor={`filter-${key}`}>
+                <label className="flex items-center gap-2 font-medium text-slate-700" htmlFor={`filter-${key}`}>
+                  {Icon && <Icon className="h-4 w-4 text-blue-600" />}
                   {FILTER_LABELS[key]}
                 </label>
                 <Select
@@ -153,14 +178,18 @@ export function InventoryFilters({
                   ))}
                 </Select>
               </div>
-            ))}
+            )
+            })}
           </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
-          {secondRowFilters.map(({ key, data }) => (
+          {secondRowFilters.map(({ key, data }) => {
+            const Icon = getIcon(key)
+            return (
             <div key={key} className="space-y-2 text-sm">
-              <label className="font-medium text-slate-700" htmlFor={`filter-${key}`}>
+              <label className="flex items-center gap-2 font-medium text-slate-700" htmlFor={`filter-${key}`}>
+                {Icon && <Icon className="h-4 w-4 text-blue-600" />}
                 {FILTER_LABELS[key]}
               </label>
               <Select
@@ -177,7 +206,8 @@ export function InventoryFilters({
                 ))}
               </Select>
             </div>
-          ))}
+          )
+          })}
         </div>
       </div>
 

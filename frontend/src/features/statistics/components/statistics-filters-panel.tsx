@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label'
 import { Select } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
+import { Calendar, Briefcase, Building2, Settings } from 'lucide-react'
 
 interface StatisticsFiltersPanelProps {
   filters: BillingFilters
@@ -32,19 +33,32 @@ export const StatisticsFiltersPanel = memo(function StatisticsFiltersPanel({
     onFilterChange(key, event.target.value)
   }
 
+  const getIcon = (key: BillingFilterKey) => {
+    switch (key) {
+      case 'year':
+      case 'month':
+        return Calendar
+      case 'service':
+        return Briefcase
+      case 'provider':
+        return Building2
+      case 'maintenanceType':
+        return Settings
+      default:
+        return null
+    }
+  }
+
   return (
     <Card className="overflow-hidden border border-emerald-200 shadow-sm">
-      <div className="bg-emerald-50 px-6 py-5 border-b border-emerald-200">
-        <p className="text-sm font-semibold text-emerald-900">{title}</p>
-        <p className="text-sm text-emerald-700">{description}</p>
-      </div>
-      <div className="space-y-6 px-6 pb-6 pt-6">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="px-6 pb-6 pt-6">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-5">
           {filterFields.map((field) => {
-            const isFilled = Boolean(filters[field.key])
+            const Icon = getIcon(field.key)
             return (
               <div key={field.key} className="space-y-2">
-                <Label htmlFor={`filter-${field.key}`} className="text-sm font-medium text-slate-700">
+                <Label htmlFor={`filter-${field.key}`} className="flex items-center gap-2 text-sm font-medium text-slate-700">
+                  {Icon && <Icon className="h-4 w-4 text-emerald-600" />}
                   {field.label}
                 </Label>
                 <Select
@@ -52,7 +66,7 @@ export const StatisticsFiltersPanel = memo(function StatisticsFiltersPanel({
                   value={filters[field.key]}
                   onChange={handleSelectChange(field.key)}
                   aria-label={field.ariaLabel}
-                  className="h-11 rounded-2xl border-slate-200 bg-white text-slate-900"
+                  className="h-11 rounded-2xl border-slate-200 bg-white text-slate-900 w-full"
                 >
                   <option value="">{field.placeholder}</option>
                   {field.options.map((option) => (
@@ -66,14 +80,7 @@ export const StatisticsFiltersPanel = memo(function StatisticsFiltersPanel({
           })}
         </div>
 
-        <div className="flex flex-wrap items-center justify-end gap-3 border-t border-slate-200 pt-4">
-          <Button type="button" variant="ghost" onClick={onResetFilters} className="text-slate-600 hover:text-slate-900">
-            Limpiar filtros
-          </Button>
-          <Button type="button" onClick={() => onApplyFilters?.()} className="min-w-[160px]">
-            Aplicar filtros
-          </Button>
-        </div>
+        {/* Botones eliminados, filtros se aplican automáticamente */}
       </div>
     </Card>
   )
