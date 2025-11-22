@@ -38,7 +38,10 @@ const indicators = [
     pendientes: 6,
     mes: 'Noviembre 2025',
     icon: AlertCircle,
-    color: 'red'
+    color: 'red',
+    mesActual: 21,
+    mesAnterior: 24,
+    añoTotal: 245
   }
 ]
 
@@ -69,6 +72,7 @@ export function MetricsIndicators() {
       {indicators.map((indicator) => {
         const colors = colorClasses[indicator.color as keyof typeof colorClasses]
         const Icon = indicator.icon
+        const isCorrectivo = indicator.title === 'Mantenimientos correctivos'
         
         return (
           <Card
@@ -89,34 +93,61 @@ export function MetricsIndicators() {
               </div>
 
               <div className="mt-3 space-y-2">
-                <div className="flex items-baseline gap-2">
-                  <span className={`text-3xl font-bold ${colors.text}`}>
-                    {indicator.percentage}%
-                  </span>
-                  <div className={`flex items-center gap-0.5 text-xs font-medium ${indicator.trendUp ? 'text-emerald-600' : 'text-red-600'}`}>
-                    {indicator.trendUp ? (
-                      <TrendingUp className="h-3 w-3" />
-                    ) : (
-                      <TrendingDown className="h-3 w-3" />
-                    )}
-                    {indicator.trend}
-                  </div>
-                </div>
+                {isCorrectivo ? (
+                  <>
+                    <div className="flex items-baseline gap-2">
+                      <span className={`text-3xl font-bold ${colors.text}`}>
+                        {indicator.mesActual}
+                      </span>
+                    </div>
 
-                <div className="grid grid-cols-3 gap-2 border-t border-slate-200/60 pt-2">
-                  <div className="text-center">
-                    <p className="text-xs text-slate-500">Total</p>
-                    <p className="text-sm font-semibold text-slate-900">{indicator.total}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xs text-slate-500">Completados</p>
-                    <p className="text-sm font-semibold text-emerald-600">{indicator.completados}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xs text-slate-500">Pendientes</p>
-                    <p className="text-sm font-semibold text-amber-600">{indicator.pendientes}</p>
-                  </div>
-                </div>
+                    <div className="grid grid-cols-3 gap-2 border-t border-slate-200/60 pt-2">
+                      <div className="text-center">
+                        <p className="text-xs text-slate-500">Mes pasado</p>
+                        <p className="text-sm font-semibold text-slate-900">{indicator.mesAnterior}</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs text-slate-500">En el año</p>
+                        <p className="text-sm font-semibold text-slate-900">{indicator.añoTotal}</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs text-slate-500">Pendientes</p>
+                        <p className="text-sm font-semibold text-amber-600">{indicator.pendientes}</p>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex items-baseline gap-2">
+                      <span className={`text-3xl font-bold ${colors.text}`}>
+                        {indicator.percentage}%
+                      </span>
+                      <div className={`flex items-center gap-0.5 text-xs font-medium ${indicator.trendUp ? 'text-emerald-600' : 'text-red-600'}`}>
+                        {indicator.trendUp ? (
+                          <TrendingUp className="h-3 w-3" />
+                        ) : (
+                          <TrendingDown className="h-3 w-3" />
+                        )}
+                        {indicator.trend}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 border-t border-slate-200/60 pt-2">
+                      <div className="text-center">
+                        <p className="text-xs text-slate-500">Total</p>
+                        <p className="text-sm font-semibold text-slate-900">{indicator.total}</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs text-slate-500">Completados</p>
+                        <p className="text-sm font-semibold text-emerald-600">{indicator.completados}</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs text-slate-500">Pendientes</p>
+                        <p className="text-sm font-semibold text-amber-600">{indicator.pendientes}</p>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </Card>
