@@ -5,30 +5,20 @@ import {
     X,
     Calendar,
     ClipboardList,
-    Wrench,
-    Ruler,
-    Award,
-    Save,
     FileText,
-    ChevronDown
+    Settings
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Input } from '@/components/ui/input'
-import { Select } from '@/components/ui/select'
 import type { EquipmentRecord, MetrologicalPlanning, MetrologicalRecord } from '@/features/inventory/data/mock-equipment'
 import { cn } from '@/lib/cn'
+import { MaintenancePlanningModal } from './maintenance-planning-modal'
 
 interface MetrologicalHistoryModalProps {
     isOpen: boolean
     equipment: EquipmentRecord | null
     onClose: () => void
 }
-
-const MONTHS = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-]
 
 export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: MetrologicalHistoryModalProps) {
     if (!isOpen || !equipment) return null
@@ -37,48 +27,28 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
     const [planning, setPlanning] = useState<MetrologicalPlanning>(equipment.planning || {
         preventiveFrequency: 0,
         nextPreventiveMonth: '',
+        preventiveProvider: '',
+        preventiveCost: 0,
         calibrationFrequency: 0,
         nextCalibrationMonth: '',
+        calibrationProvider: '',
+        calibrationCost: 0,
         correctiveFrequency: 0,
-        nextCorrectiveMonth: ''
+        nextCorrectiveMonth: '',
+        correctiveProvider: '',
+        correctiveCost: 0
     })
-
-    // Estado para controlar qué tipos de mantenimiento aplican
-    const [hasPreventive, setHasPreventive] = useState(true)
-    const [hasCalibration, setHasCalibration] = useState(true)
-    const [hasCorrective, setHasCorrective] = useState(false)
 
     // Estado para el registro seleccionado (detalle)
     const [selectedRecord, setSelectedRecord] = useState<MetrologicalRecord | null>(null)
 
-    // Estado para controlar si la sección de planificación está expandida
-    const [isPlanningExpanded, setIsPlanningExpanded] = useState(false)
+    // Estado para controlar si el modal de planificación está abierto
+    const [isPlanningModalOpen, setIsPlanningModalOpen] = useState(false)
 
-    // Estado para controlar si hay cambios sin guardar
-    const [isDirty, setIsDirty] = useState(false)
-
-    // Efecto para detectar cambios en la planificación
-    useEffect(() => {
-        if (!equipment.planning) {
-            setIsDirty(true) // Si no había planning y ahora hay (estado inicial), asume cambio si se edita
-            return
-        }
-
-        const hasChanges =
-            planning.preventiveFrequency !== equipment.planning.preventiveFrequency ||
-            planning.nextPreventiveMonth !== equipment.planning.nextPreventiveMonth ||
-            planning.calibrationFrequency !== equipment.planning.calibrationFrequency ||
-            planning.nextCalibrationMonth !== equipment.planning.nextCalibrationMonth ||
-            planning.correctiveFrequency !== equipment.planning.correctiveFrequency ||
-            planning.nextCorrectiveMonth !== equipment.planning.nextCorrectiveMonth
-
-        setIsDirty(hasChanges)
-    }, [planning, equipment.planning])
-
-    const handleSavePlanning = () => {
-        console.log('Guardando planificación:', planning)
+    const handleSavePlanning = (newPlanning: MetrologicalPlanning) => {
+        setPlanning(newPlanning)
+        console.log('Guardando planificación:', newPlanning)
         // Aquí iría la lógica para guardar en backend
-        setIsDirty(false) // Simular guardado
     }
 
     return (
@@ -177,19 +147,19 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
                                                     <span className="font-semibold text-slate-700">Próximos Mantenimientos:</span>
                                                 </div>
                                                 <div className="flex gap-6 text-sm">
-                                                    {hasPreventive && planning.nextPreventiveMonth && (
+                                                    {planning.nextPreventiveMonth && (
                                                         <div className="flex items-center gap-2">
                                                             <Badge variant="info">Preventivo</Badge>
                                                             <span className="text-slate-600">{planning.nextPreventiveMonth}</span>
                                                         </div>
                                                     )}
-                                                    {hasCalibration && planning.nextCalibrationMonth && (
+                                                    {planning.nextCalibrationMonth && (
                                                         <div className="flex items-center gap-2">
                                                             <Badge variant="secondary">Calibración</Badge>
                                                             <span className="text-slate-600">{planning.nextCalibrationMonth}</span>
                                                         </div>
                                                     )}
-                                                    {hasCorrective && planning.nextCorrectiveMonth && (
+                                                    {planning.nextCorrectiveMonth && (
                                                         <div className="flex items-center gap-2">
                                                             <Badge variant="warning">Correctivo</Badge>
                                                             <span className="text-slate-600">{planning.nextCorrectiveMonth}</span>
@@ -204,172 +174,19 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
                         </div>
                     </section>
 
-                    {/* 2. Planificación */}
-                    <section className="space-y-4 pt-4 border-t border-slate-100">
-                        <div className="flex items-center justify-between">
-                            <button
-                                onClick={() => setIsPlanningExpanded(!isPlanningExpanded)}
-                                className="flex items-center gap-2 hover:bg-slate-50 px-3 py-2 rounded-lg transition-colors flex-1"
-                            >
-                                <ClipboardList className="h-5 w-5 text-slate-500" />
-                                <h3 className="text-lg font-bold text-slate-800">Planificación de Eventos</h3>
-                                <ChevronDown className={cn(
-                                    "h-5 w-5 text-slate-400 transition-transform duration-200",
-                                    isPlanningExpanded && "rotate-180"
-                                )} />
-                            </button>
-                            {isDirty && (
-                                <Button onClick={handleSavePlanning} size="sm" className="bg-blue-600 hover:bg-blue-700 text-white animate-in fade-in zoom-in duration-200">
-                                    <Save className="mr-2 h-4 w-4" />
-                                    Guardar Planificación
-                                </Button>
-                            )}
-                        </div>
-
-                        {isPlanningExpanded && (
-                            <div className="grid gap-6 md:grid-cols-3">
-                                {/* Card Mantenimiento Preventivo */}
-                                < div className={cn(
-                                    "rounded-xl border p-5 space-y-4 transition-opacity",
-                                    hasPreventive ? "border-blue-100 bg-blue-50/30" : "border-slate-200 bg-slate-50/30 opacity-60"
-                                )}>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2 text-blue-700 font-semibold">
-                                            <Wrench className="h-5 w-5" />
-                                            <h4>Mantenimiento Preventivo</h4>
-                                        </div>
-                                        <label className="flex items-center gap-2 cursor-pointer">
-                                            <input
-                                                type="checkbox"
-                                                checked={hasPreventive}
-                                                onChange={(e) => setHasPreventive(e.target.checked)}
-                                                className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                                            />
-                                            <span className="text-xs text-slate-600">Aplica</span>
-                                        </label>
-                                    </div>
-
-                                    <div className="space-y-3">
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-slate-600">Frecuencia (veces/año)</label>
-                                            <Input
-                                                type="number"
-                                                min="0"
-                                                value={planning.preventiveFrequency}
-                                                onChange={(e) => setPlanning({ ...planning, preventiveFrequency: parseInt(e.target.value) || 0 })}
-                                                className="bg-white"
-                                                disabled={!hasPreventive}
-                                            />
-                                        </div>
-
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-slate-600">Próximo mes</label>
-                                            <Select
-                                                value={planning.nextPreventiveMonth}
-                                                onChange={(e) => setPlanning({ ...planning, nextPreventiveMonth: e.target.value })}
-                                                disabled={!hasPreventive}
-                                            >
-                                                <option value="" disabled>Seleccionar mes</option>
-                                                {MONTHS.map(month => (
-                                                    <option key={month} value={month}>{month}</option>
-                                                ))}
-                                            </Select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Card Calibración */}
-                                <div className={cn(
-                                    "rounded-xl border p-5 space-y-4 transition-opacity",
-                                    hasCalibration ? "border-purple-100 bg-purple-50/30" : "border-slate-200 bg-slate-50/30 opacity-60"
-                                )}>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2 text-purple-700 font-semibold">
-                                            <Ruler className="h-5 w-5" />
-                                            <h4>Calibración</h4>
-                                        </div>
-                                        <label className="flex items-center gap-2 cursor-pointer">
-                                            <input
-                                                type="checkbox"
-                                                checked={hasCalibration}
-                                                onChange={(e) => setHasCalibration(e.target.checked)}
-                                                className="w-4 h-4 rounded border-slate-300 text-purple-600 focus:ring-purple-500"
-                                            />
-                                            <span className="text-xs text-slate-600">Aplica</span>
-                                        </label>
-                                    </div>
-
-                                    <div className="space-y-3">
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-slate-600">Frecuencia (veces/año)</label>
-                                            <Input
-                                                type="number"
-                                                min="0"
-                                                value={planning.calibrationFrequency}
-                                                onChange={(e) => setPlanning({ ...planning, calibrationFrequency: parseInt(e.target.value) || 0 })}
-                                                className="bg-white"
-                                                disabled={!hasCalibration}
-                                            />
-                                        </div>
-
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-slate-600">Próximo mes</label>
-                                            <Select
-                                                value={planning.nextCalibrationMonth}
-                                                onChange={(e) => setPlanning({ ...planning, nextCalibrationMonth: e.target.value })}
-                                                disabled={!hasCalibration}
-                                            >
-                                                <option value="" disabled>Seleccionar mes</option>
-                                                {MONTHS.map(month => (
-                                                    <option key={month} value={month}>{month}</option>
-                                                ))}
-                                            </Select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Card Mantenimiento Correctivo */}
-                                <div className={cn(
-                                    "rounded-xl border p-5 space-y-4 transition-opacity",
-                                    hasCorrective ? "border-amber-100 bg-amber-50/30" : "border-slate-200 bg-slate-50/30 opacity-60"
-                                )}>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2 text-amber-700 font-semibold">
-                                            <Award className="h-5 w-5" />
-                                            <h4>Mantenimiento Correctivo</h4>
-                                        </div>
-                                        <label className="flex items-center gap-2 cursor-pointer">
-                                            <input
-                                                type="checkbox"
-                                                checked={hasCorrective}
-                                                onChange={(e) => setHasCorrective(e.target.checked)}
-                                                className="w-4 h-4 rounded border-slate-300 text-amber-600 focus:ring-amber-500"
-                                            />
-                                            <span className="text-xs text-slate-600">Aplica</span>
-                                        </label>
-                                    </div>
-
-                                    <div className="space-y-3">
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-medium text-slate-600">Mes</label>
-                                            <Select
-                                                value={planning.nextCorrectiveMonth}
-                                                onChange={(e) => setPlanning({ ...planning, nextCorrectiveMonth: e.target.value })}
-                                                disabled={!hasCorrective}
-                                            >
-                                                <option value="" disabled>Seleccionar mes</option>
-                                                {MONTHS.map(month => (
-                                                    <option key={month} value={month}>{month}</option>
-                                                ))}
-                                            </Select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </section>
                 </div>
-            </div >
+
+                {/* Footer con botón de planificación */}
+                <div className="border-t border-slate-200 bg-slate-50 px-8 py-4 flex justify-end">
+                    <Button
+                        onClick={() => setIsPlanningModalOpen(true)}
+                        className="bg-blue-600 hover:bg-blue-700 text-white"
+                    >
+                        <Settings className="mr-2 h-4 w-4" />
+                        Planificación de Mantenimientos
+                    </Button>
+                </div>
+            </div>
 
             {/* Modal de Detalle de Registro */}
             {
@@ -439,6 +256,14 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
                     </div>
                 )
             }
-        </div >
+
+            {/* Modal de Planificación de Mantenimientos */}
+            <MaintenancePlanningModal
+                isOpen={isPlanningModalOpen}
+                planning={planning}
+                onClose={() => setIsPlanningModalOpen(false)}
+                onSave={handleSavePlanning}
+            />
+        </div>
     )
 }

@@ -37,7 +37,21 @@ export const maintenanceTypes: { value: MaintenanceType; label: string }[] = [
   { value: 'calibracion', label: 'Calibración' }
 ]
 
+export const yearOptions: FilterOption[] = [
+  { value: '2025', label: '2025' },
+  { value: '2024', label: '2024' },
+  { value: '2023', label: '2023' }
+]
+
 export const filterFields: FilterField[] = [
+  {
+    key: 'year',
+    label: 'Año',
+    placeholder: 'Selecciona un año',
+    ariaLabel: 'Seleccionar año de facturación',
+    helpText: 'Filtra por año.',
+    options: yearOptions
+  },
   {
     key: 'month',
     label: 'Mes',
@@ -73,6 +87,7 @@ export const filterFields: FilterField[] = [
 ]
 
 export const defaultFilters: BillingFilters = {
+  year: new Date().getFullYear().toString(),
   month: '',
   service: '',
   provider: '',

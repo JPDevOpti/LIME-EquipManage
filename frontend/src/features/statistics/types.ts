@@ -1,6 +1,7 @@
 export type MaintenanceType = 'preventivo' | 'correctivo' | 'calibracion'
 
 export interface BillingFilters {
+  year: string
   month: string
   provider: string
   service: string

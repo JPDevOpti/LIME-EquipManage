@@ -25,10 +25,16 @@ export interface MetrologicalRecord {
 export interface MetrologicalPlanning {
   preventiveFrequency: number
   nextPreventiveMonth: string
+  preventiveProvider?: string
+  preventiveCost?: number
   calibrationFrequency: number
   nextCalibrationMonth: string
+  calibrationProvider?: string
+  calibrationCost?: number
   correctiveFrequency: number
   nextCorrectiveMonth: string
+  correctiveProvider?: string
+  correctiveCost?: number
 }
 
 export interface EquipmentRecord {
