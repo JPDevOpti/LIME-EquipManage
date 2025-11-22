@@ -10,17 +10,19 @@ import { cn } from '@/lib/cn'
 import {
   AlertCircle,
   FileText,
-  Image as ImageIcon,
+  FolderOpen,
   MapPin,
   Package2,
   PackageSearch,
   Building2 as Hospital,
   ShieldCheck,
   ShieldX,
-  User
+  User,
+  ClipboardList
 } from 'lucide-react'
-import { EquipmentImageModal } from './equipment-image-modal'
+
 import { EquipmentDetailsModal } from './equipment-details-modal'
+import { MetrologicalHistoryModal } from './metrological-history-modal'
 
 interface EquipmentTableProps {
   equipment: EquipmentRecord[]
@@ -197,26 +199,31 @@ const desktopColumns: ColumnConfig[] = [
   {
     key: 'invima',
     label: 'Invima',
-    width: '7%',
+    width: '10%',
     align: 'center',
     render: (item) => {
       const hasCertificate = item.invimaStatus === 'Con registro'
       const Icon = hasCertificate ? ShieldCheck : ShieldX
       return (
-        <div className="space-y-2 text-center text-sm">
+        <div className="space-y-1.5 text-center text-sm">
           <div className="flex justify-center">
             <span className={cn('rounded-full p-1.5', hasCertificate ? 'text-emerald-500' : 'text-slate-400')}>
               <Icon className="h-5 w-5" />
               <span className="sr-only">{hasCertificate ? 'Con registro Invima' : 'Sin registro Invima'}</span>
             </span>
           </div>
+          {hasCertificate && item.invimaCode && (
+            <div className="flex justify-center">
+              <Badge size="sm" variant="info" className="font-mono text-[10px]">
+                {item.invimaCode}
+              </Badge>
+            </div>
+          )}
           {item.riskClass && (
-            <div className="space-y-1">
-              <div className="flex justify-center">
-                <Badge size="sm" variant="secondary">
-                  {item.riskClass}
-                </Badge>
-              </div>
+            <div className="flex justify-center">
+              <Badge size="sm" variant="secondary">
+                {item.riskClass}
+              </Badge>
             </div>
           )}
         </div>
@@ -249,15 +256,10 @@ export function EquipmentTable({
   emptyMessage = 'No se encontraron equipos con los filtros aplicados.'
 }: EquipmentTableProps) {
   const [selectedIds, setSelectedIds] = useState<string[]>([])
-  const [imageModalOpen, setImageModalOpen] = useState(false)
   const [lifeSheetModalOpen, setLifeSheetModalOpen] = useState(false)
+  const [metrologyModalOpen, setMetrologyModalOpen] = useState(false)
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentRecord | null>(null)
   const selectAllRef = useRef<HTMLInputElement>(null)
-
-  const handleViewImage = (item: EquipmentRecord) => {
-    setSelectedEquipment(item)
-    setImageModalOpen(true)
-  }
 
   const handleEdit = (item: EquipmentRecord) => {
     // Navegar a la página de edición
@@ -269,34 +271,51 @@ export function EquipmentTable({
     setLifeSheetModalOpen(true)
   }
 
+  const handleViewDocuments = (item: EquipmentRecord) => {
+    // TODO: Implementar navegación a Drive
+    console.log('Ver documentos de:', item.name)
+  }
+
+  const handleViewMetrology = (item: EquipmentRecord) => {
+    setSelectedEquipment(item)
+    setMetrologyModalOpen(true)
+  }
+
   // Columna de acciones con acceso a los handlers
   const actionsColumn = {
     key: 'actions',
     label: 'Acciones',
-    width: '7%',
+    width: '10%',
     align: 'center' as const,
     render: (item: EquipmentRecord) => (
       <div className="flex items-center justify-center gap-2">
-        <button 
-          onClick={() => handleViewImage(item)}
-          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600" 
-          aria-label="Gestionar imágenes"
-        >
-          <ImageIcon className="h-4 w-4" />
-        </button>
-        <button 
-          onClick={() => handleEdit(item)}
-          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600" 
-          aria-label="Buscar detalles del equipo"
-        >
-          <PackageSearch className="h-4 w-4" />
-        </button>
-        <button 
+        <button
           onClick={() => handleViewLifeSheet(item)}
-          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600" 
+          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600"
           aria-label="Ver detalles del equipo"
         >
           <FileText className="h-4 w-4" />
+        </button>
+        <button
+          onClick={() => handleEdit(item)}
+          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600"
+          aria-label="Editar equipo"
+        >
+          <PackageSearch className="h-4 w-4" />
+        </button>
+        <button
+          onClick={() => handleViewDocuments(item)}
+          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600"
+          aria-label="Ver documentos"
+        >
+          <FolderOpen className="h-4 w-4" />
+        </button>
+        <button
+          onClick={() => handleViewMetrology(item)}
+          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-purple-200 hover:text-purple-600"
+          aria-label="Ver historial metrológico"
+        >
+          <ClipboardList className="h-4 w-4" />
         </button>
       </div>
     )
@@ -525,26 +544,26 @@ export function EquipmentTable({
                       </div>
                     </div>
                     <div className="mt-3 flex items-center justify-center gap-2">
-                      <button 
-                        onClick={() => handleViewImage(item)}
-                        className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600"
-                        aria-label="Gestionar imágenes"
-                      >
-                        <ImageIcon className="h-4 w-4" />
-                      </button>
-                      <button 
-                        onClick={() => handleEdit(item)}
-                        className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600"
-                        aria-label="Buscar detalles del equipo"
-                      >
-                        <PackageSearch className="h-4 w-4" />
-                      </button>
-                      <button 
+                      <button
                         onClick={() => handleViewLifeSheet(item)}
                         className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-emerald-200 hover:text-emerald-600"
                         aria-label="Ver detalles del equipo"
                       >
                         <FileText className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => handleEdit(item)}
+                        className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600"
+                        aria-label="Editar equipo"
+                      >
+                        <PackageSearch className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => handleViewDocuments(item)}
+                        className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600"
+                        aria-label="Ver documentos en Drive"
+                      >
+                        <FolderOpen className="h-4 w-4" />
                       </button>
                     </div>
                   </div>
@@ -581,17 +600,17 @@ export function EquipmentTable({
       </div>
 
       {/* Modales */}
-      <EquipmentImageModal
-        isOpen={imageModalOpen}
-        equipment={selectedEquipment}
-        onClose={() => setImageModalOpen(false)}
-      />
-
       <EquipmentDetailsModal
         isOpen={lifeSheetModalOpen}
         equipment={selectedEquipment}
         onClose={() => setLifeSheetModalOpen(false)}
         onEdit={handleEdit}
+      />
+
+      <MetrologicalHistoryModal
+        isOpen={metrologyModalOpen}
+        equipment={selectedEquipment}
+        onClose={() => setMetrologyModalOpen(false)}
       />
     </div>
   )
