@@ -1,13 +1,13 @@
 #!/bin/zsh
-# Script de control para el frontend Next.js de BioEquipManager
+# Script de control para el frontend Next.js de EquipManage
 
 set -e
 
 ROOT_DIR=$(cd "$(dirname "$0")" && pwd)
 FRONTEND_DIR="${ROOT_DIR}/frontend"
 FRONTEND_PORT=${FRONTEND_PORT:-3000}
-LOG_FILE="${TMPDIR:-/tmp}/bioequipmanager-frontend.log"
-PID_FILE="${TMPDIR:-/tmp}/bioequipmanager-frontend.pid"
+LOG_FILE="${TMPDIR:-/tmp}/equipmanage-frontend.log"
+PID_FILE="${TMPDIR:-/tmp}/equipmanage-frontend.pid"
 
 ensure_prerequisites() {
   if ! command -v node >/dev/null 2>&1; then
@@ -94,7 +94,7 @@ status_frontend() {
 
 show_help() {
   cat <<EOF
-Script de control frontend BioEquipManager
+Script de control frontend EquipManage
 
 Comandos disponibles:
   ./run.sh start   - Inicia el servidor de desarrollo

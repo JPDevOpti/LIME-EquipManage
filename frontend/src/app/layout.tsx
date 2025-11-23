@@ -11,7 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'BioEquipManager',
+  title: 'EquipManage',
   description: 'Suite para administración de equipos biomédicos',
   icons: {
     icon: '/FavIco.ico'

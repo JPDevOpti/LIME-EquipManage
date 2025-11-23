@@ -48,7 +48,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                 collapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'
               )}
             >
-              <p className="text-sm font-semibold text-slate-900">BioEquipManager</p>
+              <p className="text-sm font-semibold text-slate-900">EquipManage</p>
               <p className="text-xs text-slate-600">Gestión de equipos biomédicos</p>
             </div>
           </div>

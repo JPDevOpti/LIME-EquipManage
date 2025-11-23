@@ -1,5 +1,0 @@
-export { default as ErrorMessage } from './ErrorMessage.vue'
-export { default as EquipmentSuccessCard } from './EquipmentSuccessCard.vue'
-export { default as Notification } from './Notification.vue'
-export { default as ValidationAlert } from './ValidationAlert.vue'
-export { default as ConfirmDialog } from './ConfirmDialog.vue'

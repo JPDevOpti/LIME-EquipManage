@@ -1,1 +1,1 @@
-# BioControl-System
+# EquipManage

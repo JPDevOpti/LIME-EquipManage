@@ -399,7 +399,7 @@ export default function LandingPage() {
                   height={40}
                   className="h-10 w-auto object-contain"
                 />
-                <span className="text-xl font-bold text-slate-900">BioEquipManager</span>
+                <span className="text-xl font-bold text-slate-900">EquipManage</span>
               </div>
               <p className="max-w-md text-sm leading-relaxed text-slate-600">
                 Sistema integral de gestión de equipos biomédicos desarrollado para garantizar 
@@ -481,7 +481,7 @@ export default function LandingPage() {
           
           <div className="mt-12 border-t border-slate-200 pt-8 text-center">
             <p className="text-sm text-slate-600">
-              © {new Date().getFullYear()} BioEquipManager - Laboratorio LIME, Universidad de Antioquia
+              © {new Date().getFullYear()} EquipManage - Laboratorio LIME, Universidad de Antioquia
             </p>
             <p className="mt-2 text-xs text-slate-500">
               Sistema de gestión de equipos biomédicos para instituciones de salud

@@ -1,6 +1,0 @@
-export { default as FiltersBar } from './FiltersBar.vue'
-export { default as EquipmentTable } from './EquipmentTable.vue'
-export { default as EquipmentDetailsModal } from './EquipmentDetailsModal.vue'
-export { default as EquipmentLifeSheetModal } from './EquipmentLifeSheetModal.vue'
-export { default as EquipmentLifeSheetEditModal } from './EquipmentLifeSheetEditModal.vue'
-export { default as EquipmentImageManagerModal } from './EquipmentImageManagerModal.vue'
