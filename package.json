@@ -1,0 +1,25 @@
+{
+  "name": "equipmanage",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sistema integral de gestión de equipos biomédicos",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start",
+    "lint": "cd frontend && npm run lint",
+    "install:all": "npm install && cd frontend && npm install"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "equipmanage",
+    "biomedical",
+    "equipment",
+    "management"
+  ],
+  "author": "JPDevOpti",
+  "license": "MIT"
+}
