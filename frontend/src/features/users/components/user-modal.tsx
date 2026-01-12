@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
-import { X, UserPlus, Save, User } from 'lucide-react'
+import { X, UserPlus, Save, User, AlertTriangle } from 'lucide-react'
 import { cn } from '@/lib/cn'
 
 interface UserModalProps {
