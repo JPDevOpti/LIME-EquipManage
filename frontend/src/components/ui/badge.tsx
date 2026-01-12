@@ -1,9 +1,10 @@
+import React from 'react'
 import { cn } from '@/lib/cn'
 
 type BadgeVariant = 'default' | 'success' | 'warning' | 'error' | 'info' | 'secondary'
 type BadgeSize = 'sm' | 'md' | 'lg'
 
-interface BadgeProps {
+interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant
   size?: BadgeSize
   className?: string
@@ -25,7 +26,7 @@ const sizeStyles: Record<BadgeSize, string> = {
   lg: 'px-3 py-1.5 text-base'
 }
 
-export function Badge({ variant = 'default', size = 'md', className, children }: BadgeProps) {
+export function Badge({ variant = 'default', size = 'md', className, children, ...props }: BadgeProps) {
   return (
     <span
       className={cn(
@@ -34,6 +35,7 @@ export function Badge({ variant = 'default', size = 'md', className, children }:
         sizeStyles[size],
         className
       )}
+      {...props}
     >
       {children}
     </span>
