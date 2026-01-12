@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Search, Package2, MapPin, Building2, User } from 'lucide-react'
 import { cn } from '@/lib/cn'
 
-interface EquipmentSearchResult {
+export interface EquipmentSearchResult {
   id: string
   code: string
   udeaCode: string
@@ -88,7 +88,7 @@ async function searchEquipment(query: string): Promise<EquipmentSearchResult[]> 
 }
 
 interface EquipmentSearchProps {
-  onSelectEquipment?: (id: string) => void
+  onSelectEquipment?: (equipment: EquipmentSearchResult) => void
 }
 
 export function EquipmentSearch({ onSelectEquipment }: EquipmentSearchProps) {
@@ -114,11 +114,11 @@ export function EquipmentSearch({ onSelectEquipment }: EquipmentSearchProps) {
     }
   }
 
-  const handleSelectEquipment = (id: string) => {
+  const handleSelectEquipment = (equipment: EquipmentSearchResult) => {
     if (onSelectEquipment) {
-      onSelectEquipment(id)
+      onSelectEquipment(equipment)
     } else {
-      router.push(`/edit-equipment/${id}`)
+      router.push(`/edit-equipment/${equipment.id}`)
     }
   }
 
@@ -178,11 +178,11 @@ export function EquipmentSearch({ onSelectEquipment }: EquipmentSearchProps) {
                 key={equipment.id}
                 role="button"
                 tabIndex={0}
-                onClick={() => handleSelectEquipment(equipment.id)}
+                onClick={() => handleSelectEquipment(equipment)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
-                    handleSelectEquipment(equipment.id)
+                    handleSelectEquipment(equipment)
                   }
                 }}
                 className={cn(

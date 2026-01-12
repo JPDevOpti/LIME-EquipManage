@@ -10,6 +10,7 @@ import { DocumentInventorySection } from '@/features/add-equipment/components/do
 import { MetrologicalAdminSection } from '@/features/add-equipment/components/metrological-admin-section'
 import { OperatingConditionsSection } from '@/features/add-equipment/components/operating-conditions-section'
 import type { EquipmentFormData } from '@/features/add-equipment/types'
+import type { EquipmentSearchResult } from '@/features/add-equipment/components/equipment-search'
 
 // Función simulada para cargar datos del equipo (reemplazar con llamada a API)
 async function loadEquipmentData(id: string): Promise<EquipmentFormData | null> {
@@ -128,7 +129,8 @@ export default function EditEquipmentPage() {
     otherConditions: '',
   })
 
-  const handleSelectEquipment = async (id: string) => {
+  const handleSelectEquipment = async (equipment: EquipmentSearchResult) => {
+    const id = equipment.id
     setSelectedEquipmentId(id)
     setLoading(true)
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect, Fragment } from 'react'
-import { X, Settings, AlertTriangle, Gauge, CheckCircle, Save } from 'lucide-react'
+import { X, Settings, AlertTriangle, Gauge, CheckCircle, Save, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -31,6 +31,7 @@ interface MaintenanceEventsModalProps {
     completionNotes?: string
   }) => void
   onUpdateEvent?: (event: MaintenanceEvent) => void
+  onAddEvent?: () => void
 }
 
 const monthNames = [
@@ -47,9 +48,14 @@ export function MaintenanceEventsModal({
   onClose,
   onUpdateProcess,
   onComplete,
-  onUpdateEvent
+  onUpdateEvent,
+  onAddEvent
 }: MaintenanceEventsModalProps) {
+
+
+  // State
   const [selectedEventForComplete, setSelectedEventForComplete] = useState<MaintenanceEvent | null>(null)
+
   const [isCompleteModalOpen, setIsCompleteModalOpen] = useState(false)
   const [expandedEventId, setExpandedEventId] = useState<string | null>(null)
   const [editForm, setEditForm] = useState({
@@ -58,6 +64,21 @@ export function MaintenanceEventsModal({
     cost: ''
   })
   const selectRefs = useRef<Record<string, HTMLSelectElement>>({})
+
+
+
+// ... render ...
+
+// Header logic changes based on viewMode
+
+
+// Content logic
+// If viewMode === 'list', render table.
+// Else render search or form.
+
+// Footer logic
+// If viewMode !== 'list', show Back/Cancel and potentially Save buttons.
+
 
   const toggleEdit = (event: MaintenanceEvent) => {
     if (expandedEventId === event.id) {
@@ -114,6 +135,8 @@ export function MaintenanceEventsModal({
 
   const modalSubtitle = `Lista de eventos de mantenimiento ${type?.toLowerCase() || ''}`
 
+
+
   const headerIcon = type === 'Preventivo' ? Settings : type === 'Correctivo' ? AlertTriangle : Gauge
   const headerIconClass = type === 'Preventivo' 
     ? 'bg-cyan-50' 
@@ -126,6 +149,8 @@ export function MaintenanceEventsModal({
     ? 'text-orange-600'
     : 'text-emerald-600'
 
+  // ... (keep helpers)
+
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('es-CO', {
       style: 'currency',
@@ -133,6 +158,8 @@ export function MaintenanceEventsModal({
       minimumFractionDigits: 0
     }).format(amount)
   }
+
+  // ... (keep helpers)
 
   const getEquipmentStatusClass = (status?: string) => {
     const statusClasses: Record<string, string> = {
@@ -153,43 +180,43 @@ export function MaintenanceEventsModal({
   }
 
   const handleProcessChange = async (eventId: string, process: string, event: MaintenanceEvent) => {
-    if (process === 'Completado') {
-      setSelectedEventForComplete(event)
-      setIsCompleteModalOpen(true)
-      // Restaurar el valor anterior del select
-      const selectElement = selectRefs.current[eventId]
-      if (selectElement) {
-        selectElement.value = event.process || ''
+      if (process === 'Completado') {
+        setSelectedEventForComplete(event)
+        setIsCompleteModalOpen(true)
+        // Restaurar el valor anterior del select
+        const selectElement = selectRefs.current[eventId]
+        if (selectElement) {
+          selectElement.value = event.process || ''
+        }
+      } else if (process && (process === 'En proceso' || process === 'Pendiente')) {
+        onUpdateProcess?.(eventId, process as 'En proceso' | 'Pendiente')
+      } else {
+        onUpdateProcess?.(eventId, '')
       }
-    } else if (process && (process === 'En proceso' || process === 'Pendiente')) {
-      onUpdateProcess?.(eventId, process as 'En proceso' | 'Pendiente')
-    } else {
-      onUpdateProcess?.(eventId, '')
     }
-  }
-
-  const handleComplete = (data: {
-    eventId: string
-    exactCompletionDate: string
-    reportNumber?: string
-    reportFile?: File
-    completionNotes?: string
-  }) => {
-    // Primero actualizar el proceso a Completado
-    onUpdateProcess?.(data.eventId, 'Completado')
-    // Luego emitir el evento de completado con los datos adicionales
-    onComplete?.(data)
-    // Cerrar el modal
-    setIsCompleteModalOpen(false)
-    setSelectedEventForComplete(null)
-  }
-
-  const closeCompleteModal = () => {
-    setIsCompleteModalOpen(false)
-    setSelectedEventForComplete(null)
-  }
-
-  const Icon = headerIcon
+  
+    const handleComplete = (data: {
+      eventId: string
+      exactCompletionDate: string
+      reportNumber?: string
+      reportFile?: File
+      completionNotes?: string
+    }) => {
+      // Primero actualizar el proceso a Completado
+      onUpdateProcess?.(data.eventId, 'Completado')
+      // Luego emitir el evento de completado con los datos adicionales
+      onComplete?.(data)
+      // Cerrar el modal
+      setIsCompleteModalOpen(false)
+      setSelectedEventForComplete(null)
+    }
+  
+    const closeCompleteModal = () => {
+      setIsCompleteModalOpen(false)
+      setSelectedEventForComplete(null)
+    }
+  
+    const Icon = headerIcon
 
   return (
     <>
@@ -418,9 +445,20 @@ export function MaintenanceEventsModal({
             <div className="text-sm text-slate-600">
               Total: <span className="font-semibold text-slate-900">{events.length}</span> evento{events.length !== 1 ? 's' : ''}
             </div>
-            <Button variant="outline" onClick={onClose}>
-              Cerrar
-            </Button>
+            <div className="flex gap-3">
+              {type === 'Correctivo' && (
+                <Button 
+                  className="bg-orange-600 hover:bg-orange-700 text-white"
+                  onClick={onAddEvent}
+                >
+                  <Plus className="mr-2 h-4 w-4" />
+                  Agregar
+                </Button>
+              )}
+              <Button variant="outline" onClick={onClose}>
+                Cerrar
+              </Button>
+            </div>
           </div>
         </div>
       </div>

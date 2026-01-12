@@ -8,6 +8,9 @@ import { useYearlyMaintenanceCalendar } from "@/features/calendar/hooks/useYearl
 import { maintenanceApi } from "@/features/calendar/services/maintenanceApi"
 import type { MaintenanceType } from "@/features/calendar/types"
 
+import { AddCorrectiveMaintenanceModal } from "@/features/calendar/components/add-corrective-maintenance-modal"
+import type { EquipmentSearchResult } from "@/features/add-equipment/components/equipment-search"
+
 export default function CalendarPage() {
   const {
     months,
@@ -18,6 +21,7 @@ export default function CalendarPage() {
   } = useYearlyMaintenanceCalendar()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isAddCorrectiveOpen, setIsAddCorrectiveOpen] = useState(false)
   const [selectedEvents, setSelectedEvents] = useState<any[]>([])
   const [selectedType, setSelectedType] = useState<MaintenanceType | null>(null)
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
@@ -40,6 +44,23 @@ export default function CalendarPage() {
     setSelectedType(null)
     setSelectedMonth(null)
     setSelectedEvents([])
+  }
+
+  function handleOpenAddCorrective() {
+    setIsModalOpen(false)
+    setIsAddCorrectiveOpen(true)
+  }
+
+  function handleSaveCorrective(data: {
+    equipment: EquipmentSearchResult
+    supplier: string
+    cost: number
+  }) {
+    console.log("Saving Corrective Maintenance:", data)
+    // TODO: Implement API call
+    setIsAddCorrectiveOpen(false)
+    // Optionally reopen list
+    // setIsModalOpen(true)
   }
 
   async function handleProcessUpdate(eventId: string, process: 'En proceso' | 'Pendiente' | 'Completado' | '') {
@@ -119,6 +140,14 @@ export default function CalendarPage() {
         onClose={closeModal}
         onUpdateProcess={handleProcessUpdate}
         onComplete={handleMaintenanceComplete}
+        onAddEvent={handleOpenAddCorrective}
+      />
+
+      {/* Modal de agregar correctivo */}
+      <AddCorrectiveMaintenanceModal
+        isOpen={isAddCorrectiveOpen}
+        onClose={() => setIsAddCorrectiveOpen(false)}
+        onSave={handleSaveCorrective}
       />
     </div>
   )
