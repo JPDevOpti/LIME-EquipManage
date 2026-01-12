@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
     X,
     Calendar,
@@ -11,7 +11,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import type { EquipmentRecord, MetrologicalPlanning, MetrologicalRecord } from '@/features/inventory/data/mock-equipment'
-import { cn } from '@/lib/cn'
 import { MaintenancePlanningModal } from './maintenance-planning-modal'
 
 interface MetrologicalHistoryModalProps {
@@ -24,17 +23,9 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
     // Estado local para la planificación (simulado)
     const [planning, setPlanning] = useState<MetrologicalPlanning>(equipment?.planning || {
         preventiveFrequency: 0,
-        nextPreventiveMonth: '',
-        preventiveProvider: '',
-        preventiveCost: 0,
+        preventiveEvents: [],
         calibrationFrequency: 0,
-        nextCalibrationMonth: '',
-        calibrationProvider: '',
-        calibrationCost: 0,
-        correctiveFrequency: 0,
-        nextCorrectiveMonth: '',
-        correctiveProvider: '',
-        correctiveCost: 0
+        calibrationEvents: []
     })
 
     // Estado para el registro seleccionado (detalle)
@@ -50,6 +41,9 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
         console.log('Guardando planificación:', newPlanning)
         // Aquí iría la lógica para guardar en backend
     }
+
+    const nextPreventive = planning.preventiveEvents?.[0]?.month
+    const nextCalibration = planning.calibrationEvents?.[0]?.month
 
     return (
         <div
@@ -116,7 +110,7 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
                                                 <td className="px-6 py-3">
                                                     <Badge
                                                         variant={
-                                                            record.type === 'Preventivo' ? 'info' :
+                                                            record.type === 'Mantenimiento Preventivo' ? 'info' :
                                                                 record.type === 'Calibración' ? 'secondary' :
                                                                     'warning'
                                                         }
@@ -147,22 +141,16 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
                                                     <span className="font-semibold text-slate-700">Próximos Mantenimientos:</span>
                                                 </div>
                                                 <div className="flex gap-6 text-sm">
-                                                    {planning.nextPreventiveMonth && (
+                                                    {nextPreventive && (
                                                         <div className="flex items-center gap-2">
                                                             <Badge variant="info">Preventivo</Badge>
-                                                            <span className="text-slate-600">{planning.nextPreventiveMonth}</span>
+                                                            <span className="text-slate-600">{nextPreventive}</span>
                                                         </div>
                                                     )}
-                                                    {planning.nextCalibrationMonth && (
+                                                    {nextCalibration && (
                                                         <div className="flex items-center gap-2">
                                                             <Badge variant="secondary">Calibración</Badge>
-                                                            <span className="text-slate-600">{planning.nextCalibrationMonth}</span>
-                                                        </div>
-                                                    )}
-                                                    {planning.nextCorrectiveMonth && (
-                                                        <div className="flex items-center gap-2">
-                                                            <Badge variant="warning">Correctivo</Badge>
-                                                            <span className="text-slate-600">{planning.nextCorrectiveMonth}</span>
+                                                            <span className="text-slate-600">{nextCalibration}</span>
                                                         </div>
                                                     )}
                                                 </div>
@@ -227,7 +215,7 @@ export function MetrologicalHistoryModal({ isOpen, equipment, onClose }: Metrolo
                                         <p className="text-xs font-medium text-slate-500 mb-1">Tipo</p>
                                         <Badge
                                             variant={
-                                                selectedRecord?.type === 'Preventivo' ? 'info' :
+                                                selectedRecord?.type === 'Mantenimiento Preventivo' ? 'info' :
                                                     selectedRecord?.type === 'Calibración' ? 'secondary' :
                                                         'warning'
                                             }

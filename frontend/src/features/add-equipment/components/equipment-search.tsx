@@ -70,16 +70,20 @@ async function searchEquipment(query: string): Promise<EquipmentSearchResult[]> 
     return []
   }
 
-  const lowerQuery = query.toLowerCase()
+  const normalizeText = (text: string) =>
+    text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
+  const normalizedQuery = normalizeText(query)
+
   return mockEquipment.filter(
     (eq) =>
-      eq.code.toLowerCase().includes(lowerQuery) ||
-      eq.udeaCode.toLowerCase().includes(lowerQuery) ||
-      eq.ipsCode.toLowerCase().includes(lowerQuery) ||
-      eq.ecriCode?.toLowerCase().includes(lowerQuery) ||
-      eq.name.toLowerCase().includes(lowerQuery) ||
-      eq.brand.toLowerCase().includes(lowerQuery) ||
-      eq.model.toLowerCase().includes(lowerQuery)
+      normalizeText(eq.code).includes(normalizedQuery) ||
+      normalizeText(eq.udeaCode).includes(normalizedQuery) ||
+      normalizeText(eq.ipsCode).includes(normalizedQuery) ||
+      (eq.ecriCode && normalizeText(eq.ecriCode).includes(normalizedQuery)) ||
+      normalizeText(eq.name).includes(normalizedQuery) ||
+      normalizeText(eq.brand).includes(normalizedQuery) ||
+      normalizeText(eq.model).includes(normalizedQuery)
   )
 }
 
@@ -94,22 +98,21 @@ export function EquipmentSearch({ onSelectEquipment }: EquipmentSearchProps) {
   const [isSearching, setIsSearching] = useState(false)
   const [hasSearched, setHasSearched] = useState(false)
 
-  useEffect(() => {
-    const timeoutId = setTimeout(async () => {
-      if (searchQuery.trim().length >= 2) {
-        setIsSearching(true)
-        const searchResults = await searchEquipment(searchQuery)
-        setResults(searchResults)
-        setIsSearching(false)
-        setHasSearched(true)
-      } else {
-        setResults([])
-        setHasSearched(false)
-      }
-    }, 300)
+  const handleSearch = async () => {
+    if (searchQuery.trim().length === 0) return
 
-    return () => clearTimeout(timeoutId)
-  }, [searchQuery])
+    setIsSearching(true)
+    const searchResults = await searchEquipment(searchQuery)
+    setResults(searchResults)
+    setIsSearching(false)
+    setHasSearched(true)
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
 
   const handleSelectEquipment = (id: string) => {
     if (onSelectEquipment) {
@@ -121,15 +124,26 @@ export function EquipmentSearch({ onSelectEquipment }: EquipmentSearchProps) {
 
   return (
     <div className="space-y-6">
-      <div className="relative">
-        <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-        <Input
-          type="text"
-          placeholder="Buscar por código (UdeA, IPS, ECRI) o nombre del equipo..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="pl-12 pr-4 py-6 text-base"
-        />
+      <div className="flex gap-2">
+        <div className="relative flex-1">
+          <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+          <Input
+            type="text"
+            placeholder="Buscar por código (UdeA, IPS, ECRI) o nombre del equipo..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="pl-12 pr-4 py-6 text-base"
+          />
+        </div>
+        <Button
+          onClick={handleSearch}
+          size="lg"
+          className="px-8 bg-emerald-600 hover:bg-emerald-700 text-white"
+          disabled={isSearching}
+        >
+          {isSearching ? 'Buscando...' : 'Buscar'}
+        </Button>
       </div>
 
       {isSearching && (
@@ -160,11 +174,19 @@ export function EquipmentSearch({ onSelectEquipment }: EquipmentSearchProps) {
 
           <div className="grid gap-3">
             {results.map((equipment) => (
-              <button
+              <div
                 key={equipment.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => handleSelectEquipment(equipment.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleSelectEquipment(equipment.id)
+                  }
+                }}
                 className={cn(
-                  "group relative rounded-xl border-2 border-slate-200 bg-white p-5 text-left transition-all hover:border-emerald-300 hover:shadow-md",
+                  "group relative rounded-xl border-2 border-slate-200 bg-white p-5 text-left transition-all hover:border-emerald-300 hover:shadow-md cursor-pointer",
                   "focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                 )}
               >
@@ -227,7 +249,7 @@ export function EquipmentSearch({ onSelectEquipment }: EquipmentSearchProps) {
                     </Button>
                   </div>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
         </div>

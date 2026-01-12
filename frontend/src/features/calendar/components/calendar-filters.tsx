@@ -1,7 +1,7 @@
 "use client"
 
 import { Building2, Briefcase, Calendar } from 'lucide-react'
-import { Select } from '@/components/ui/select'
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
 
 interface CalendarFiltersProps {
     selectedYear: number
@@ -69,14 +69,18 @@ export function CalendarFilters({
                     </label>
                     <Select
                         value={selectedYear.toString()}
-                        onChange={(e) => onYearChange(parseInt(e.target.value))}
-                        className="w-full"
+                        onValueChange={(value) => onYearChange(parseInt(value))}
                     >
-                        {YEARS.map(year => (
-                            <option key={year} value={year}>
-                                {year}
-                            </option>
-                        ))}
+                        <SelectTrigger className="w-full bg-white border-slate-200">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {YEARS.map(year => (
+                                <SelectItem key={year} value={year.toString()}>
+                                    {year}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
                     </Select>
                 </div>
 
@@ -88,14 +92,18 @@ export function CalendarFilters({
                     </label>
                     <Select
                         value={selectedMonth.toString()}
-                        onChange={(e) => onMonthChange(parseInt(e.target.value))}
-                        className="w-full"
+                        onValueChange={(value) => onMonthChange(parseInt(value))}
                     >
-                        {MONTHS.map(month => (
-                            <option key={month.value} value={month.value}>
-                                {month.label}
-                            </option>
-                        ))}
+                        <SelectTrigger className="w-full bg-white border-slate-200">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {MONTHS.map(month => (
+                                <SelectItem key={month.value} value={month.value.toString()}>
+                                    {month.label}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
                     </Select>
                 </div>
 
@@ -107,14 +115,18 @@ export function CalendarFilters({
                     </label>
                     <Select
                         value={selectedHeadquarters}
-                        onChange={(e) => onHeadquartersChange(e.target.value)}
-                        className="w-full"
+                        onValueChange={onHeadquartersChange}
                     >
-                        {HEADQUARTERS.map(hq => (
-                            <option key={hq} value={hq}>
-                                {hq}
-                            </option>
-                        ))}
+                        <SelectTrigger className="w-full bg-white border-slate-200">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {HEADQUARTERS.map(hq => (
+                                <SelectItem key={hq} value={hq}>
+                                    {hq}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
                     </Select>
                 </div>
 
@@ -126,14 +138,18 @@ export function CalendarFilters({
                     </label>
                     <Select
                         value={selectedService}
-                        onChange={(e) => onServiceChange(e.target.value)}
-                        className="w-full"
+                        onValueChange={onServiceChange}
                     >
-                        {SERVICES.map(service => (
-                            <option key={service} value={service}>
-                                {service}
-                            </option>
-                        ))}
+                        <SelectTrigger className="w-full bg-white border-slate-200">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {SERVICES.map(service => (
+                                <SelectItem key={service} value={service}>
+                                    {service}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
                     </Select>
                 </div>
             </div>

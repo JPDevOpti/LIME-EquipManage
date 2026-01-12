@@ -12,6 +12,7 @@ import {
   PackageSearch,
   BarChart3,
   HandCoins,
+  UserCog,
   Circle
 } from 'lucide-react'
 import { cn } from '@/lib/cn'
@@ -51,7 +52,8 @@ const iconMap: Record<string, LucideIcon | typeof ChartColumnBigIcon> = {
   'package-search': PackageSearch,
   'bar-chart': BarChart3,
   'chart-column-big': ChartColumnBigIcon,
-  'hand-coins': HandCoins
+  'hand-coins': HandCoins,
+  'user-cog': UserCog
 }
 
 interface SidebarIconProps {

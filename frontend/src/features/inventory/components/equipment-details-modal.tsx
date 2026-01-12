@@ -195,12 +195,20 @@ export function EquipmentDetailsModal({ isOpen, equipment, onClose, onEdit }: Eq
                     className="md:col-span-2"
                   />
 
-                  {/* Código del registro Invima - 3 columnas */}
+                  {/* Código del registro Invima - 2 columnas */}
                   <DetailItem
                     icon={Shield}
                     label="Código del registro Invima"
                     value={<span className="font-mono">{equipment.invimaCode}</span>}
-                    className="md:col-span-3"
+                    className="md:col-span-2"
+                  />
+
+                  {/* Vida Útil - 1 columna */}
+                  <DetailItem
+                    icon={Clock}
+                    label="Vida Útil (Años)"
+                    value={equipment.lifeTime}
+                    className="md:col-span-1"
                   />
                 </div>
               </div>
@@ -389,7 +397,7 @@ export function EquipmentDetailsModal({ isOpen, equipment, onClose, onEdit }: Eq
                 <DetailItem
                   icon={Calendar}
                   label="Fecha fin garantía"
-                  value={equipment.warrantyExpirationDate}
+                  value={equipment.warrantyExpiry}
                 />
 
                 {/* Está en garantía */}
@@ -545,6 +553,67 @@ export function EquipmentDetailsModal({ isOpen, equipment, onClose, onEdit }: Eq
                   value={equipment.manufacturerMetrologicalFrequency}
                   className="md:col-span-2"
                 />
+              </div>
+            </div>
+          </div>
+
+          {/* 6. Historial de Mantenimientos */}
+          <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            <div className="border-b border-slate-200 bg-gradient-to-r from-emerald-50 to-teal-50 px-8 py-6 text-center">
+              <h2 className="text-xl font-bold text-slate-900">Historial de Mantenimientos</h2>
+              <p className="text-sm text-slate-600 mt-1">Registro de intervenciones realizadas</p>
+            </div>
+            <div className="p-0">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Fecha</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Tipo</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Proveedor</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Responsable</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Reporte</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Resultado</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {equipment.metrologicalHistory && equipment.metrologicalHistory.length > 0 ? (
+                      equipment.metrologicalHistory.map((record, index) => (
+                        <tr key={index} className="hover:bg-slate-50/50">
+                          <td className="px-6 py-4 whitespace-nowrap text-slate-600">{record.date}</td>
+                          <td className="px-6 py-4">
+                            <Badge variant="secondary" className={cn(
+                              "font-normal",
+                              record.type === 'Mantenimiento Correctivo' && "bg-amber-100 text-amber-700 hover:bg-amber-200",
+                              record.type === 'Mantenimiento Preventivo' && "bg-blue-100 text-blue-700 hover:bg-blue-200",
+                              record.type === 'Calibración' && "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                            )}>
+                              {record.type}
+                            </Badge>
+                          </td>
+                          <td className="px-6 py-4 text-slate-600">{record.provider}</td>
+                          <td className="px-6 py-4 text-slate-600">{record.performer || 'N/A'}</td>
+                          <td className="px-6 py-4 text-slate-600 font-mono text-xs">{record.reportNumber}</td>
+                          <td className="px-6 py-4">
+                            <Badge variant="default" className={cn(
+                              record.result === 'Aprobado' && "border-emerald-200 bg-emerald-50 text-emerald-700",
+                              record.result === 'Reprobado' && "border-red-200 bg-red-50 text-red-700",
+                              (record.result === 'Con observaciones' || !record.result) && "border-amber-200 bg-amber-50 text-amber-700"
+                            )}>
+                              {record.result || 'Pendiente'}
+                            </Badge>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={6} className="px-6 py-8 text-center text-slate-500 italic">
+                          No hay registros históricos disponibles
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

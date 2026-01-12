@@ -9,8 +9,8 @@ export interface EquipmentFiltersState {
   status: FilterSelectableValue
   classification: FilterSelectableValue
   invimaStatus: FilterSelectableValue
-  category: FilterSelectableValue
   riskClass: FilterSelectableValue
+  missionClassification: FilterSelectableValue
 }
 
 export interface EquipmentFilterOptions {
@@ -19,8 +19,8 @@ export interface EquipmentFilterOptions {
   statuses: string[]
   classifications: string[]
   invimaStatuses: string[]
-  categories: string[]
   riskClasses: string[]
+  missionClassifications: string[]
 }
 
 const DEFAULT_FILTERS: EquipmentFiltersState = {
@@ -29,21 +29,22 @@ const DEFAULT_FILTERS: EquipmentFiltersState = {
   status: 'all',
   classification: 'all',
   invimaStatus: 'all',
-  category: 'all',
-  riskClass: 'all'
+  riskClass: 'all',
+  missionClassification: 'all'
 }
 
-const PAGE_SIZE = 50
+const PAGE_SIZE = 10
 
 const uniqueValues = <K extends keyof EquipmentRecord>(key: K) => {
   return Array.from(new Set(equipmentInventory.map((item) => item[key] as string))).sort()
 }
 
 const determineStatusBucket = (item: EquipmentRecord) => {
-  if (item.status === 'Operativo') return 'operativo'
-  if (item.status === 'Fuera de servicio') return 'fuera'
-  if (item.status.includes('Correctivo') || item.maintenanceType === 'Correctivo') return 'correctivo'
-  return 'preventivo'
+  if (item.status === 'Activo') return 'operativo'
+  if (item.status === 'Inactivo' || item.status === 'De baja') return 'fuera'
+  if (item.status === 'En mantenimiento' || item.maintenanceType === 'Correctivo') return 'correctivo'
+  if (item.maintenanceType === 'Preventivo' || item.maintenanceType === 'Calibración') return 'preventivo'
+  return 'operativo'
 }
 
 export function useEquipmentInventory() {
@@ -51,15 +52,15 @@ export function useEquipmentInventory() {
   const [filters, setFilters] = useState<EquipmentFiltersState>(DEFAULT_FILTERS)
   const [page, setPage] = useState(1)
 
-  const availableFilters = useMemo<EquipmentFilterOptions>(
-    () => ({
+  const availableFilters = useMemo(
+    (): EquipmentFilterOptions => ({
       locations: uniqueValues('location'),
       processes: uniqueValues('process'),
       statuses: uniqueValues('status'),
       classifications: uniqueValues('classification'),
       invimaStatuses: uniqueValues('invimaStatus'),
-      categories: uniqueValues('category'),
-      riskClasses: uniqueValues('riskClass')
+      riskClasses: uniqueValues('riskClass'),
+      missionClassifications: uniqueValues('missionClassification')
     }),
     []
   )
@@ -70,8 +71,8 @@ export function useEquipmentInventory() {
     return equipmentInventory.filter((item) => {
       const matchesSearch = query
         ? [item.code, item.name, item.location, item.process, item.assignedTo].some((field) =>
-            field.toLowerCase().includes(query)
-          )
+          field.toLowerCase().includes(query)
+        )
         : true
 
       const matchesFilters =
@@ -80,8 +81,8 @@ export function useEquipmentInventory() {
         (filters.status === 'all' || item.status === filters.status) &&
         (filters.classification === 'all' || item.classification === filters.classification) &&
         (filters.invimaStatus === 'all' || item.invimaStatus === filters.invimaStatus) &&
-        (filters.category === 'all' || item.category === filters.category) &&
-        (filters.riskClass === 'all' || item.riskClass === filters.riskClass)
+        (filters.riskClass === 'all' || item.riskClass === filters.riskClass) &&
+        (filters.missionClassification === 'all' || item.missionClassification === filters.missionClassification)
 
       return matchesSearch && matchesFilters
     })

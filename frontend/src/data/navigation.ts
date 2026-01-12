@@ -11,11 +11,9 @@ export const mainNav: NavItem[] = [
   { label: 'Listado de equipos', href: '/inventory', icon: 'boxes' },
   { label: 'Cronograma', href: '/calendar', icon: 'calendar' },
   { label: 'Facturación', href: '/statistics', icon: 'hand-coins' },
-  { label: 'Soporte', href: '/support', icon: 'message-circle-question-mark' },
-  { label: 'Mi perfil', href: '/profile', icon: 'user' }
+  { label: 'Gestión de usuarios', href: '/users', icon: 'user-cog' },
+  { label: 'Soporte', href: '/support', icon: 'message-circle-question-mark' }
 ]
 
-export const secondaryNav: NavItem[] = [
-  { label: 'Documentación', href: '#', icon: 'book' }
-]
+export const secondaryNav: NavItem[] = []
 

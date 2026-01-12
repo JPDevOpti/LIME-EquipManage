@@ -1,8 +1,16 @@
 "use client"
 
-import { useState, useRef, useEffect } from 'react'
-import { X, Settings, AlertTriangle, Gauge, CheckCircle } from 'lucide-react'
+import { useState, useRef, useEffect, Fragment } from 'react'
+import { X, Settings, AlertTriangle, Gauge, CheckCircle, Save } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import type { MaintenanceEvent, MaintenanceType } from '../types'
 import { cn } from '@/lib/cn'
 import { MaintenanceCompleteModal } from './maintenance-complete-modal'
@@ -22,6 +30,7 @@ interface MaintenanceEventsModalProps {
     reportFile?: File
     completionNotes?: string
   }) => void
+  onUpdateEvent?: (event: MaintenanceEvent) => void
 }
 
 const monthNames = [
@@ -37,11 +46,58 @@ export function MaintenanceEventsModal({
   year,
   onClose,
   onUpdateProcess,
-  onComplete
+  onComplete,
+  onUpdateEvent
 }: MaintenanceEventsModalProps) {
   const [selectedEventForComplete, setSelectedEventForComplete] = useState<MaintenanceEvent | null>(null)
   const [isCompleteModalOpen, setIsCompleteModalOpen] = useState(false)
+  const [expandedEventId, setExpandedEventId] = useState<string | null>(null)
+  const [editForm, setEditForm] = useState({
+    month: '',
+    supplier: '',
+    cost: ''
+  })
   const selectRefs = useRef<Record<string, HTMLSelectElement>>({})
+
+  const toggleEdit = (event: MaintenanceEvent) => {
+    if (expandedEventId === event.id) {
+      setExpandedEventId(null)
+    } else {
+      const eventDate = new Date(event.scheduledDate)
+      const eventYear = eventDate.getFullYear()
+      const eventMonth = String(eventDate.getMonth() + 1).padStart(2, '0')
+
+      setExpandedEventId(event.id)
+      setEditForm({
+        month: `${eventYear}-${eventMonth}`,
+        supplier: event.supplier || '',
+        cost: event.cost ? event.cost.toString() : ''
+      })
+    }
+  }
+
+  const saveEdit = () => {
+    if (!expandedEventId) return
+
+    // Find the event
+    const eventToUpdate = events.find(e => e.id === expandedEventId)
+    if (!eventToUpdate) return
+
+    // Create updated event
+    const updatedEvent = { ...eventToUpdate }
+    
+    // Update fields
+    if (editForm.supplier) updatedEvent.supplier = editForm.supplier
+    if (editForm.cost) updatedEvent.cost = Number(editForm.cost)
+    
+    // Update date if changed (assumes day 1 of selected month)
+    if (editForm.month) {
+      updatedEvent.scheduledDate = `${editForm.month}-01` // Naive date update
+    }
+
+    onUpdateEvent?.(updatedEvent)
+    setExpandedEventId(null)
+  }
 
   useEffect(() => {
     if (!isOpen) {
@@ -178,6 +234,7 @@ export function MaintenanceEventsModal({
                 <table className="min-w-full divide-y divide-slate-200">
                   <thead className="bg-slate-50">
                     <tr>
+                      <th className="w-10 px-4 py-3"></th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
                         Equipo / Código
                       </th>
@@ -203,72 +260,145 @@ export function MaintenanceEventsModal({
                   </thead>
                   <tbody className="bg-white divide-y divide-slate-200">
                     {events.map((event) => (
-                      <tr 
-                        key={event.id}
-                        className="hover:bg-slate-50 transition-colors"
-                      >
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          <div className="text-sm font-medium text-slate-900">{event.equipmentName}</div>
-                          <div className="text-xs text-slate-500 font-mono">{event.equipmentCode}</div>
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          <div className="text-sm text-slate-900 font-medium">{event.sede}</div>
-                          {event.service ? (
-                            <div className="text-xs text-slate-500">{event.service}</div>
-                          ) : (
-                            <div className="text-xs text-slate-400 italic">Sin servicio</div>
-                          )}
-                        </td>
-                        <td className="px-4 py-3">
-                          {event.brand ? (
-                            <>
-                              <div className="text-sm text-slate-900 font-medium">{event.brand}</div>
-                              {event.model && <div className="text-xs text-slate-700 mt-0.5">{event.model}</div>}
-                              {event.serialNumber && (
-                                <div className="text-xs text-slate-500 font-mono mt-0.5">{event.serialNumber}</div>
+                      <Fragment key={event.id}>
+                        <tr 
+                          className="hover:bg-slate-50 transition-colors"
+                        >
+                          <td className="px-2 py-3 whitespace-nowrap">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-8 w-8 p-0 text-slate-400 hover:text-blue-600"
+                              onClick={() => toggleEdit(event)}
+                            >
+                              <Settings className="h-4 w-4" />
+                            </Button>
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap">
+                            <div className="text-sm font-medium text-slate-900">{event.equipmentName}</div>
+                            <div className="text-xs text-slate-500 font-mono">{event.equipmentCode}</div>
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap">
+                            <div className="text-sm text-slate-900 font-medium">{event.sede}</div>
+                            {event.service ? (
+                              <div className="text-xs text-slate-500">{event.service}</div>
+                            ) : (
+                              <div className="text-xs text-slate-400 italic">Sin servicio</div>
+                            )}
+                          </td>
+                          <td className="px-4 py-3">
+                            {event.brand ? (
+                              <>
+                                <div className="text-sm text-slate-900 font-medium">{event.brand}</div>
+                                {event.model && <div className="text-xs text-slate-700 mt-0.5">{event.model}</div>}
+                                {event.serialNumber && (
+                                  <div className="text-xs text-slate-500 font-mono mt-0.5">{event.serialNumber}</div>
+                                )}
+                              </>
+                            ) : (
+                              <div className="text-sm text-slate-400">-</div>
+                            )}
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap">
+                            <div className="text-sm text-slate-900">{event.supplier || '-'}</div>
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap">
+                            <span 
+                              className={cn(
+                                "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
+                                getEquipmentStatusClass(event.equipmentStatus)
                               )}
-                            </>
-                          ) : (
-                            <div className="text-sm text-slate-400">-</div>
-                          )}
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          <div className="text-sm text-slate-900">{event.supplier || '-'}</div>
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          <span 
-                            className={cn(
-                              "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
-                              getEquipmentStatusClass(event.equipmentStatus)
-                            )}
-                          >
-                            {event.equipmentStatus || 'N/A'}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          <div className="text-sm text-slate-900 font-medium">
-                            {event.cost ? formatCurrency(event.cost) : '-'}
-                          </div>
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          <select
-                            ref={(el) => {
-                              if (el) selectRefs.current[event.id] = el
-                            }}
-                            value={event.process || ''}
-                            onChange={(e) => handleProcessChange(event.id, e.target.value, event)}
-                            className={cn(
-                              "text-xs font-medium rounded-full border-0 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1",
-                              getProcessSelectClass(event.process)
-                            )}
-                          >
-                            <option value="">Seleccionar</option>
-                            <option value="En proceso">En proceso</option>
-                            <option value="Pendiente">Pendiente</option>
-                            <option value="Completado">Completado</option>
-                          </select>
-                        </td>
-                      </tr>
+                            >
+                              {event.equipmentStatus || 'N/A'}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap">
+                            <div className="text-sm text-slate-900 font-medium">
+                              {event.cost ? formatCurrency(event.cost) : '-'}
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap">
+                            <Select
+                              value={event.process || ''}
+                              onValueChange={(value) => handleProcessChange(event.id, value, event)}
+                            >
+                              <SelectTrigger 
+                                className={cn(
+                                  "h-8 text-xs font-medium rounded-full border-0 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 w-[130px]",
+                                  getProcessSelectClass(event.process)
+                                )}
+                              >
+                                <SelectValue placeholder="Seleccionar" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="En proceso">En proceso</SelectItem>
+                                <SelectItem value="Pendiente">Pendiente</SelectItem>
+                                <SelectItem value="Completado">Completado</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </td>
+                        </tr>
+                        {expandedEventId === event.id && (
+                          <tr className="bg-blue-50/50">
+                            <td colSpan={8} className="px-4 py-4">
+                              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end animate-in fade-in slide-in-from-top-2">
+                                <div>
+                                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                                    Mes Programado
+                                  </label>
+                                  <Input 
+                                    type="month"
+                                    value={editForm.month}
+                                    onChange={(e) => setEditForm(prev => ({ ...prev, month: e.target.value }))}
+                                    className="bg-white h-8 text-xs"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                                    Proveedor
+                                  </label>
+                                  <Input 
+                                    type="text"
+                                    value={editForm.supplier}
+                                    onChange={(e) => setEditForm(prev => ({ ...prev, supplier: e.target.value }))}
+                                    className="bg-white h-8 text-xs"
+                                    placeholder="Proveedor..."
+                                  />
+                                </div>
+                                <div>
+                                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                                    Costo Estimado
+                                  </label>
+                                  <Input 
+                                    type="number"
+                                    value={editForm.cost}
+                                    onChange={(e) => setEditForm(prev => ({ ...prev, cost: e.target.value }))}
+                                    className="bg-white h-8 text-xs"
+                                    placeholder="0"
+                                  />
+                                </div>
+                                <div className="flex gap-2">
+                                  <Button 
+                                    size="sm" 
+                                    className="h-8 text-xs bg-blue-600 hover:bg-blue-700 text-white"
+                                    onClick={saveEdit}
+                                  >
+                                    Guardar
+                                  </Button>
+                                  <Button 
+                                    size="sm" 
+                                    variant="outline" 
+                                    className="h-8 text-xs bg-white"
+                                    onClick={() => setExpandedEventId(null)}
+                                  >
+                                    Cancelar
+                                  </Button>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </Fragment>
                     ))}
                     {events.length === 0 && (
                       <tr>

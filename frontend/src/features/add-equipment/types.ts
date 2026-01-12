@@ -12,7 +12,7 @@ export interface EquipmentFormData {
   brand: string
   model: string
   serialNumber: string
-  missionAxisClassification: MissionAxis[]
+  missionAxisClassification: MissionAxis | null
   ipsClassification: IpsClassification | null
   invimaClassification: InvimaClassification | null
   invimaCode: string

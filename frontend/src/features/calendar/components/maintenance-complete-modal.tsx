@@ -30,6 +30,7 @@ export function MaintenanceCompleteModal({
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [isDragOver, setIsDragOver] = useState(false)
+  
   const [formData, setFormData] = useState({
     exactCompletionDate: '',
     reportNumber: '',
@@ -49,6 +50,7 @@ export function MaintenanceCompleteModal({
         reportNumber: '',
         completionNotes: ''
       })
+      
       setSelectedFile(null)
     }
   }, [isOpen])

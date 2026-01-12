@@ -1,12 +1,16 @@
 "use client"
 
 import { memo } from 'react'
-import type { ChangeEvent } from 'react'
 import type { BillingFilterKey, BillingFilters, FilterField } from '../types'
 import { Card } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
-import { Select } from '@/components/ui/select'
-import { Button } from '@/components/ui/button'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { cn } from '@/lib/cn'
 
 interface StatisticsFiltersPanelProps {
@@ -28,74 +32,44 @@ export const StatisticsFiltersPanel = memo(function StatisticsFiltersPanel({
   title = 'Filtros de búsqueda',
   description = 'Ajusta los parámetros para refinar los indicadores de facturación.'
 }: StatisticsFiltersPanelProps) {
-  const handleSelectChange = (key: BillingFilterKey) => (event: ChangeEvent<HTMLSelectElement>) => {
-    onFilterChange(key, event.target.value)
+  const handleSelectChange = (key: BillingFilterKey) => (value: string) => {
+    onFilterChange(key, value)
   }
 
   return (
-    <Card className="overflow-hidden border border-emerald-200 shadow-sm">
-      <div className="px-6 pb-6 pt-6">
-        <div className="grid gap-4 grid-cols-6">
-          {/* Año y Mes juntos en una columna amplia */}
-          <div className="col-span-1 flex flex-col gap-2 min-w-[180px]">
-            <div className="flex gap-2">
-              <div className="flex-1">
-                <Label htmlFor="filter-year" className="text-sm font-medium text-slate-700">Año</Label>
-                <Select
-                  id="filter-year"
-                  value={filters['year']}
-                  onChange={handleSelectChange('year')}
-                  aria-label="Seleccionar año de facturación"
-                  className="h-11 rounded-2xl border-slate-200 bg-white text-slate-900 w-full"
-                >
-                  <option value="">Selecciona un año</option>
-                  {filterFields.find(f => f.key === 'year')?.options.map((option) => (
-                    <option key={option.value} value={option.value}>{option.label}</option>
-                  ))}
-                </Select>
-              </div>
-              <div className="flex-1">
-                <Label htmlFor="filter-month" className="text-sm font-medium text-slate-700">Mes</Label>
-                <Select
-                  id="filter-month"
-                  value={filters['month']}
-                  onChange={handleSelectChange('month')}
-                  aria-label="Seleccionar mes de facturación"
-                  className="h-11 rounded-2xl border-slate-200 bg-white text-slate-900 w-full"
-                >
-                  <option value="">Selecciona un mes</option>
-                  {filterFields.find(f => f.key === 'month')?.options.map((option) => (
-                    <option key={option.value} value={option.value}>{option.label}</option>
-                  ))}
-                </Select>
-              </div>
-            </div>
-          </div>
-          {/* El resto de los filtros, cada uno ocupa 2 columnas */}
-          {filterFields.filter(f => f.key !== 'year' && f.key !== 'month').map((field) => (
-            <div key={field.key} className="space-y-2 col-span-2">
-              <Label htmlFor={`filter-${field.key}`} className="text-sm font-medium text-slate-700">
+    <Card className="overflow-hidden border border-emerald-200 shadow-sm bg-slate-50/50">
+      <div className="p-4">
+        <div className="flex flex-wrap items-end gap-4">
+          {filterFields.map((field) => (
+            <div key={field.key} className="flex-1 min-w-[180px] space-y-1.5">
+              <Label 
+                htmlFor={`filter-${field.key}`} 
+                className="text-xs font-semibold text-slate-700 ml-1"
+              >
                 {field.label}
               </Label>
               <Select
-                id={`filter-${field.key}`}
-                value={filters[field.key]}
-                onChange={handleSelectChange(field.key)}
-                aria-label={field.ariaLabel}
-                className="h-11 rounded-2xl border-slate-200 bg-white text-slate-900 w-full"
+                value={filters[field.key] || ''}
+                onValueChange={handleSelectChange(field.key)}
               >
-                <option value="">{field.placeholder}</option>
-                {field.options.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
+                <SelectTrigger 
+                  id={`filter-${field.key}`}
+                  className="h-10 rounded-xl border-slate-200 bg-white text-sm w-full focus:ring-emerald-500/20 focus:border-emerald-500"
+                >
+                  <SelectValue placeholder={field.placeholder} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Todas</SelectItem>
+                  {field.options.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
               </Select>
             </div>
           ))}
         </div>
-
-        {/* Botones eliminados, filtros se aplican automáticamente */}
       </div>
     </Card>
   )

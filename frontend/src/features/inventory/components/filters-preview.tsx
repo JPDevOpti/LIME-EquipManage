@@ -2,9 +2,9 @@
 
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Select } from '@/components/ui/select'
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { ArrowDownWideNarrow, RotateCcw, Search, RefreshCw, FileSpreadsheet, Building2, Briefcase, CheckCircle, Tag, Shield, Folder, AlertTriangle } from 'lucide-react'
+import { ArrowDownWideNarrow, RotateCcw, Search, RefreshCw, FileSpreadsheet, Building2, Briefcase, CheckCircle, Tag, Shield, Folder, AlertTriangle, Target } from 'lucide-react'
 import type {
   EquipmentFilterOptions,
   EquipmentFiltersState
@@ -33,8 +33,8 @@ const FILTER_LABELS: Record<FilterKey, string> = {
   status: 'Estado',
   classification: 'Clasificación',
   invimaStatus: 'Invima',
-  category: 'Categoría',
-  riskClass: 'Clase de riesgo'
+  riskClass: 'Clase de riesgo',
+  missionClassification: 'Eje Misional'
 }
 
 const FILTER_PLACEHOLDERS: Record<FilterKey, string> = {
@@ -43,8 +43,8 @@ const FILTER_PLACEHOLDERS: Record<FilterKey, string> = {
   status: 'Todos los estados',
   classification: 'Todas las clasificaciones',
   invimaStatus: 'Todos',
-  category: 'Todas las categorías',
-  riskClass: 'Todas las clases'
+  riskClass: 'Todas las clases',
+  missionClassification: 'Todos los ejes'
 }
 
 const FALLBACK_FILTERS: EquipmentFiltersState = {
@@ -53,21 +53,21 @@ const FALLBACK_FILTERS: EquipmentFiltersState = {
   status: 'all',
   classification: 'all',
   invimaStatus: 'all',
-  category: 'all',
-  riskClass: 'all'
+  riskClass: 'all',
+  missionClassification: 'all'
 }
 
 export function InventoryFilters({
   search = '',
-  onSearchChange = () => {},
+  onSearchChange = () => { },
   filters = FALLBACK_FILTERS,
-  onFilterChange = () => {},
+  onFilterChange = () => { },
   options,
   activeFiltersCount = 0,
-  onReset = () => {},
-  onSubmit = () => {},
-  onRefresh = () => {},
-  onExport = () => {},
+  onReset = () => { },
+  onSubmit = () => { },
+  onRefresh = () => { },
+  onExport = () => { },
   canExport = true,
   isLoading = false
 }: InventoryFiltersProps) {
@@ -77,8 +77,8 @@ export function InventoryFilters({
     statuses: [],
     classifications: [],
     invimaStatuses: [],
-    categories: [],
-    riskClasses: []
+    riskClasses: [],
+    missionClassifications: []
   }
   const firstRowFilters: Array<{ key: FilterKey; data: string[] }> = [
     { key: 'location', data: resolvedOptions.locations },
@@ -88,8 +88,8 @@ export function InventoryFilters({
     { key: 'status', data: resolvedOptions.statuses },
     { key: 'classification', data: resolvedOptions.classifications },
     { key: 'invimaStatus', data: resolvedOptions.invimaStatuses },
-    { key: 'category', data: resolvedOptions.categories },
-    { key: 'riskClass', data: resolvedOptions.riskClasses }
+    { key: 'riskClass', data: resolvedOptions.riskClasses },
+    { key: 'missionClassification', data: resolvedOptions.missionClassifications }
   ]
 
   const activeFilters = (Object.entries(filters) as Array<[FilterKey, string]>).filter(([, value]) => value !== 'all')
@@ -117,10 +117,10 @@ export function InventoryFilters({
         return Tag
       case 'invimaStatus':
         return Shield
-      case 'category':
-        return Folder
       case 'riskClass':
         return AlertTriangle
+      case 'missionClassification':
+        return Target
       default:
         return null
     }
@@ -159,26 +159,29 @@ export function InventoryFilters({
             {firstRowFilters.map(({ key, data }) => {
               const Icon = getIcon(key)
               return (
-              <div key={key} className="space-y-2 text-sm">
-                <label className="flex items-center gap-2 font-medium text-slate-700" htmlFor={`filter-${key}`}>
-                  {Icon && <Icon className="h-4 w-4 text-blue-600" />}
-                  {FILTER_LABELS[key]}
-                </label>
-                <Select
-                  id={`filter-${key}`}
-                  value={filters[key]}
-                  onChange={(event) => onFilterChange(key, event.target.value as EquipmentFiltersState[typeof key])}
-                  className="h-11 rounded-2xl border-slate-200 bg-white text-slate-900"
-                >
-                  <option value="all">{FILTER_PLACEHOLDERS[key]}</option>
-                  {data.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </Select>
-              </div>
-            )
+                <div key={key} className="space-y-2 text-sm z-[20]">
+                  <label className="flex items-center gap-2 font-medium text-slate-700" htmlFor={`filter-${key}`}>
+                    {Icon && <Icon className="h-4 w-4 text-blue-600" />}
+                    {FILTER_LABELS[key]}
+                  </label>
+                  <Select
+                    value={filters[key]}
+                    onValueChange={(value) => onFilterChange(key, value as EquipmentFiltersState[typeof key])}
+                  >
+                    <SelectTrigger id={`filter-${key}`} className="w-full h-11 bg-white border-slate-200">
+                      <SelectValue placeholder={FILTER_PLACEHOLDERS[key]} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">{FILTER_PLACEHOLDERS[key]}</SelectItem>
+                      {data.map((option, index) => (
+                        <SelectItem key={`${option}-${index}`} value={option}>
+                          {option}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )
             })}
           </div>
         </div>
@@ -187,31 +190,34 @@ export function InventoryFilters({
           {secondRowFilters.map(({ key, data }) => {
             const Icon = getIcon(key)
             return (
-            <div key={key} className="space-y-2 text-sm">
-              <label className="flex items-center gap-2 font-medium text-slate-700" htmlFor={`filter-${key}`}>
-                {Icon && <Icon className="h-4 w-4 text-blue-600" />}
-                {FILTER_LABELS[key]}
-              </label>
-              <Select
-                id={`filter-${key}`}
-                value={filters[key]}
-                onChange={(event) => onFilterChange(key, event.target.value as EquipmentFiltersState[typeof key])}
-                className="h-11 rounded-2xl border-slate-200 bg-white text-slate-900"
-              >
-                <option value="all">{FILTER_PLACEHOLDERS[key]}</option>
-                {data.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </Select>
-            </div>
-          )
+              <div key={key} className="space-y-2 text-sm z-[10]">
+                <label className="flex items-center gap-2 font-medium text-slate-700" htmlFor={`filter-${key}`}>
+                  {Icon && <Icon className="h-4 w-4 text-blue-600" />}
+                  {FILTER_LABELS[key]}
+                </label>
+                <Select
+                  value={filters[key]}
+                  onValueChange={(value) => onFilterChange(key, value as EquipmentFiltersState[typeof key])}
+                >
+                  <SelectTrigger id={`filter-${key}`} className="w-full h-11 bg-white border-slate-200">
+                    <SelectValue placeholder={FILTER_PLACEHOLDERS[key]} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">{FILTER_PLACEHOLDERS[key]}</SelectItem>
+                    {data.map((option, index) => (
+                      <SelectItem key={`${option}-${index}`} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            )
           })}
         </div>
       </div>
 
-  <div className="mt-6 rounded-2xl bg-slate-100 p-4 text-sm text-slate-600 md:flex md:items-center md:justify-between">
+      <div className="mt-6 rounded-2xl bg-slate-100 p-4 text-sm text-slate-600 md:flex md:items-center md:justify-between">
         <div className="flex items-center gap-2">
           <ArrowDownWideNarrow className="h-4 w-4 text-slate-400" />
           {hasFiltersApplied ? (

@@ -2,22 +2,8 @@
 
 import { Card } from '@/components/ui/card'
 import { ReferenceArea, ReferenceLine, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts'
-
-// Datos simulados de cumplimiento por mes
-const complianceData = [
-  { mes: 'Ene', preventivos: 88, calibraciones: 82, objetivo: 90 },
-  { mes: 'Feb', preventivos: 91, calibraciones: 85, objetivo: 90 },
-  { mes: 'Mar', preventivos: 89, calibraciones: 84, objetivo: 90 },
-  { mes: 'Abr', preventivos: 93, calibraciones: 87, objetivo: 90 },
-  { mes: 'May', preventivos: 90, calibraciones: 86, objetivo: 90 },
-  { mes: 'Jun', preventivos: 94, calibraciones: 89, objetivo: 90 },
-  { mes: 'Jul', preventivos: 92, calibraciones: 88, objetivo: 90 },
-  { mes: 'Ago', preventivos: 90, calibraciones: 85, objetivo: 90 },
-  { mes: 'Sep', preventivos: 95, calibraciones: 90, objetivo: 90 },
-  { mes: 'Oct', preventivos: 88, calibraciones: 83, objetivo: 90 },
-  { mes: 'Nov', preventivos: 92, calibraciones: 86, objetivo: 90 },
-  { mes: 'Dic', preventivos: 94, calibraciones: 88, objetivo: 90 }
-]
+import { useServiceFilter } from '../context/service-filter-context'
+import { getTrendChartData } from '../data/mock-data'
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -44,12 +30,12 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 const CustomDot = (props: any) => {
   const { cx, cy, fill } = props
   return (
-    <circle 
-      cx={cx} 
-      cy={cy} 
-      r={4} 
-      fill={fill} 
-      stroke="white" 
+    <circle
+      cx={cx}
+      cy={cy}
+      r={4}
+      fill={fill}
+      stroke="white"
       strokeWidth={2}
       className="transition-all hover:r-6"
     />
@@ -57,12 +43,15 @@ const CustomDot = (props: any) => {
 }
 
 export function TrendChart() {
+  const { selectedService } = useServiceFilter()
+  const complianceData = getTrendChartData(selectedService)
+
   return (
     <Card className="border-slate-200 bg-white shadow-sm">
       <div className="h-[320px] w-full px-3 py-3 sm:px-4 sm:py-4">
-          <ResponsiveContainer width="100%" height="100%">
-          <AreaChart 
-            data={complianceData} 
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart
+            data={complianceData}
             margin={{ top: 10, right: 10, left: -10, bottom: 5 }}
           >
             <defs>
@@ -75,36 +64,36 @@ export function TrendChart() {
                 <stop offset="95%" stopColor="#06b6d4" stopOpacity={0.05} />
               </linearGradient>
             </defs>
-            <CartesianGrid 
-              strokeDasharray="3 3" 
-              stroke="#e2e8f0" 
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="#e2e8f0"
               vertical={false}
               opacity={0.5}
             />
-            <XAxis 
-              dataKey="mes" 
+            <XAxis
+              dataKey="mes"
               tick={{ fill: '#64748b', fontSize: 11 }}
               axisLine={{ stroke: '#cbd5e1' }}
               tickLine={false}
               dy={8}
             />
-            <YAxis 
+            <YAxis
               domain={[60, 100]}
               tick={{ fill: '#64748b', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
               dx={-8}
-              label={{ 
-                value: '% Cumplimiento', 
-                angle: -90, 
-                position: 'insideLeft', 
+              label={{
+                value: '% Cumplimiento',
+                angle: -90,
+                position: 'insideLeft',
                 fill: '#64748b',
                 style: { fontSize: 11 }
               }}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Legend 
-              wrapperStyle={{ 
+            <Legend
+              wrapperStyle={{
                 paddingTop: '16px',
                 fontSize: '12px'
               }}
@@ -160,4 +149,3 @@ export function TrendChart() {
     </Card>
   )
 }
-

@@ -22,7 +22,7 @@ export default function AddEquipmentPage() {
     brand: '',
     model: '',
     serialNumber: '',
-    missionAxisClassification: [],
+    missionAxisClassification: null,
     ipsClassification: null,
     invimaClassification: null,
     invimaCode: '',

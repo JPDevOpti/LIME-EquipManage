@@ -18,7 +18,7 @@ import {
   ShieldCheck,
   ShieldX,
   User,
-  ClipboardList
+  Settings
 } from 'lucide-react'
 
 import { EquipmentDetailsModal } from './equipment-details-modal'
@@ -296,13 +296,7 @@ export function EquipmentTable({
         >
           <FileText className="h-4 w-4" />
         </button>
-        <button
-          onClick={() => handleEdit(item)}
-          className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600"
-          aria-label="Editar equipo"
-        >
-          <PackageSearch className="h-4 w-4" />
-        </button>
+
         <button
           onClick={() => handleViewDocuments(item)}
           className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600"
@@ -315,7 +309,7 @@ export function EquipmentTable({
           className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-purple-200 hover:text-purple-600"
           aria-label="Ver historial metrológico"
         >
-          <ClipboardList className="h-4 w-4" />
+          <Settings className="h-4 w-4" />
         </button>
       </div>
     )
@@ -551,13 +545,7 @@ export function EquipmentTable({
                       >
                         <FileText className="h-4 w-4" />
                       </button>
-                      <button
-                        onClick={() => handleEdit(item)}
-                        className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-amber-200 hover:text-amber-600"
-                        aria-label="Editar equipo"
-                      >
-                        <PackageSearch className="h-4 w-4" />
-                      </button>
+
                       <button
                         onClick={() => handleViewDocuments(item)}
                         className="rounded-xl border border-slate-200 p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600"

@@ -4,7 +4,7 @@ import { BarChartMonthly } from '@/features/dashboard/components/bar-chart-month
 import { TrendChart } from '@/features/dashboard/components/trend-chart'
 import { MetricsIndicators } from '@/features/dashboard/components/metrics-indicators'
 import { MaintenanceTimeline } from '@/features/dashboard/components/maintenance-timeline'
-import { StatusSummary } from '@/features/dashboard/components/status-summary'
+
 import { ServiceSelector } from '@/features/dashboard/components/service-selector'
 import { ServiceFilterProvider } from '@/features/dashboard/context/service-filter-context'
 
@@ -22,7 +22,7 @@ export default function DashboardPage() {
         {/* Columna derecha: Filtro + Estado + Agenda */}
         <div className="space-y-6">
           <ServiceSelector />
-          <StatusSummary />
+
           <MaintenanceTimeline />
         </div>
       </div>

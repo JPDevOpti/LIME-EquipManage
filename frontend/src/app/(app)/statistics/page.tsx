@@ -4,7 +4,7 @@ import { useState } from 'react'
 import type { BillingFilters, BillingRecord } from '@/features/statistics/types'
 import { defaultFilters, filterFields } from '@/features/statistics/data/constants'
 import { StatisticsFiltersPanel } from '@/features/statistics/components/statistics-filters-panel'
-import { StatisticsTablePanel } from '@/features/statistics/components/statistics-table-panel-new'
+import { StatisticsTablePanel } from '@/features/statistics/components/statistics-table-panel'
 
 const billingRecords: BillingRecord[] = [
   // Enero 2025

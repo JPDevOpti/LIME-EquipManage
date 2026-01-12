@@ -1,8 +1,23 @@
 "use client"
 
-import { useState, useRef, useEffect } from 'react'
-import { ChevronDown, X } from 'lucide-react'
-import { cn } from '@/lib/cn'
+import * as React from "react"
+import { X, Check, ChevronsUpDown } from "lucide-react"
+import { cn } from "@/lib/cn"
+import { Button } from "@/components/ui/button"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Badge } from "@/components/ui/badge"
 
 interface MultiSelectProps {
   options: string[]
@@ -12,111 +27,106 @@ interface MultiSelectProps {
   className?: string
 }
 
-export function MultiSelect({ options, value, onChange, placeholder = 'Seleccionar...', className }: MultiSelectProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
+export function MultiSelect({
+  options,
+  value,
+  onChange,
+  placeholder = "Seleccionar...",
+  className,
+}: MultiSelectProps) {
+  const [open, setOpen] = React.useState(false)
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  const toggleOption = (option: string) => {
-    const newValue = value.includes(option)
-      ? value.filter(v => v !== option)
-      : [...value, option]
-    onChange(newValue)
-  }
-
-  const removeOption = (option: string, e: React.MouseEvent) => {
-    e.stopPropagation()
-    onChange(value.filter(v => v !== option))
+  const handleUnselect = (item: string) => {
+    onChange(value.filter((i) => i !== item))
   }
 
   return (
-    <div ref={containerRef} className={cn('relative w-full', className)}>
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          'flex h-auto min-h-[40px] w-full items-center justify-between rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900',
-          'transition-colors',
-          'focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20',
-          isOpen && 'border-brand-500 ring-2 ring-brand-500/20'
-        )}
-      >
-        <div className="flex flex-wrap gap-1.5">
-          {value.length === 0 ? (
-            <span className="text-slate-400">{placeholder}</span>
-          ) : (
-            value.map((item) => (
-              <span
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className={cn(
+            "w-full justify-between h-auto min-h-[40px] px-3 py-2 hover:bg-white bg-white",
+            className
+          )}
+        >
+          <div className="flex flex-wrap gap-1">
+            {value.length === 0 && (
+              <span className="text-slate-500 font-normal">{placeholder}</span>
+            )}
+            {value.map((item) => (
+              <Badge
+                variant="secondary"
                 key={item}
-                className="inline-flex items-center gap-1 rounded-lg bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-700"
+                className="mr-1 mb-1 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 border-none"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleUnselect(item)
+                }}
               >
                 {item}
                 <button
-                  type="button"
-                  onClick={(e) => removeOption(item, e)}
-                  className="hover:text-emerald-900"
+                  className="ml-1 ring-offset-background rounded-full outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleUnselect(item)
+                    }
+                  }}
+                  onMouseDown={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    handleUnselect(item)
+                  }}
                 >
-                  <X className="h-3 w-3" />
+                  <X className="h-3 w-3 text-emerald-700 hover:text-emerald-900" />
                 </button>
-              </span>
-            ))
-          )}
-        </div>
-        <ChevronDown className={cn(
-          'h-4 w-4 flex-shrink-0 text-slate-400 transition-transform',
-          isOpen && 'rotate-180'
-        )} />
-      </button>
-
-      {isOpen && (
-        <div className="absolute z-50 mt-2 w-full rounded-xl border border-slate-200 bg-white shadow-lg">
-          <div className="max-h-60 overflow-y-auto p-1">
-            {options.map((option) => {
-              const isSelected = value.includes(option)
-              return (
-                <button
-                  key={option}
-                  type="button"
-                  onClick={() => toggleOption(option)}
-                  className={cn(
-                    'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition-colors',
-                    isSelected
-                      ? 'bg-emerald-50 text-emerald-700 font-medium'
-                      : 'text-slate-700 hover:bg-slate-50'
-                  )}
-                >
-                  <div className={cn(
-                    'flex h-4 w-4 items-center justify-center rounded border-2',
-                    isSelected
-                      ? 'border-emerald-500 bg-emerald-500'
-                      : 'border-slate-300'
-                  )}>
-                    {isSelected && (
-                      <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    )}
-                  </div>
-                  {option}
-                </button>
-              )
-            })}
+              </Badge>
+            ))}
           </div>
-        </div>
-      )}
-    </div>
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-full p-0 min-w-[var(--radix-popover-trigger-width)]" align="start">
+        <Command>
+          <CommandInput placeholder="Buscar..." />
+          <CommandList>
+            <CommandEmpty>No se encontraron resultados.</CommandEmpty>
+            <CommandGroup className="max-h-64 overflow-auto">
+              {options.map((option) => (
+                <CommandItem
+                  key={option}
+                  onSelect={() => {
+                    onChange(
+                      value.includes(option)
+                        ? value.filter((item) => item !== option)
+                        : [...value, option]
+                    )
+                    // Keep open for multiple selection
+                  }}
+                >
+                  <Check
+                    className={cn(
+                      "mr-2 h-4 w-4",
+                      value.includes(option) ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                  {option}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
   )
 }
+
 
 
 

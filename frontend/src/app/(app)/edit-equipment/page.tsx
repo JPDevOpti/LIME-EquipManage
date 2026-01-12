@@ -186,62 +186,65 @@ export default function EditEquipmentPage() {
           <h2 className="text-lg font-bold text-slate-900">Búsqueda de equipos</h2>
           <p className="text-sm text-slate-600 mt-1">Busca por código UdeA, IPS, ECRI o nombre del equipo</p>
         </div>
-        
+
         <div className="p-8">
           <EquipmentSearch onSelectEquipment={handleSelectEquipment} />
         </div>
       </div>
 
-      {/* Formulario - Siempre visible */}
-      <form onSubmit={handleSubmit} className="space-y-8">
-        {loading && (
-          <div className="flex items-center justify-center py-8">
-            <div className="text-center space-y-4">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-emerald-600 border-r-transparent"></div>
-              <p className="text-sm text-slate-600">Cargando datos del equipo...</p>
+      {/* Formulario - Visible solo si se ha seleccionado un equipo */}
+      {selectedEquipmentId && (
+        <form onSubmit={handleSubmit} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          {loading && (
+            <div className="flex items-center justify-center py-8">
+              <div className="text-center space-y-4">
+                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-emerald-600 border-r-transparent"></div>
+                <p className="text-sm text-slate-600">Cargando datos del equipo...</p>
+              </div>
             </div>
+          )}
+
+          <GeneralInformationSection
+            formData={formData}
+            setFormData={setFormData}
+            imagePreview={imagePreview}
+            onImageChange={handleImageChange}
+            onRemoveImage={removeImage}
+          />
+
+          <HistoricalRecordSection
+            formData={formData}
+            setFormData={setFormData}
+          />
+
+          <DocumentInventorySection
+            formData={formData}
+            setFormData={setFormData}
+          />
+
+          <MetrologicalAdminSection
+            formData={formData}
+            setFormData={setFormData}
+          />
+
+          <OperatingConditionsSection
+            formData={formData}
+            setFormData={setFormData}
+          />
+
+          {/* Botones de acción */}
+          <div className="flex items-center justify-end gap-4 pt-4">
+            <Button type="button" variant="outline" size="lg" className="min-w-[140px]" onClick={handleCancel}>
+              Cancelar
+            </Button>
+            <Button type="submit" size="lg" className="min-w-[180px]" disabled={!selectedEquipmentId || loading}>
+              Actualizar equipo
+            </Button>
           </div>
-        )}
-
-        <GeneralInformationSection
-          formData={formData}
-          setFormData={setFormData}
-          imagePreview={imagePreview}
-          onImageChange={handleImageChange}
-          onRemoveImage={removeImage}
-        />
-
-        <HistoricalRecordSection
-          formData={formData}
-          setFormData={setFormData}
-        />
-
-        <DocumentInventorySection
-          formData={formData}
-          setFormData={setFormData}
-        />
-
-        <MetrologicalAdminSection
-          formData={formData}
-          setFormData={setFormData}
-        />
-
-        <OperatingConditionsSection
-          formData={formData}
-          setFormData={setFormData}
-        />
-
-        {/* Botones de acción */}
-        <div className="flex items-center justify-end gap-4 pt-4">
-          <Button type="button" variant="outline" size="lg" className="min-w-[140px]" onClick={handleCancel}>
-            Cancelar
-          </Button>
-          <Button type="submit" size="lg" className="min-w-[180px]" disabled={!selectedEquipmentId || loading}>
-            Actualizar equipo
-          </Button>
-        </div>
-      </form>
+        </form>
+      )}
     </div>
+
   )
 }
 
