@@ -569,11 +569,10 @@ export function EquipmentDetailsModal({ isOpen, equipment, onClose, onEdit }: Eq
                   <thead className="bg-slate-50 border-b border-slate-200">
                     <tr>
                       <th className="px-6 py-4 font-semibold text-slate-700">Fecha</th>
-                      <th className="px-6 py-4 font-semibold text-slate-700">Tipo</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Número del informe</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Tipo de mantenimiento</th>
                       <th className="px-6 py-4 font-semibold text-slate-700">Proveedor</th>
-                      <th className="px-6 py-4 font-semibold text-slate-700">Responsable</th>
-                      <th className="px-6 py-4 font-semibold text-slate-700">Reporte</th>
-                      <th className="px-6 py-4 font-semibold text-slate-700">Resultado</th>
+                      <th className="px-6 py-4 font-semibold text-slate-700">Observaciones</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
@@ -581,6 +580,7 @@ export function EquipmentDetailsModal({ isOpen, equipment, onClose, onEdit }: Eq
                       equipment.metrologicalHistory.map((record, index) => (
                         <tr key={index} className="hover:bg-slate-50/50">
                           <td className="px-6 py-4 whitespace-nowrap text-slate-600">{record.date}</td>
+                          <td className="px-6 py-4 text-slate-600 font-mono text-xs">{record.reportNumber}</td>
                           <td className="px-6 py-4">
                             <Badge variant="secondary" className={cn(
                               "font-normal",
@@ -588,26 +588,18 @@ export function EquipmentDetailsModal({ isOpen, equipment, onClose, onEdit }: Eq
                               record.type === 'Mantenimiento Preventivo' && "bg-blue-100 text-blue-700 hover:bg-blue-200",
                               record.type === 'Calibración' && "bg-purple-100 text-purple-700 hover:bg-purple-200"
                             )}>
-                              {record.type}
+                              {record.type.replace('Mantenimiento ', '')}
                             </Badge>
                           </td>
                           <td className="px-6 py-4 text-slate-600">{record.provider}</td>
-                          <td className="px-6 py-4 text-slate-600">{record.performer || 'N/A'}</td>
-                          <td className="px-6 py-4 text-slate-600 font-mono text-xs">{record.reportNumber}</td>
-                          <td className="px-6 py-4">
-                            <Badge variant="default" className={cn(
-                              record.result === 'Aprobado' && "border-emerald-200 bg-emerald-50 text-emerald-700",
-                              record.result === 'Reprobado' && "border-red-200 bg-red-50 text-red-700",
-                              (record.result === 'Con observaciones' || !record.result) && "border-amber-200 bg-amber-50 text-amber-700"
-                            )}>
-                              {record.result || 'Pendiente'}
-                            </Badge>
+                          <td className="px-6 py-4 text-slate-600 text-sm italic max-w-xs truncate" title={record.observations}>
+                            {record.observations || 'Sin observaciones'}
                           </td>
                         </tr>
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={6} className="px-6 py-8 text-center text-slate-500 italic">
+                        <td colSpan={5} className="px-6 py-8 text-center text-slate-500 italic">
                           No hay registros históricos disponibles
                         </td>
                       </tr>
